@@ -1,0 +1,34 @@
+{
+  "seed": 0,
+  "budget": 4,
+  "rounds": 1,
+  "width": 32,
+  "search_curve": [
+    {
+      "budget": 0,
+      "proved": false,
+      "attempts": 0
+    },
+    {
+      "budget": 1,
+      "proved": true,
+      "attempts": 1
+    },
+    {
+      "budget": 2,
+      "proved": true,
+      "attempts": 1
+    },
+    {
+      "budget": 4,
+      "proved": true,
+      "attempts": 1
+    }
+  ],
+  "nat_add_zero_accepted": true,
+  "exact_nat_add_zero_accepted": true,
+  "mismatch_rejected": true,
+  "open_unproved": true,
+  "four_colour_theorem": "not claimed",
+  "mathlib": "not built"
+}

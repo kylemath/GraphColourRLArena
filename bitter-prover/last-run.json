@@ -1,0 +1,77 @@
+{
+  "exam": "five_colour",
+  "open_atom": "four_colour",
+  "seed": 0,
+  "budget": 64,
+  "rounds": 4,
+  "synth_depth": 4,
+  "width": 256,
+  "synthetic": 20,
+  "lemmas": 11,
+  "search_curve": [
+    {
+      "budget": 8,
+      "proved": false,
+      "expansions": 9
+    },
+    {
+      "budget": 32,
+      "proved": false,
+      "expansions": 33
+    },
+    {
+      "budget": 128,
+      "proved": false,
+      "expansions": 129
+    },
+    {
+      "budget": 512,
+      "proved": true,
+      "expansions": 317
+    },
+    {
+      "budget": 2048,
+      "proved": true,
+      "expansions": 317
+    },
+    {
+      "budget": 20000,
+      "proved": true,
+      "expansions": 317
+    }
+  ],
+  "learned_rounds": [
+    {
+      "index": 0,
+      "exam_proved": true,
+      "expansions": 26,
+      "lemmas": 11
+    }
+  ],
+  "exam_proved": true,
+  "exam_round": 0,
+  "exam_expansions": 26,
+  "exam_clauses": [
+    "assemble",
+    "induction_ready",
+    "lemma:exists_deg_at_most_5",
+    "colour_base",
+    "tetrahedron",
+    "palette_of_five",
+    "join_cases",
+    "missing_colour",
+    "split_deg4",
+    "apply_ih",
+    "kempe_identify",
+    "pick_pair",
+    "split_deg5",
+    "maximal_planar"
+  ],
+  "open_proved": false,
+  "sweep": {
+    "seeds": 4,
+    "trained_exam": 4,
+    "open_atom": 0
+  },
+  "four_colour_theorem": "not claimed"
+}
