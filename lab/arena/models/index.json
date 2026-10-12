@@ -1,0 +1,1073 @@
+{
+ "format": "mazearena-index-1",
+ "models": [
+  {
+   "file": "priors-gnn-h16-k3-pool.json",
+   "name": "priors-gnn-h16-k3-pool",
+   "date": "2026-10-12T01:57:51.880Z",
+   "paramCount": 7759,
+   "arch": {
+    "kind": "gnn",
+    "H": 16,
+    "K": 3,
+    "chainFeats": true
+   },
+   "track": "priors",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.9901,
+    "agree3": 0.898,
+    "agree4": 0.6667,
+    "agreeAll": 0.9923,
+    "success": 0.989,
+    "stepsRatio": 1,
+    "levelSuccess": 0.8571,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.9975,
+    "agree3": 0.9828,
+    "agree4": 1,
+    "agreeAll": 0.9989,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": 1,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.9867,
+    "agree3": 0.9739,
+    "agree4": 1,
+    "agreeAll": 0.9867,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.75,
+    "within3": 0.75,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 5,
+     "six-ring-trap": 4,
+     "second-pit": null
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "nano-rl.json",
+   "name": "nano-rl",
+   "date": "2026-10-11T23:51:27.866Z",
+   "paramCount": 679,
+   "arch": {
+    "kind": "gnn",
+    "H": 4,
+    "K": 1,
+    "chainFeats": true
+   },
+   "track": "priors",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.9901,
+    "agree3": 0.898,
+    "agree4": 0.6667,
+    "agreeAll": 0.9922,
+    "success": 0.989,
+    "stepsRatio": 1,
+    "levelSuccess": 0.8571,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.9949,
+    "agree3": 0.9655,
+    "agree4": 0.8889,
+    "agreeAll": 0.9978,
+    "success": 1,
+    "stepsRatio": 1.0015,
+    "levelSuccess": 1,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.8485,
+    "agree3": 0.7059,
+    "agree4": 0.75,
+    "agreeAll": 0.8485,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.75,
+    "within3": 0.75,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 5,
+     "six-ring-trap": 4,
+     "second-pit": null
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "tiny-rl.json",
+   "name": "tiny-rl",
+   "date": "2026-10-11T23:39:58.419Z",
+   "paramCount": 2151,
+   "arch": {
+    "kind": "gnn",
+    "H": 8,
+    "K": 2,
+    "chainFeats": true
+   },
+   "track": "priors",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.9839,
+    "agree3": 0.8367,
+    "agree4": 0.5556,
+    "agreeAll": 0.9875,
+    "success": 0.989,
+    "stepsRatio": 1,
+    "levelSuccess": 0.8571,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.9949,
+    "agree3": 0.9655,
+    "agree4": 1,
+    "agreeAll": 0.9978,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": 1,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.8761,
+    "agree3": 0.7582,
+    "agree4": 0.875,
+    "agreeAll": 0.8761,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.75,
+    "within3": 0.75,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 5,
+     "six-ring-trap": null,
+     "second-pit": 5
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "mid-rl.json",
+   "name": "mid-rl",
+   "date": "2026-10-11T23:40:59.590Z",
+   "paramCount": 7759,
+   "arch": {
+    "kind": "gnn",
+    "H": 16,
+    "K": 3,
+    "chainFeats": true
+   },
+   "track": "priors",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.9918,
+    "agree3": 0.9184,
+    "agree4": 0.6667,
+    "agreeAll": 0.9936,
+    "success": 0.978,
+    "stepsRatio": 1,
+    "levelSuccess": 0.7143,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.9974,
+    "agree3": 0.9828,
+    "agree4": 0.8889,
+    "agreeAll": 0.9989,
+    "success": 1,
+    "stepsRatio": 1.0015,
+    "levelSuccess": 1,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.8629,
+    "agree3": 0.732,
+    "agree4": 0.875,
+    "agreeAll": 0.8629,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.5,
+    "within3": 0.5,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 5,
+     "six-ring-trap": null,
+     "second-pit": null
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "mid-pretrained.json",
+   "name": "mid-pretrained",
+   "date": "2026-10-11T23:42:00.857Z",
+   "paramCount": 7759,
+   "arch": {
+    "kind": "gnn",
+    "H": 16,
+    "K": 3,
+    "chainFeats": true
+   },
+   "track": "priors",
+   "pretrain": true,
+   "test": {
+    "agree2": 0.9881,
+    "agree3": 0.8776,
+    "agree4": 0.5556,
+    "agreeAll": 0.9907,
+    "success": 0.989,
+    "stepsRatio": 1,
+    "levelSuccess": 0.8571,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.9974,
+    "agree3": 0.9828,
+    "agree4": 0.8889,
+    "agreeAll": 0.9989,
+    "success": 1,
+    "stepsRatio": 1.0015,
+    "levelSuccess": 1,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.8679,
+    "agree3": 0.7418,
+    "agree4": 0.875,
+    "agreeAll": 0.8679,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.75,
+    "within3": 0.75,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 5,
+     "six-ring-trap": 4,
+     "second-pit": null
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "mid-zero-shot.json",
+   "name": "mid-zero-shot",
+   "date": "2026-10-11T23:44:04.743Z",
+   "paramCount": 7759,
+   "arch": {
+    "kind": "gnn",
+    "H": 16,
+    "K": 3,
+    "chainFeats": true
+   },
+   "track": "priors",
+   "pretrain": true,
+   "test": {
+    "agree2": 0.9326,
+    "agree3": 0.5918,
+    "agree4": 0.7778,
+    "agreeAll": 0.956,
+    "success": 0.978,
+    "stepsRatio": 1,
+    "levelSuccess": 0.8571,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.9693,
+    "agree3": 0.7931,
+    "agree4": 0.6667,
+    "agreeAll": 0.9864,
+    "success": 0.9825,
+    "stepsRatio": 1.0023,
+    "levelSuccess": 0.9524,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.7524,
+    "agree3": 0.5294,
+    "agree4": 0.75,
+    "agreeAll": 0.7524,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.5,
+    "within3": 0.5,
+    "n": 4,
+    "detail": {
+     "deepest-pit": null,
+     "depth-5": null,
+     "six-ring-trap": 4,
+     "second-pit": 5
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "colours-only-rl.json",
+   "name": "colours-only-rl",
+   "date": "2026-10-11T23:46:08.059Z",
+   "paramCount": 30383,
+   "arch": {
+    "kind": "gnn",
+    "H": 32,
+    "K": 4,
+    "chainFeats": false
+   },
+   "track": "priors",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.9166,
+    "agree3": 0.7755,
+    "agree4": 0.5556,
+    "agreeAll": 0.9406,
+    "success": 0.9451,
+    "stepsRatio": 1,
+    "levelSuccess": 0.5714,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.9284,
+    "agree3": 0.8621,
+    "agree4": 0.6667,
+    "agreeAll": 0.9686,
+    "success": 1,
+    "stepsRatio": 1.0118,
+    "levelSuccess": 1,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.7617,
+    "agree3": 0.7092,
+    "agree4": 0.875,
+    "agreeAll": 0.7617,
+    "success": 0.95,
+    "stepsRatio": 1.0458,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.5,
+    "within3": 0.5,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 5,
+     "six-ring-trap": null,
+     "second-pit": null
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "colours-only-pretrained.json",
+   "name": "colours-only-pretrained",
+   "date": "2026-10-11T23:47:13.015Z",
+   "paramCount": 30383,
+   "arch": {
+    "kind": "gnn",
+    "H": 32,
+    "K": 4,
+    "chainFeats": false
+   },
+   "track": "priors",
+   "pretrain": true,
+   "test": {
+    "agree2": 0.9246,
+    "agree3": 0.8163,
+    "agree4": 0.5556,
+    "agreeAll": 0.95,
+    "success": 0.967,
+    "stepsRatio": 1.0092,
+    "levelSuccess": 0.7143,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.933,
+    "agree3": 0.9138,
+    "agree4": 0.8889,
+    "agreeAll": 0.9707,
+    "success": 1,
+    "stepsRatio": 1.0087,
+    "levelSuccess": 1,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.8074,
+    "agree3": 0.7484,
+    "agree4": 0.875,
+    "agreeAll": 0.8074,
+    "success": 0.9917,
+    "stepsRatio": 1.0542,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.75,
+    "within3": 0.75,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 5,
+     "six-ring-trap": 4,
+     "second-pit": null
+    }
+   },
+   "policyHead": null,
+   "atT2": null
+  },
+  {
+   "file": "tr-rec-h16-t24.json",
+   "name": "tr-rec-h16-t24",
+   "date": "2026-10-12T01:57:52.089Z",
+   "paramCount": 3077,
+   "arch": {
+    "kind": "rec",
+    "H": 16,
+    "T": 24,
+    "chainFeats": false
+   },
+   "track": "tabula rasa",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.6767,
+    "agree3": 0.5102,
+    "agree4": 0.5556,
+    "agreeAll": 0.7719,
+    "success": 0.9231,
+    "stepsRatio": 1.0576,
+    "levelSuccess": 0.4286,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.7224,
+    "agree3": 0.8103,
+    "agree4": 0.6667,
+    "agreeAll": 0.8833,
+    "success": 0.9654,
+    "stepsRatio": 1.0713,
+    "levelSuccess": 0.8413,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.6032,
+    "agree3": 0.6634,
+    "agree4": 0.75,
+    "agreeAll": 0.6032,
+    "success": 0.95,
+    "stepsRatio": 1.1097,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.25,
+    "within3": 0.25,
+    "n": 4,
+    "detail": {
+     "deepest-pit": null,
+     "depth-5": null,
+     "six-ring-trap": 4,
+     "second-pit": null
+    }
+   },
+   "policyHead": {
+    "test": {
+     "agree2": 0.7226,
+     "agree3": 0.7755,
+     "agree4": 0.6667,
+     "agreeAll": 0.6347,
+     "success": 0.2857,
+     "stepsRatio": 1.3333,
+     "levelSuccess": 0.1429,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.6703,
+     "agree3": 0.7288,
+     "agree4": 0.75,
+     "agreeAll": 0.6703,
+     "success": 0.3667,
+     "stepsRatio": 1.1667,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 306,
+     "n4": 8
+    },
+    "deepStarts": {
+     "ids": [
+      "six-ring-trap",
+      "second-pit",
+      "deepest-pit",
+      "depth-5"
+     ],
+     "within1": 0,
+     "within3": 0,
+     "n": 4,
+     "detail": {
+      "deepest-pit": null,
+      "depth-5": null,
+      "six-ring-trap": null,
+      "second-pit": null
+     }
+    }
+   },
+   "atT2": {
+    "T": 48,
+    "test": {
+     "agree2": 0.6767,
+     "agree3": 0.5102,
+     "agree4": 0.5556,
+     "agreeAll": 0.7719,
+     "success": 0.9341,
+     "stepsRatio": 1.0741,
+     "levelSuccess": 0.5714,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.6016,
+     "agree3": 0.6634,
+     "agree4": 0.75,
+     "agreeAll": 0.6016,
+     "success": 0.9583,
+     "stepsRatio": 1.1014,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 306,
+     "n4": 8
+    },
+    "policyTest": {
+     "agree2": 0.7204,
+     "agree3": 0.7755,
+     "agree4": 0.6667,
+     "agreeAll": 0.633,
+     "success": 0.2857,
+     "stepsRatio": 1.3333,
+     "levelSuccess": 0.1429,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "policyHard": {
+     "agree2": 0.674,
+     "agree3": 0.732,
+     "agree4": 0.75,
+     "agreeAll": 0.674,
+     "success": 0.3583,
+     "stepsRatio": 1.1739,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 306,
+     "n4": 8
+    }
+   }
+  },
+  {
+   "file": "tr-rec-h32-t16.json",
+   "name": "tr-rec-h32-t16",
+   "date": "2026-10-12T01:57:52.146Z",
+   "paramCount": 11781,
+   "arch": {
+    "kind": "rec",
+    "H": 32,
+    "T": 16,
+    "chainFeats": false
+   },
+   "track": "tabula rasa",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.6762,
+    "agree3": 0.6735,
+    "agree4": 0.5556,
+    "agreeAll": 0.7779,
+    "success": 0.9231,
+    "stepsRatio": 1.0817,
+    "levelSuccess": 0.7143,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.6501,
+    "agree3": 0.7586,
+    "agree4": 0.7778,
+    "agreeAll": 0.8525,
+    "success": 0.9856,
+    "stepsRatio": 1.0748,
+    "levelSuccess": 0.873,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.5717,
+    "agree3": 0.6242,
+    "agree4": 0.75,
+    "agreeAll": 0.5717,
+    "success": 0.975,
+    "stepsRatio": 1.1181,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.25,
+    "within3": 1,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 7,
+     "depth-5": 8,
+     "six-ring-trap": 4,
+     "second-pit": 11
+    }
+   },
+   "policyHead": {
+    "test": {
+     "agree2": 0.7776,
+     "agree3": 0.8571,
+     "agree4": 0.6667,
+     "agreeAll": 0.6949,
+     "success": 0.3626,
+     "stepsRatio": 1.2184,
+     "levelSuccess": 0,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.6493,
+     "agree3": 0.683,
+     "agree4": 0.625,
+     "agreeAll": 0.6493,
+     "success": 0.4667,
+     "stepsRatio": 1.2685,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 306,
+     "n4": 8
+    },
+    "deepStarts": {
+     "ids": [
+      "six-ring-trap",
+      "second-pit",
+      "deepest-pit",
+      "depth-5"
+     ],
+     "within1": 0,
+     "within3": 0,
+     "n": 4,
+     "detail": {
+      "deepest-pit": null,
+      "depth-5": null,
+      "six-ring-trap": null,
+      "second-pit": null
+     }
+    }
+   },
+   "atT2": {
+    "T": 32,
+    "test": {
+     "agree2": 0.7127,
+     "agree3": 0.7551,
+     "agree4": 0.6667,
+     "agreeAll": 0.8036,
+     "success": 0.9231,
+     "stepsRatio": 1.0986,
+     "levelSuccess": 0.4286,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.556,
+     "agree3": 0.6275,
+     "agree4": 0.75,
+     "agreeAll": 0.556,
+     "success": 0.975,
+     "stepsRatio": 1.1139,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 306,
+     "n4": 8
+    },
+    "policyTest": {
+     "agree2": 0.7869,
+     "agree3": 0.8571,
+     "agree4": 0.6667,
+     "agreeAll": 0.7041,
+     "success": 0.3736,
+     "stepsRatio": 1.3079,
+     "levelSuccess": 0.1429,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "policyHard": {
+     "agree2": 0.657,
+     "agree3": 0.683,
+     "agree4": 0.625,
+     "agreeAll": 0.657,
+     "success": 0.475,
+     "stepsRatio": 1.3103,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 306,
+     "n4": 8
+    }
+   }
+  }
+ ],
+ "baselines": {
+  "date": "2026-10-12T01:58:02.111Z",
+  "split": {
+   "train": [
+    "w9",
+    "w13",
+    "w18",
+    "ico",
+    "p22",
+    "r1",
+    "r178",
+    "p32r111",
+    "p31r12"
+   ],
+   "test": [
+    "c30",
+    "p32r11",
+    "p34r28",
+    "c60",
+    "six",
+    "trap17",
+    "r210"
+   ]
+  },
+  "bench": "full-v2",
+  "random": {
+   "train": {
+    "agree2": 0.615,
+    "agree3": 0.7586,
+    "agree4": 0.3333,
+    "agreeAll": 0.4884,
+    "success": 0.6813,
+    "stepsRatio": 1.7874,
+    "levelSuccess": 0.6402,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "test": {
+    "agree2": 0.6247,
+    "agree3": 0.6327,
+    "agree4": 0.6667,
+    "agreeAll": 0.5406,
+    "success": 0.6813,
+    "stepsRatio": 1.6209,
+    "levelSuccess": 0.5714,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.5282,
+    "agree3": 0.5719,
+    "agree4": 0.5,
+    "agreeAll": 0.5282,
+    "success": 0.4583,
+    "stepsRatio": 1.9092,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0,
+    "within3": 0.75,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 14,
+     "depth-5": null,
+     "six-ring-trap": 8,
+     "second-pit": 11
+    }
+   },
+   "bench": "full-v2"
+  },
+  "hand": {
+   "train": {
+    "agree2": 0.7525,
+    "agree3": 0.8621,
+    "agree4": 0.7778,
+    "agreeAll": 0.8954,
+    "success": 0.9883,
+    "stepsRatio": 1.0872,
+    "levelSuccess": 0.9683,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "test": {
+    "agree2": 0.6834,
+    "agree3": 0.7143,
+    "agree4": 0.5556,
+    "agreeAll": 0.7841,
+    "success": 0.967,
+    "stepsRatio": 1.175,
+    "levelSuccess": 1,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.6526,
+    "agree3": 0.6699,
+    "agree4": 0.875,
+    "agreeAll": 0.6526,
+    "success": 0.95,
+    "stepsRatio": 1.0806,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.25,
+    "within3": 1,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 18,
+     "depth-5": 5,
+     "six-ring-trap": 9,
+     "second-pit": 14
+    }
+   },
+   "bench": "full-v2"
+  },
+  "twoply": {
+   "train": {
+    "agree2": 0.9731,
+    "agree3": 0.8276,
+    "agree4": 0.7778,
+    "agreeAll": 0.9882,
+    "success": 0.9883,
+    "stepsRatio": 1.0033,
+    "levelSuccess": 0.9683,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "test": {
+    "agree2": 0.9745,
+    "agree3": 0.8163,
+    "agree4": 0.6667,
+    "agreeAll": 0.9826,
+    "success": 1,
+    "stepsRatio": 1.0381,
+    "levelSuccess": 1,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.7596,
+    "agree3": 0.5392,
+    "agree4": 0.75,
+    "agreeAll": 0.7596,
+    "success": 1,
+    "stepsRatio": 1,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 306,
+    "n4": 8
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0,
+    "within3": 0.75,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 7,
+     "depth-5": null,
+     "six-ring-trap": 6,
+     "second-pit": 9
+    }
+   },
+   "bench": "full-v2"
+  }
+ }
+}

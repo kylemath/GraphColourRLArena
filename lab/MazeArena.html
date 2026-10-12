@@ -1,0 +1,600 @@
+<!doctype html>
+<!--
+  MAZE ARENA (lab research page: deep RL mice in many mazes at once, a held-out testbench and a leaderboard)
+
+  What it is: the Lab Maze (maze.html) broken off and simplified for scale. A grid of 1-25 panels, each one level's
+  state graph drawn flat and cheap (rooms = canonical colourings as small squares on a spring layout, corridors =
+  non-web Kempe swaps as hairlines, fills = gold), with 1-32 mice per maze. Every mouse in every panel is an actor for
+  ONE shared graph neural network (the learner), trained in a Web Worker (arena/worker.js) so the page stays smooth.
+  Panels tagged TRAIN explore and feed the replay buffer; panels tagged TEST walk held-out maps greedily and never
+  learn, so they show generalisation as it happens. A faint tint per room is the network's current value (learned
+  swaps to a fill) or the mice's visit count.
+
+  The research question: a table (maze.html's self-training rat) memorises one map. Can a policy over FEATURES of
+  the colouring choose good Kempe swaps on maps it has never seen? So the network is map-independent (colours relative
+  to the rim pattern D s1 D s2 s3, per-region chain features, message passing over the map), it scores each swap by the
+  value of the colouring it leads to (afterstate TD learning), and the testbench is held-out maps. All the maths is in
+  arena/engine.js (header comment); tools/arena_check.js tests it, tools/arena_train.js trains headless.
+
+  Testbench: on each map a fixed sample of census states (every map in levels.js has the exact fewest swaps to a fill
+  for every unfilled colouring). "agree2" = the share of states 2 or more swaps from a fill where the model's top swap
+  lowers the exact distance by one (the main score: at distance 1 any one-step lookahead is perfect); "agree3" = the
+  same on the rare states 3+ swaps out; "success" = greedy rollouts from the level starts and random states that fill
+  within 3x the exact distance. Baselines: random swaps, a hand rule (fill now if you can, else a random chain that
+  touches the rim) and a two-ply count (fill now, else the swap after which the most swaps fill).
+
+  Leaderboard: the committed models (arena/models/index.json, made by tools/arena_train.js) and the ones saved here
+  (localStorage, at most 16). Ranked by held-out agree2, then held-out success, then fewer parameters. Model files are
+  plain JSON ('mazearena-model-1': date, architecture, RL and training settings, metrics, base64 float32 weights).
+
+  Round 2: two tracks, labelled on the leaderboard. TABULA RASA nets (arena/engine.js arch.kind 'rec') see only the
+  map, raw colours and the hole; a weight-tied recurrent message-passing layer iterated T times; an afterstate value
+  and a "click a region, pick a colour" head. PRIORS nets are the round-1 GNN with hand-made chain features. Extra
+  leaderboard columns: agree4+, the hard held-out pool (evolved trap maps from tools/arena_hardgen.js) and deep level
+  starts; rank by any of them. Data options here: mirror images and single-splice variants of the training maps; the
+  big pool and the one-hour 4-core runs are headless (tools/arena_scale.js).
+
+  Controls: Start / Pause / Reset, speed (slow: watch every step; fast; turbo: fewer screen updates), Save to the
+  leaderboard (runs the full testbench), Pretrain (objectives on random maps generated in the worker, then RL), Size
+  sweep (several H x K for the same budget, each to the leaderboard), Watch (a saved model plays greedily, no
+  training). Network size, seed and maps apply on Reset; RL settings apply live; panels and mice re-deal the mazes.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maze Arena</title>
+<style>
+  :root { --bg: #101317; --panel: #171b21; --panel2: #1d222a; --line: #2a313b; --ink: #e6e9ee; --dim: #8d97a5; --acc: #ffcf5a;
+    --train: #4fb3ff; --test: #ff8a5c; --good: #5fd38d; --bad: #ff6b6b; --chip: #232932; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 13px/1.35 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  button, select, input { font: inherit; color: inherit; }
+  button { background: var(--chip); border: 1px solid var(--line); border-radius: 7px; padding: 5px 10px; cursor: pointer; white-space: nowrap; }
+  button:hover { border-color: #46505e; } button:disabled { opacity: .45; cursor: default; }
+  button.pri { background: #2c5d3d; border-color: #3f8a58; } button.pri.on { background: #6b4f1d; border-color: #a57a2a; }
+  select, input[type=number], input[type=text] { background: #0f1216; border: 1px solid var(--line); border-radius: 6px; padding: 3px 5px; min-width: 0; }
+  input[type=number] { width: 72px; }
+  #top { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; padding: 8px 12px; background: rgba(16,19,23,.96); border-bottom: 1px solid var(--line); }
+  #top h1 { font-size: 16px; margin: 0 8px 0 0; letter-spacing: .02em; }
+  #top h1 small { font-weight: 500; color: var(--dim); font-size: 12px; margin-left: 6px; }
+  #status { flex: 1 1 280px; color: var(--dim); font-size: 12px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #status b { color: var(--ink); font-weight: 600; }
+  #layout { display: grid; grid-template-columns: 290px minmax(0, 1fr) 300px; grid-template-areas: "side arena charts" "side board board"; gap: 12px; padding: 12px; align-items: start; }
+  #side { grid-area: side; position: sticky; top: 54px; max-height: calc(100vh - 66px); overflow: auto; padding-right: 2px; }
+  #arenaWrap { grid-area: arena; min-width: 0; }
+  #charts { grid-area: charts; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  #board { grid-area: board; min-width: 0; }
+  details.box { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; }
+  details.box > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  details.box > summary::-webkit-details-marker { display: none; }
+  details.box > summary small { color: var(--dim); font-weight: 500; }
+  details.box > summary::after { content: '▾'; color: var(--dim); margin-left: 6px; }
+  details.box:not([open]) > summary::after { content: '▸'; }
+  .bd { padding: 2px 10px 10px; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 4px 0; }
+  .row label { color: var(--dim); }
+  body.rec .gnnOnly, body:not(.rec) .recOnly { display: none; }
+  .trk { font-size: 10px; padding: 0 4px; border-radius: 4px; margin-left: 4px; font-style: normal; font-weight: 700; }
+  .trk.tr { background: rgba(95,211,141,.18); color: var(--good); } .trk.pr { background: rgba(199,146,234,.18); color: #c792ea; }
+  .lbopts { display: flex; gap: 6px; align-items: center; color: var(--dim); font-size: 12px; }
+  .row.btns { justify-content: flex-start; flex-wrap: wrap; }
+  .note { color: var(--dim); font-size: 11.5px; margin: 6px 0 2px; }
+  .pc { color: var(--acc); font-weight: 700; }
+  #lvlList { max-height: 260px; overflow: auto; border: 1px solid var(--line); border-radius: 7px; margin-top: 6px; }
+  #lvlList table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  #lvlList td { padding: 2px 5px; border-bottom: 1px solid #20262e; white-space: nowrap; }
+  #lvlList td.nm { white-space: normal; }
+  #lvlList th { position: sticky; top: 0; background: var(--panel2); font-weight: 600; color: var(--dim); text-align: left; padding: 3px 5px; }
+  #lvlList tr.clash td.nm { color: var(--dim); text-decoration: line-through; }
+  #grid { display: grid; gap: 6px; width: 100%; }
+  .pan { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+  .pan header { display: flex; align-items: center; gap: 5px; padding: 3px 6px; font-size: 11.5px; border-bottom: 1px solid #222831; white-space: nowrap; min-width: 0; }
+  .pan header .t { font-weight: 700; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1; }
+  .pan header .tag { font-size: 10px; font-weight: 800; padding: 0 5px; border-radius: 4px; letter-spacing: .04em; }
+  .pan header .tag.train { background: rgba(79,179,255,.18); color: var(--train); }
+  .pan header .tag.test { background: rgba(255,138,92,.18); color: var(--test); }
+  .pan header .s { color: var(--dim); font-variant-numeric: tabular-nums; }
+  .pan canvas { width: 100%; aspect-ratio: 1 / 1; display: block; }
+  .pan.small header .s.e { display: none; }
+  .pan.tiny header .tag { font-size: 0; padding: 0; width: 6px; height: 6px; border-radius: 50%; flex: none; }
+  .pan.tiny header .tag.train { background: var(--train); } .pan.tiny header .tag.test { background: var(--test); }
+  .pan.tiny header { font-size: 10.5px; padding: 3px 4px; gap: 4px; }
+  .chart { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 6px 8px 4px; }
+  .chart h3 { margin: 0 0 2px; font-size: 12px; display: flex; justify-content: space-between; gap: 6px; }
+  .chart h3 small { color: var(--dim); font-weight: 500; }
+  .chart canvas { width: 100%; height: 118px; display: block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 2px 10px; font-size: 11px; color: var(--dim); }
+  .legend i { display: inline-block; width: 10px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+  #stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  #stats div { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 5px 7px; min-width: 0; }
+  #stats b { display: block; font-size: 15px; font-variant-numeric: tabular-nums; }
+  #stats span { color: var(--dim); font-size: 11px; }
+  .boardHead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 4px 0 8px; }
+  .boardHead h2 { font-size: 15px; margin: 0; flex: 1 1 auto; }
+  .tblWrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+  table.lb { border-collapse: collapse; width: 100%; font-size: 12px; font-variant-numeric: tabular-nums; }
+  table.lb th { text-align: left; color: var(--dim); font-weight: 600; padding: 6px 7px; border-bottom: 1px solid var(--line); white-space: nowrap; background: var(--panel2); }
+  table.lb td { padding: 5px 7px; border-bottom: 1px solid #20262e; white-space: nowrap; vertical-align: top; }
+  table.lb td.nm b { display: block; } table.lb td.nm small { color: var(--dim); }
+  table.lb tr.base td { color: var(--dim); font-style: italic; }
+  table.lb tr.cur td { background: rgba(255,207,90,.06); }
+  table.lb td.k { font-weight: 700; color: var(--acc); }
+  table.lb td .src { font-size: 10px; padding: 0 4px; border-radius: 4px; background: #2a313b; color: var(--dim); font-style: normal; margin-left: 4px; }
+  table.lb td button { padding: 1px 6px; font-size: 11px; }
+  table.lb td.tr { white-space: normal; min-width: 190px; }
+  .acts { display: flex; gap: 4px; margin-top: 3px; }
+  .bar { display: inline-block; height: 6px; background: #2a313b; border-radius: 3px; width: 46px; margin-left: 5px; vertical-align: middle; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--good); }
+  #err { display: none; position: fixed; left: 12px; right: 12px; bottom: 12px; background: #4a1717; border: 1px solid #a33; padding: 8px 10px; border-radius: 8px; z-index: 9; white-space: pre-wrap; font: 12px monospace; max-height: 40vh; overflow: auto; }
+  @media (max-width: 1180px) {
+    #layout { grid-template-columns: 270px minmax(0, 1fr); grid-template-areas: "side arena" "side charts" "board board"; }
+    #charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #stats { grid-column: 1 / -1; grid-template-columns: repeat(6, 1fr); }
+  }
+  @media (max-width: 760px) {
+    #layout { grid-template-columns: minmax(0, 1fr); grid-template-areas: "arena" "charts" "side" "board"; padding: 8px 16px; gap: 10px; }
+    #side { position: static; max-height: none; }
+    #charts { grid-template-columns: minmax(0, 1fr); }
+    #stats { grid-template-columns: repeat(3, 1fr); }
+    #top { padding: 6px 16px; position: static; } #top h1 small { display: none; } #status { flex-basis: 100%; order: 9; white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div id="top">
+  <h1>Maze Arena<small>deep RL mice on held-out swap mazes</small></h1>
+  <button class="pri" id="bStart">▶ Start</button>
+  <button id="bReset" title="New network with the current settings">↺ Reset</button>
+  <select id="speed" title="Speed"><option value="slow">slow (every step)</option><option value="fast" selected>fast</option><option value="turbo">turbo</option></select>
+  <button id="bSave" title="Run the full testbench and save the current network to the leaderboard">★ Save</button>
+  <div id="status">loading the worker…</div>
+</div>
+<div id="layout">
+  <aside id="side">
+    <details class="box" open><summary>Arena <small id="sumArena"></small></summary><div class="bd">
+      <div class="row"><label for="panels">Maze panels</label><select id="panels"><option>1</option><option>4</option><option selected>9</option><option>16</option><option>25</option></select></div>
+      <div class="row"><label for="mice">Mice per maze</label><input type="number" id="mice" min="1" max="32" value="8"></div>
+      <div class="row"><label for="rotate">Rotate maps every</label><span><input type="number" id="rotate" min="0" max="100000" value="400"> ep</span></div>
+      <div class="row"><label for="heat">Room tint</label><select id="heat"><option value="value" selected>network value</option><option value="visits">visit count</option><option value="none">none</option></select></div>
+      <p class="note">Train panels explore and learn; test panels play their held-out maps greedily with the same network and never learn.</p>
+    </div></details>
+    <details class="box" open><summary>Maps <small id="sumMaps"></small></summary><div class="bd">
+      <div class="row"><label for="preset">Preset</label><select id="preset">
+        <option value="ladder">warm-ups + depth ladder</option><option value="warmups">warm-ups only</option><option value="r178">one map: the depth ladder</option>
+        <option value="trap">one map: tidy-trap</option><option value="nottraps">all but the four traps</option><option value="custom">custom</option></select></div>
+      <div id="lvlList"></div>
+      <p class="note">Held-out = test levels whose map is not in training (a level on a training map is struck through).</p>
+    </div></details>
+    <details class="box"><summary>Data <small>augmentation</small></summary><div class="bd">
+      <div class="row"><label for="mirror">Mirror images</label><select id="mirror"><option value="0">off</option><option value="1" selected>half the training mice</option></select></div>
+      <div class="row"><label for="splices">Splice variants</label><input type="number" id="splices" min="0" max="40" value="0"></div>
+      <p class="note">Mirror: the rim's cyclic order reversed, same labels (a different input for the priors GNN, the same input for the tabula-rasa net). Splice variants: single edge flips / vertex insertions / removals of the training maps that keep states 3+ swaps deep, each with its whole state space, walked by 2 unseen mice that start in the deepest states. The big hard pool (thousands of evolved maps) is built by tools/arena_hardgen.js for headless training. Applies on Reset.</p>
+    </div></details>
+    <details class="box" open><summary>Network <small>params <span class="pc" id="pcount">–</span></small></summary><div class="bd">
+      <div class="row"><label for="kind">Track</label><select id="kind"><option value="rec">tabula rasa: recurrent net</option><option value="gnn" selected>priors: chain-feature GNN</option></select></div>
+      <div class="row"><label for="H">Width H</label><select id="H"><option>4</option><option>8</option><option selected>16</option><option>24</option><option>32</option><option>48</option><option>64</option></select></div>
+      <div class="row recOnly"><label for="T">Iterations T</label><select id="T"><option>4</option><option selected>8</option><option>12</option><option>16</option><option>24</option><option>32</option></select></div>
+      <div class="row gnnOnly"><label for="K">Message rounds K</label><select id="K"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div class="row gnnOnly"><label for="feats">Inputs</label><select id="feats"><option value="1" selected>colours + chain features</option><option value="0">colours only</option></select></div>
+      <div class="row"><label for="seed">Seed</label><input type="number" id="seed" value="1"></div>
+      <p class="note gnnOnly">Priors GNN: rim-relative colours, degree, rim position and per-chain features in; h' = relu(Ws h + Wn mean(nbrs) + b), K rounds; readout mean, max, 5 rim and hole embeddings. Applies on Reset.</p>
+      <p class="note recOnly">Tabula rasa: raw colour one-hots and the hole flag only (colour symmetry learned from random colour permutations); one weight-tied layer h = tanh(Ws h + Wn Σnbrs/6 + Wx x + b) iterated T times; heads: afterstate value and "click a region, pick a colour". Slow in a browser tab: the strong ones are trained with tools/arena_scale.js. Applies on Reset.</p>
+    </div></details>
+    <details class="box"><summary>RL <small>afterstate TD, live</small></summary><div class="bd">
+      <div class="row"><label for="lr">Learning rate</label><input type="number" id="lr" step="0.0001" value="0.001"></div>
+      <div class="row"><label for="gamma">Discount γ</label><input type="number" id="gamma" step="0.01" min="0.5" max="1" value="0.97"></div>
+      <div class="row"><label for="explore">Exploration</label><select id="explore"><option value="egreedy">ε-greedy</option><option value="softmax">softmax</option></select></div>
+      <div class="row"><label for="epsStart">ε start / end</label><span><input type="number" id="epsStart" step="0.05" value="0.5" style="width:56px"> <input type="number" id="epsEnd" step="0.01" value="0.05" style="width:56px"></span></div>
+      <div class="row"><label for="epsDecay">ε decay (episodes)</label><input type="number" id="epsDecay" value="3000"></div>
+      <div class="row"><label for="temp">Softmax temperature</label><input type="number" id="temp" step="0.05" value="0.3"></div>
+      <div class="row"><label for="nstep">n-step / backup</label><span><input type="number" id="nstep" min="1" max="8" value="2" style="width:48px"> <select id="backup"><option value="td">TD(n)</option><option value="max">max (model)</option></select></span></div>
+      <div class="row"><label for="batch">Batch / update every</label><span><input type="number" id="batch" value="32" style="width:52px"> <input type="number" id="updateEvery" value="4" style="width:48px"></span></div>
+      <div class="row"><label for="replay">Replay size</label><input type="number" id="replay" value="20000"></div>
+      <div class="row"><label for="targetSync">Target sync (updates)</label><input type="number" id="targetSync" value="200"></div>
+      <div class="row"><label for="aux">Aux SSL loss weight</label><input type="number" id="aux" step="0.05" value="0"></div>
+      <div class="row"><label for="cap">Episode cap (swaps)</label><input type="number" id="cap" value="20"></div>
+      <div class="row"><label for="startMix">Start at level start</label><input type="number" id="startMix" step="0.05" min="0" max="1" value="0.3"></div>
+      <div class="row"><label for="evalEvery">Testbench every (ep)</label><input type="number" id="evalEvery" value="600"></div>
+      <p class="note">Reward −1 per swap, 0 at a fill. A swap is scored −1 + γ·V(the colouring it leads to). Aux = masked-colour + chain-size losses on replay states.</p>
+    </div></details>
+    <details class="box"><summary>Pretrain <small>random maps, then RL</small></summary><div class="bd">
+      <div class="row"><label for="pSteps">Steps (batches)</label><input type="number" id="pSteps" value="1500"></div>
+      <div class="row"><label for="pBatch">Batch</label><input type="number" id="pBatch" value="16"></div>
+      <div class="row"><label for="pSource">Data</label><select id="pSource"><option value="generated">random maps</option><option value="maps">training-map census</option><option value="both">both</option></select></div>
+      <div class="row"><label for="pN">Map size n: start / end</label><span><input type="number" id="pN0" value="18" style="width:48px"> <input type="number" id="pN1" value="30" style="width:48px"></span></div>
+      <div class="row"><label for="pW">Weights a b c d</label><input type="text" id="pW" value="1 1 0.5 0.5" style="width:96px"></div>
+      <p class="note">(a) distance to a fill, (b) good swap (lowers the exact distance), (c) masked colour, (d) chain size and rim reach with chain inputs hidden. Exact labels by BFS over each small map's Kempe class (n ≤ 26). Then V starts as −distance and RL fine-tunes.</p>
+      <div class="row btns"><button id="bPre">Pretrain, then RL</button></div>
+    </div></details>
+    <details class="box"><summary>Size sweep <small>params vs agreement</small></summary><div class="bd">
+      <div class="row"><label for="swCfg">H×K list (H×T)</label><input type="text" id="swCfg" value="4x2 8x2 16x2 16x3 32x3" style="width:150px"></div>
+      <div class="row"><label for="swEp">Episodes each</label><input type="number" id="swEp" value="2500"></div>
+      <p class="note">Same maps, RL settings and seed for every size; each result is saved to the leaderboard (see the size chart).</p>
+      <div class="row btns"><button id="bSweep">Run sweep</button><button id="bStopSweep" disabled>Stop</button></div>
+    </div></details>
+  </aside>
+
+  <section id="arenaWrap"><div id="grid"></div></section>
+
+  <section id="charts">
+    <div id="stats">
+      <div><b id="stEp">0</b><span>episodes</span></div><div><b id="stSteps">0</b><span>swaps</span></div><div><b id="stSps">0</b><span>swaps / s</span></div>
+      <div><b id="stLoss">–</b><span>TD loss</span></div><div><b id="stEps">–</b><span>ε</span></div><div><b id="stRep">0</b><span>replay</span></div>
+    </div>
+    <div class="chart"><h3>Held-out optimal-move agreement <small>d ≥ 2</small></h3><canvas id="cAgree"></canvas>
+      <div class="legend"><span><i style="background:var(--test)"></i>held-out</span><span><i style="background:var(--train)"></i>train maps</span><span><i style="background:#9a8cff"></i>held-out d ≥ 3</span><span><i style="background:#666;height:1px"></i>random · two-ply</span></div></div>
+    <div class="chart"><h3>Train success <small>episodes that fill, last 300</small></h3><canvas id="cSucc"></canvas></div>
+    <div class="chart"><h3>TD loss <small>Huber, log scale</small></h3><canvas id="cLoss"></canvas></div>
+    <div class="chart"><h3>Network size <small>held-out agree2 vs params</small></h3><canvas id="cSize"></canvas>
+      <div class="legend"><span><i style="background:var(--acc)"></i>colours + chains</span><span><i style="background:#c792ea"></i>colours only</span><span><i style="background:#5fd38d"></i>pretrained</span><span><i style="background:#4fb3ff"></i>tabula rasa</span></div></div>
+  </section>
+
+  <section id="board">
+    <div class="boardHead"><h2>Leaderboard <small style="color:var(--dim);font-weight:500">testbench: held-out maps and deep states</small></h2>
+      <span class="lbopts"><label for="lbTrack">track</label><select id="lbTrack"><option value="all">all</option><option value="tabula rasa">tabula rasa</option><option value="priors">priors</option></select>
+        <label for="lbRank">rank by</label><select id="lbRank"><option value="agree2">held-out agree2</option><option value="agree3">held-out agree3</option><option value="hard">hard pool</option><option value="deep">deep starts</option></select></span>
+      <button id="bImport">Import JSON</button><input type="file" id="fImport" accept=".json,application/json" hidden></div>
+    <div class="tblWrap"><table class="lb"><thead><tr><th>#</th><th>model</th><th title="census test maps, states 2+ swaps out">held-out agree2</th><th title="census test maps, 3+ swaps out (pooled)">agree3</th><th title="census test maps, 4+ swaps out (pooled; few states)">agree4+</th><th title="held-out evolved hard maps, states 3+ swaps out">hard pool</th><th title="six-ring-trap, second-pit, deepest-pit, depth-5 starts filled within 3x par (1x par in brackets)">deep starts</th><th>success</th><th>train agree2</th><th>params</th><th>arch</th><th>training</th></tr></thead><tbody id="lbBody"></tbody></table></div>
+    <p class="note">Two tracks: <b>tabula rasa</b> nets see only the map's adjacency, raw colours and the hole (the rules still say which swaps are legal); <b>priors</b> nets get hand-made rim-relative colours and per-chain features. agree2 / agree3 / agree4+: share of census states 2+ / 3+ / 4+ swaps from a fill on the held-out maps (c30, p32r11, p34r28, c60, six, trap17, r210) where the model's top swap lowers the exact distance by one (agree3 and agree4+ pool the states: 49 and 9 of them). Hard pool: the same on states 3+ deep of held-out evolved maps from tools/arena_hardgen.js (headless only). Deep starts: the six-ring-trap, second-pit, deepest-pit and depth-5 level starts filled greedily within 3× par (within par in brackets; deepest-pit and depth-5 are on a training map). Success: greedy rollouts within 3× the exact distance.</p>
+  </section>
+</div>
+<div id="err"></div>
+<script src="arena/engine.js"></script>
+<script>
+(function () {
+  'use strict';
+  const A = window.ARENA, $ = id => document.getElementById(id);
+  const LS_MODELS = 'mazearena-models-v1', LS_HIDE = 'mazearena-hidden-v1', LS_UI = 'mazearena-ui-v1', MAX_LOCAL = 16;
+  const lsGet = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (_) { return d; } };
+  const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (_) { return false; } };
+  const pct = x => x == null ? '–' : (100 * x).toFixed(1) + '%';
+  const showErr = m => { const e = $('err'); e.style.display = 'block'; e.textContent = m; console.error(m); };
+
+  // ---------------------------------------------------------------- worker
+  const W = new Worker('arena/worker.js');
+  W.onerror = e => showErr('worker: ' + e.message);
+  let LEVELS = [], MAPS = [], running = false, phase = 'idle', curName = null, sweeping = false;
+  const sel = {};   // level id -> 'train' | 'test' | 'off'
+  const PRESETS = {
+    ladder: ['spark', 'ripples', 'archipelago', 'big-water', 'first-flip', 'open-doors', 'one-lock', 'kempes-double', 'heawoods-catch', 'far-away', 'the-loop', '9-8-9-8', 'depth-3', 'depth-4', 'depth-5', 'deepest-pit', 'quiet-way-out', 'loud-way-out'],
+    warmups: ['spark', 'ripples', 'archipelago', 'big-water', 'first-flip', 'open-doors', 'one-lock', 'kempes-double'],
+    r178: ['big-water', 'far-away', '9-8-9-8', 'depth-3', 'depth-4', 'depth-5', 'deepest-pit'],
+    trap: ['tidy-trap'],
+    nottraps: null,
+  };
+  const TRAPS = ['tidy-trap', 'six-ring-trap', 'cage', 'round-and-round'];
+  function applyPreset(p) {
+    let train = PRESETS[p];
+    if (p === 'nottraps') train = LEVELS.map(l => l.id).filter(id => TRAPS.indexOf(id) < 0);
+    if (!train) return;
+    LEVELS.forEach(L => { sel[L.id] = train.indexOf(L.id) >= 0 ? 'train' : 'test'; });
+    renderLevels();
+  }
+  function split() {
+    const trainMaps = new Set(LEVELS.filter(L => sel[L.id] === 'train').map(L => L.g));
+    return { trainMaps, trainLevels: LEVELS.filter(L => sel[L.id] === 'train').map(L => L.id), testLevels: LEVELS.filter(L => sel[L.id] === 'test').map(L => L.id),
+      heldOut: new Set(LEVELS.filter(L => sel[L.id] === 'test' && !trainMaps.has(L.g)).map(L => L.g)) };
+  }
+  function renderLevels() {
+    const S = split(), box = $('lvlList');
+    let h = '<table><tr><th>level</th><th>map</th><th>train</th><th>test</th></tr>';
+    LEVELS.forEach(L => {
+      const clash = sel[L.id] === 'test' && S.trainMaps.has(L.g);
+      h += `<tr class="${clash ? 'clash' : ''}"><td class="nm">${L.num} ${L.id}</td><td>${L.g} <span style="color:var(--dim)">n${L.n}</span></td>` +
+        `<td><input type="checkbox" data-l="${L.id}" data-k="train" ${sel[L.id] === 'train' ? 'checked' : ''} aria-label="train on ${L.id}"></td>` +
+        `<td><input type="checkbox" data-l="${L.id}" data-k="test" ${sel[L.id] === 'test' ? 'checked' : ''} aria-label="test on ${L.id}"></td></tr>`;
+    });
+    box.innerHTML = h + '</table>';
+    box.querySelectorAll('input').forEach(cb => cb.onchange = () => { sel[cb.dataset.l] = cb.checked ? cb.dataset.k : 'off'; $('preset').value = 'custom'; renderLevels(); saveUI(); });
+    $('sumMaps').textContent = S.trainMaps.size + ' train / ' + S.heldOut.size + ' held-out maps';
+  }
+  const num = id => +$(id).value;
+  function cfg() {
+    const S = split(), w = $('pW').value.trim().split(/[\s,]+/).map(Number);
+    return {
+      trainLevels: S.trainLevels, testLevels: S.testLevels, panels: num('panels'), mice: Math.max(1, Math.min(32, num('mice') | 0)), rotateEvery: num('rotate'),
+      arch: archCfg(), seed: num('seed'), evalEvery: Math.max(50, num('evalEvery')), mirror: $('mirror').value === '1', splices: Math.max(0, Math.min(40, num('splices') | 0)),
+      rl: rlCfg(), pre: { steps: num('pSteps'), batch: num('pBatch'), source: $('pSource').value, nMin: 12, nMax: num('pN0'), nMaxEnd: num('pN1'), exactMax: 26, wA: w[0] || 0, wB: w[1] || 0, wC: w[2] || 0, wD: w[3] || 0 },
+    };
+  }
+  function rlCfg() {
+    return { lr: num('lr'), gamma: num('gamma'), epsStart: num('epsStart'), epsEnd: num('epsEnd'), epsDecay: num('epsDecay'), batch: num('batch'), replay: num('replay'),
+      targetSync: num('targetSync'), nstep: num('nstep'), backup: $('backup').value, auxWeight: num('aux'), episodeCap: num('cap'), updateEvery: num('updateEvery'),
+      explore: $('explore').value, temp: num('temp'), startMix: num('startMix') };
+  }
+  function archCfg() { return $('kind').value === 'rec' ? { kind: 'rec', H: num('H'), T: num('T') } : { H: num('H'), K: num('K'), chainFeats: $('feats').value === '1' }; }
+  function updateParamCount() {
+    const a = A.archDefaults(archCfg()); let s = 0; A.shapesOf(a).forEach(([, r, c]) => { s += r * c; });
+    $('pcount').textContent = s.toLocaleString();
+    const rec = $('kind').value === 'rec'; document.body.classList.toggle('rec', rec); $('bPre').disabled = rec;
+    $('bPre').title = rec ? 'Pretraining objectives belong to the priors GNN; train tabula-rasa nets with tools/arena_scale.js' : '';
+  }
+  const UI_IDS = ['panels', 'mice', 'rotate', 'heat', 'preset', 'kind', 'T', 'mirror', 'splices', 'H', 'K', 'feats', 'seed', 'lr', 'gamma', 'explore', 'epsStart', 'epsEnd', 'epsDecay', 'temp', 'nstep', 'backup', 'batch', 'updateEvery', 'replay', 'targetSync', 'aux', 'cap', 'startMix', 'evalEvery', 'pSteps', 'pBatch', 'pSource', 'pN0', 'pN1', 'pW', 'swCfg', 'swEp', 'speed'];
+  function saveUI() { const o = { sel }; UI_IDS.forEach(id => { o[id] = $(id).value; }); lsSet(LS_UI, o); }
+  function loadUI() { const o = lsGet(LS_UI, null); if (!o) return false; UI_IDS.forEach(id => { if (o[id] != null) $(id).value = o[id]; }); if (o.sel) Object.assign(sel, o.sel); return !!o.sel; }
+
+  // ---------------------------------------------------------------- panels
+  let PAN = [], heats = [], lastTick = 0, tickGap = 120;
+  function layoutGrid() {
+    const N = PAN.length || num('panels'), cols = Math.ceil(Math.sqrt(N)), g = $('grid');
+    g.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
+    // keep the whole arena in view on a desktop: limit its width to the space below the top bar
+    const wrap = $('arenaWrap'), avail = innerHeight - $('top').offsetHeight - 30, rows = Math.ceil(N / cols);
+    const headH = 22, w = wrap.clientWidth, side = Math.min(w, Math.max(240, (avail - rows * (headH + 8)) * cols / rows + (cols - 1) * 6));
+    g.style.width = innerWidth > 760 ? side + 'px' : '100%';
+    g.style.margin = '0 auto';
+    const pw = (innerWidth > 760 ? side : w) / cols;
+    PAN.forEach(p => { p.el.classList.toggle('small', pw < 190); p.el.classList.toggle('tiny', pw < 140); });
+    requestAnimationFrame(() => PAN.forEach(sizePanel));
+  }
+  function makePanels(list) {
+    const g = $('grid'); g.innerHTML = ''; PAN = []; heats = [];
+    list.forEach(info => {
+      const el = document.createElement('div'); el.className = 'pan';
+      el.innerHTML = `<header><span class="tag ${info.tag}">${info.tag.toUpperCase()}</span><span class="t"></span><span class="s e"></span><span class="s p"></span></header><canvas></canvas>`;
+      g.appendChild(el);
+      const p = Object.assign({}, info, { el, cv: el.querySelector('canvas'), stat: null, mice: null, prevAt: [], bg: null, heat: null });
+      setPanelTitle(p); PAN.push(p);
+    });
+    layoutGrid();
+  }
+  function updatePanel(info) {   // a panel rotated to another maze
+    const p = PAN[info.i]; if (!p) return;
+    Object.assign(p, info, { heat: null, mice: null });
+    p.el.querySelector('.tag').className = 'tag ' + info.tag; p.el.querySelector('.tag').textContent = info.tag.toUpperCase();
+    setPanelTitle(p); drawStatic(p);
+  }
+  function setPanelTitle(p) {
+    const t = p.el.querySelector('.t'); t.textContent = p.num + ' ' + p.id;
+    t.title = p.name + ' (map ' + p.map + ', par ' + p.par + ', ' + p.rooms + ' rooms' + (p.whole ? ', whole state graph' : ', cut at par + 2') + ')';
+  }
+  function sizePanel(p) {
+    const r = p.cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1), S = Math.max(60, Math.round(r.width * dpr));
+    if (p.cv.width !== S) { p.cv.width = S; p.cv.height = S; }
+    p.S = S; p.dpr = dpr; drawStatic(p);
+  }
+  const heatCol = h => { // 0 = near a fill (teal) .. 1 = far (violet)
+    const t = Math.max(0, Math.min(1, h)); const r = Math.round(60 + 150 * t), g = Math.round(200 - 140 * t), b = Math.round(190 + 40 * t); return `rgb(${r},${g},${b})`; };
+  function drawStatic(p) {
+    if (!p.S) return;
+    const S = p.S, bg = p.bg || (p.bg = document.createElement('canvas')); bg.width = S; bg.height = S;
+    const c = bg.getContext('2d'), pad = S * 0.06, sc = S - 2 * pad, N = p.rooms, X = i => pad + p.pos[2 * i] * sc, Y = i => pad + p.pos[2 * i + 1] * sc;
+    c.fillStyle = '#12161b'; c.fillRect(0, 0, S, S);
+    c.strokeStyle = N > 150 ? 'rgba(200,215,235,.10)' : 'rgba(200,215,235,.16)'; c.lineWidth = Math.max(0.5, p.dpr * 0.6);
+    c.beginPath(); for (let e = 0; e < p.edges.length; e += 2) { const a = p.edges[e], b = p.edges[e + 1]; c.moveTo(X(a), Y(a)); c.lineTo(X(b), Y(b)); } c.stroke();
+    const r = Math.max(1.3 * p.dpr, Math.min(5 * p.dpr, S / Math.sqrt(N) * 0.16));
+    for (let i = 0; i < N; i++) {
+      const x = X(i), y = Y(i);
+      if (p.won[i]) { c.fillStyle = 'rgba(255,207,90,.55)'; c.fillRect(x - r * 0.7, y - r * 0.7, 1.4 * r, 1.4 * r); continue; }
+      c.fillStyle = p.heat ? heatCol(p.heat[i]) : '#56606d'; c.globalAlpha = p.heat ? 0.85 : 0.9;
+      c.fillRect(x - r * 0.8, y - r * 0.8, 1.6 * r, 1.6 * r); c.globalAlpha = 1;
+    }
+    c.strokeStyle = '#fff'; c.lineWidth = p.dpr; c.strokeRect(X(0) - r * 1.5, Y(0) - r * 1.5, 3 * r, 3 * r);
+    p.r = r; p.X = X; p.Y = Y;
+  }
+  const mouseCol = k => `hsl(${(k * 137.5) % 360}, 85%, 66%)`;
+  function frame() {
+    const t = performance.now(), f = Math.min(1, (t - lastTick) / Math.max(60, tickGap));
+    for (const p of PAN) {
+      if (!p.S || !p.bg) continue;
+      const c = p.cv.getContext('2d'); c.drawImage(p.bg, 0, 0);
+      if (!p.mice) continue;
+      const M = p.mice, rr = Math.max(2.2 * p.dpr, Math.min(5 * p.dpr, p.r * 1.4));
+      c.strokeStyle = 'rgba(0,0,0,.75)'; c.lineWidth = p.dpr;
+      for (let k = 0; k < M.length / 3; k++) {
+        let a = M[3 * k], b = M[3 * k + 1], fill = M[3 * k + 2];
+        if (a === -2) { if (fill >= 0) { c.save(); c.strokeStyle = '#ffcf5a'; c.lineWidth = p.dpr * 1.4; c.globalAlpha = 1 - 0.7 * f; c.beginPath(); c.arc(p.X(fill), p.Y(fill), rr * (1.1 + 0.9 * f), 0, 7); c.stroke(); c.restore(); } continue; }
+        if (a < 0) continue;
+        let x = p.X(a), y = p.Y(a);
+        if (b >= 0 && b !== a && f < 1) { x = p.X(b) + (x - p.X(b)) * f; y = p.Y(b) + (y - p.Y(b)) * f; }
+        c.fillStyle = mouseCol(k); c.beginPath(); c.arc(x, y, rr, 0, 7); c.fill(); c.stroke();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  addEventListener('resize', () => { clearTimeout(window._rs); window._rs = setTimeout(() => { layoutGrid(); drawCharts(); }, 120); });
+
+  // ---------------------------------------------------------------- charts
+  let series = [], baselines = null;
+  function chartCtx(id) {
+    const cv = $(id), r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
+    cv.width = Math.max(10, Math.round(r.width * dpr)); cv.height = Math.max(10, Math.round(r.height * dpr));
+    const c = cv.getContext('2d'); c.scale(dpr, dpr); return { c, w: r.width, h: r.height };
+  }
+  function axes(c, w, h, ylo, yhi, fmtY, xmax, logy) {
+    c.clearRect(0, 0, w, h); c.font = '10px system-ui, sans-serif'; c.fillStyle = '#8d97a5'; c.strokeStyle = '#2a313b'; c.lineWidth = 1;
+    const L = 34, B = 14, T = 4, R = 6, ys = [];
+    const toY = v => { const q = logy ? (Math.log10(v) - Math.log10(ylo)) / (Math.log10(yhi) - Math.log10(ylo)) : (v - ylo) / (yhi - ylo); return T + (1 - q) * (h - T - B); };
+    const toX = x => L + (x / Math.max(1, xmax)) * (w - L - R);
+    const ticks = logy ? [ylo, Math.sqrt(ylo * yhi), yhi] : [ylo, (ylo + yhi) / 2, yhi];
+    ticks.forEach(v => { const y = toY(v); c.beginPath(); c.moveTo(L, y); c.lineTo(w - R, y); c.stroke(); c.fillText(fmtY(v), 2, y + 3); });
+    c.fillText(xmax >= 1000 ? (xmax / 1000).toFixed(xmax >= 10000 ? 0 : 1) + 'k ep' : Math.round(xmax) + ' ep', w - R - 34, h - 2);
+    return { toX, toY, L, R, T, B };
+  }
+  function line(c, pts, toX, toY, col, dash) {
+    c.strokeStyle = col; c.lineWidth = 1.6; c.setLineDash(dash || []); c.beginPath(); let on = false;
+    pts.forEach(([x, y]) => { if (y == null || !isFinite(y)) { on = false; return; } const X = toX(x), Y = toY(y); if (!on) { c.moveTo(X, Y); on = true; } else c.lineTo(X, Y); });
+    c.stroke(); c.setLineDash([]);
+  }
+  function drawCharts() {
+    const xmax = Math.max(100, ...series.map(s => s.episodes));
+    { // agreement
+      const { c, w, h } = chartCtx('cAgree'); const lo = 0.5;
+      const ax = axes(c, w, h, lo, 1, v => Math.round(v * 100) + '%', xmax);
+      if (baselines) { [['random', '#777'], ['twoply', '#aaa']].forEach(([k, col]) => { const v = baselines[k] && baselines[k].test.agree2; if (v != null) { const y = ax.toY(Math.max(lo, v)); c.strokeStyle = col; c.setLineDash([3, 3]); c.beginPath(); c.moveTo(ax.L, y); c.lineTo(w - ax.R, y); c.stroke(); c.setLineDash([]); c.fillStyle = col; c.fillText(k === 'twoply' ? 'two-ply' : 'random', ax.L + 3, y - 2); } }); }
+      line(c, series.map(s => [s.episodes, s.trainAgree2 == null ? null : Math.max(lo, s.trainAgree2)]), ax.toX, ax.toY, '#4fb3ff');
+      line(c, series.map(s => [s.episodes, s.testAgree3 == null ? null : Math.max(lo, s.testAgree3)]), ax.toX, ax.toY, '#9a8cff', [4, 3]);
+      line(c, series.map(s => [s.episodes, s.testAgree2 == null ? null : Math.max(lo, s.testAgree2)]), ax.toX, ax.toY, '#ff8a5c');
+      series.filter(s => s.marker).forEach(s => { const x = ax.toX(s.episodes); c.fillStyle = '#5fd38d'; c.fillRect(x - 1, ax.T, 2, h - ax.T - ax.B); });
+    }
+    { const { c, w, h } = chartCtx('cSucc'); const ax = axes(c, w, h, 0, 1, v => Math.round(v * 100) + '%', xmax); line(c, series.map(s => [s.episodes, s.trainSuccess]), ax.toX, ax.toY, '#5fd38d'); }
+    { const { c, w, h } = chartCtx('cLoss'); const ls = series.map(s => s.loss).filter(v => v > 0); const lo = ls.length ? Math.max(1e-4, Math.min(...ls) / 1.5) : 0.001, hi = ls.length ? Math.max(...ls) * 1.5 : 1;
+      const ax = axes(c, w, h, lo, Math.max(hi, lo * 10), v => v < 0.01 ? v.toExponential(0) : v.toFixed(2), xmax, true); line(c, series.map(s => [s.episodes, s.loss > 0 ? s.loss : null]), ax.toX, ax.toY, '#ffcf5a'); }
+    drawSize();
+  }
+  function drawSize() {
+    const { c, w, h } = chartCtx('cSize'), ms = boardRows().filter(m => !m.base && m.test && m.test.agree2 != null);
+    c.clearRect(0, 0, w, h); c.font = '10px system-ui, sans-serif';
+    const L = 34, B = 14, T = 4, R = 8, lo = 0.5;
+    const pmin = Math.min(1000, ...ms.map(m => m.params)), pmax = Math.max(100000, ...ms.map(m => m.params));
+    const toX = p => L + (Math.log10(p) - Math.log10(pmin)) / (Math.log10(pmax) - Math.log10(pmin)) * (w - L - R), toY = v => T + (1 - (Math.max(lo, v) - lo) / (1 - lo)) * (h - T - B);
+    c.strokeStyle = '#2a313b'; c.fillStyle = '#8d97a5';
+    [0.5, 0.75, 1].forEach(v => { const y = toY(v); c.beginPath(); c.moveTo(L, y); c.lineTo(w - R, y); c.stroke(); c.fillText(Math.round(v * 100) + '%', 2, y + 3); });
+    for (let e = Math.ceil(Math.log10(pmin)); e <= Math.floor(Math.log10(pmax)); e++) { const x = toX(Math.pow(10, e)), t = (e >= 3 ? Math.pow(10, e - 3) + 'k' : String(Math.pow(10, e))) + (e === Math.floor(Math.log10(pmax)) ? ' params' : ''); c.fillText(t, Math.min(x - 6, w - R - c.measureText(t).width), h - 2); }
+    if (baselines && baselines.twoply) { const y = toY(baselines.twoply.test.agree2); c.setLineDash([3, 3]); c.strokeStyle = '#aaa'; c.beginPath(); c.moveTo(L, y); c.lineTo(w - R, y); c.stroke(); c.setLineDash([]); }
+    ms.forEach(m => { const x = toX(m.params), y = toY(m.test.agree2); c.fillStyle = m.kind === 'rec' ? '#4fb3ff' : m.pre ? '#5fd38d' : m.cf === false ? '#c792ea' : '#ffcf5a'; c.beginPath(); c.arc(x, y, m.cur ? 4.5 : 3.2, 0, 7); c.fill(); });
+  }
+
+  // ---------------------------------------------------------------- leaderboard
+  let committed = [], local = lsGet(LS_MODELS, []), hidden = lsGet(LS_HIDE, []);
+  const trackOf = arch => arch.kind === 'rec' ? 'tabula rasa' : 'priors';
+  const summary = (M, src, file) => ({ name: M.name, date: M.date, params: M.paramCount, kind: M.arch.kind || 'gnn', H: M.arch.H, K: M.arch.K, T: M.arch.T, cf: M.arch.chainFeats, track: trackOf(M.arch), pre: !!(M.training && M.training.pretrain),
+    test: M.metrics && M.metrics.test, train: M.metrics && M.metrics.train, hardpool: M.metrics && M.metrics.hardpool, deepStarts: M.metrics && M.metrics.deepStarts,
+    rl: M.rl, training: M.training, src, file, json: src === 'local' ? M : null, id: src + ':' + (file || M.date + M.name) });
+  const rankKey = r => { const k = $('lbRank').value; return k === 'agree3' ? r.test && r.test.agree3 : k === 'hard' ? r.hardpool && r.hardpool.agree3 : k === 'deep' ? r.deepStarts && r.deepStarts.within3 : r.test && r.test.agree2; };
+  function boardRows(all) {
+    const tf = $('lbTrack').value;
+    const rows = committed.concat(local.map(M => summary(M, 'local'))).filter(r => hidden.indexOf(r.id) < 0 && (all || tf === 'all' || r.track === tf));
+    rows.forEach(r => { r.cur = curName && r.name === curName; });
+    rows.sort((a, b) => (rankKey(b) || 0) - (rankKey(a) || 0) || ((b.test && b.test.agree2) || 0) - ((a.test && a.test.agree2) || 0) || ((b.test && b.test.success) || 0) - ((a.test && a.test.success) || 0) || a.params - b.params);
+    return rows;
+  }
+  const deepTxt = d => d && d.n ? `${pct(d.within3)} <small style="color:var(--dim)">(${pct(d.within1)})</small>` : '–';
+  const bar = v => v == null ? '' : `<span class="bar"><i style="width:${Math.round(100 * v)}%"></i></span>`;
+  function renderBoard() {
+    const rows = boardRows(), body = $('lbBody'); let h = '';
+    rows.forEach((r, i) => {
+      const rl = r.rl || {}, tr = r.training || {}, pre = tr.pretrain;
+      const trainTxt = tr.samples ? (tr.samples.toLocaleString() + ' pool samples (exact-distance distillation)' + (tr.wallSeconds ? ' · ' + Math.round(tr.wallSeconds / 60) + ' min, ' + tr.workers + ' workers' : '')) :
+        (tr.episodes || 0).toLocaleString() + ' RL episodes' + (pre ? ' + pretrain on ' + (pre.graphs || 0).toLocaleString() + ' random maps' : '') +
+        (r.rl && r.rl.lr != null ? `<br><small>lr ${rl.lr} γ ${rl.gamma} n ${rl.nstep} ε ${rl.epsStart}→${rl.epsEnd}/${rl.epsDecay} batch ${rl.batch}${rl.auxWeight ? ' aux ' + rl.auxWeight : ''}${tr.wallSeconds ? ' · ' + Math.round(tr.wallSeconds) + ' s' : ''}</small>` : '');
+      h += `<tr class="${r.cur ? 'cur' : ''}"><td class="k">${i + 1}</td><td class="nm"><b>${esc(r.name)}<span class="trk ${r.track === 'tabula rasa' ? 'tr' : 'pr'}">${r.track}</span><span class="src">${r.src}</span></b><small>${(r.date || '').slice(0, 16).replace('T', ' ')}</small>` +
+        `<div class="acts"><button data-a="watch" data-i="${r.id}" title="Play greedily in the panels, no training">Watch</button><button data-a="load" data-i="${r.id}" title="Use as the current network (Start keeps training it)">Load</button><button data-a="export" data-i="${r.id}" title="Download the model JSON">Export</button><button data-a="del" data-i="${r.id}" title="${r.src === 'local' ? 'Delete from this browser' : 'Hide in this browser'}" aria-label="Delete">✕</button></div></td>` +
+        `<td><b>${pct(r.test && r.test.agree2)}</b>${bar(r.test && r.test.agree2)}</td><td>${pct(r.test && r.test.agree3)}</td><td>${pct(r.test && r.test.agree4)}</td><td>${pct(r.hardpool && r.hardpool.agree3)}</td><td>${deepTxt(r.deepStarts)}</td><td>${pct(r.test && r.test.success)}</td><td>${pct(r.train && r.train.agree2)}</td>` +
+        `<td>${(r.params || 0).toLocaleString()}</td><td>${r.kind === 'rec' ? 'rec H' + r.H + '·T' + r.T + '<br><small>raw colours + hole</small>' : 'GNN H' + r.H + '·K' + r.K + '<br><small>' + (r.cf === false ? 'rim-relative colours' : 'colours+chains') + '</small>'}</td><td class="tr">${trainTxt}</td></tr>`;
+    });
+    if (baselines) [['twoply', 'two-ply count (search, no learning)'], ['hand', 'hand rule: fill now, else a rim chain'], ['random', 'random swap']].forEach(([k, label]) => {
+      const b = baselines[k]; if (!b) return;
+      h += `<tr class="base"><td></td><td class="nm"><b>${label}</b><small>baseline</small></td><td>${pct(b.test.agree2)}${bar(b.test.agree2)}</td><td>${pct(b.test.agree3)}</td><td>${pct(b.test.agree4)}</td><td>${pct(b.hardpool && b.hardpool.agree3)}</td><td>${deepTxt(b.deepStarts)}</td><td>${pct(b.test.success)}</td><td>${pct(b.train.agree2)}</td><td>0</td><td>–</td><td>–</td></tr>`;
+    });
+    body.innerHTML = h || '<tr><td colspan="12" class="note">no models yet</td></tr>';
+    body.querySelectorAll('button').forEach(b => b.onclick = () => rowAction(b.dataset.a, b.dataset.i));
+    drawSize();
+  }
+  const esc = s => String(s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
+  async function modelOf(id) {
+    const r = boardRows(true).find(x => x.id === id) || committed.find(x => x.id === id); if (!r) return null;
+    if (r.json) return r.json;
+    const res = await fetch('arena/models/' + r.file); if (!res.ok) throw new Error('fetch ' + r.file + ': ' + res.status);
+    r.json = await res.json(); return r.json;
+  }
+  async function rowAction(a, id) {
+    try {
+      if (a === 'del') {
+        if (id.startsWith('local:')) { local = local.filter(M => 'local:' + M.date + M.name !== id); lsSet(LS_MODELS, local); }
+        else { hidden.push(id); lsSet(LS_HIDE, hidden); }
+        renderBoard(); return;
+      }
+      const M = await modelOf(id); if (!M) return;
+      if (a === 'export') { const blob = new Blob([JSON.stringify(M)], { type: 'application/json' }), u = URL.createObjectURL(blob), l = document.createElement('a'); l.href = u; l.download = M.name.replace(/[^\w.-]+/g, '_') + '.json'; document.body.appendChild(l); l.click(); l.remove(); setTimeout(() => URL.revokeObjectURL(u), 2000); return; }
+      curName = M.name; series = []; drawCharts();
+      $('kind').value = M.arch.kind === 'rec' ? 'rec' : 'gnn'; $('H').value = M.arch.H; if (M.arch.kind === 'rec') $('T').value = M.arch.T; else { $('K').value = M.arch.K; $('feats').value = M.arch.chainFeats === false ? '0' : '1'; } updateParamCount();
+      W.postMessage({ type: a, model: M, cfg: cfg() });
+      renderBoard();
+    } catch (e) { showErr(String(e)); }
+  }
+  function storeLocal(M) {
+    local.push(M);
+    while (local.length > MAX_LOCAL) local.shift();
+    while (!lsSet(LS_MODELS, local) && local.length > 1) local.shift();
+    renderBoard();
+  }
+  $('lbTrack').onchange = renderBoard; $('lbRank').onchange = renderBoard;
+  $('bImport').onclick = () => $('fImport').click();
+  $('fImport').onchange = async () => {
+    for (const f of $('fImport').files) { try { const M = JSON.parse(await f.text()); A.modelFromJSON(M); storeLocal(M); } catch (e) { showErr('import ' + f.name + ': ' + e.message); } }
+    $('fImport').value = '';
+  };
+  fetch('arena/models/index.json').then(r => r.ok ? r.json() : null).then(ix => {
+    if (!ix) return;
+    baselines = ix.baselines || null;
+    committed = (ix.models || []).map(m => ({ name: m.name, date: m.date, params: m.paramCount, kind: m.arch.kind || 'gnn', H: m.arch.H, K: m.arch.K, T: m.arch.T, cf: m.arch.chainFeats, track: trackOf(m.arch), pre: m.pretrain, test: m.test, train: m.train, hardpool: m.hardpool, deepStarts: m.deepStarts,
+      rl: m.rl || null, training: m.training || null, src: 'committed', file: m.file, json: null, id: 'committed:' + m.file }));
+    // the index carries summaries; fetch each model's settings lazily for the training column
+    committed.forEach(r => fetch('arena/models/' + r.file).then(x => x.json()).then(M => { r.json = M; r.rl = M.rl; r.training = M.training; renderBoard(); }).catch(() => {}));
+    renderBoard(); drawCharts();
+  }).catch(() => {});
+
+  // ---------------------------------------------------------------- messages
+  W.onmessage = e => {
+    const d = e.data;
+    if (d.type === 'ready') {
+      LEVELS = d.levels; MAPS = d.maps;
+      const had = loadUI(); LEVELS.forEach(L => { if (!sel[L.id]) sel[L.id] = 'test'; });
+      if (!had) applyPreset($('preset').value); else renderLevels();
+      updateParamCount(); W.postMessage({ type: 'speed', speed: $('speed').value }); W.postMessage({ type: 'heat', mode: $('heat').value });
+      W.postMessage({ type: 'reset', cfg: cfg() });
+    } else if (d.type === 'panels') { if (d.partial) d.panels.forEach(updatePanel); else makePanels(d.panels); }
+    else if (d.type === 'tick') onTick(d);
+    else if (d.type === 'chart') { series.push(d.point); if (series.length > 600) series = series.filter((_, i) => i % 2 === 0); drawCharts(); }
+    else if (d.type === 'status') setStatus(d.text);
+    else if (d.type === 'model') { storeLocal(d.json); curName = d.json.name; renderBoard(); }
+    else if (d.type === 'error') showErr(d.message);
+  };
+  let statusText = '';
+  function setStatus(t) { statusText = t; paintStatus(); }
+  let lastStats = null;
+  function paintStatus() {
+    const s = lastStats; let h = '';
+    if (s) {
+      const ph = phase === 'pretrain' ? 'pretraining' : phase === 'watch' ? 'watching' : running ? 'training' : 'paused';
+      h = `<b>${ph}</b> · ${s.params.toLocaleString()} params · `;
+    }
+    $('status').innerHTML = h + esc(statusText);
+  }
+  function onTick(d) {
+    const now = performance.now(); tickGap = Math.min(400, Math.max(60, now - lastTick)); lastTick = now;
+    running = d.running; phase = d.phase; sweeping = !!d.sweep; lastStats = d.stats;
+    d.mice.forEach((m, i) => { if (PAN[i]) PAN[i].mice = m; });
+    d.pstats.forEach((s, i) => { const p = PAN[i]; if (!p) return; p.el.querySelector('.s.e').textContent = s.eps + ' ep'; p.el.querySelector('.s.p').textContent = s.succ == null ? '–' : Math.round(100 * s.succ) + '%'; });
+    if (d.heat && PAN[d.heat.panel]) { PAN[d.heat.panel].heat = d.heat.values; drawStatic(PAN[d.heat.panel]); }
+    const st = d.stats, f = x => x >= 1e6 ? (x / 1e6).toFixed(2) + 'M' : x >= 1e4 ? (x / 1e3).toFixed(1) + 'k' : String(Math.round(x));
+    $('stEp').textContent = f(st.episodes); $('stSteps').textContent = f(st.steps); $('stSps').textContent = f(st.sps || 0);
+    $('stLoss').textContent = st.loss ? st.loss.toFixed(3) : '–'; $('stEps').textContent = phase === 'watch' ? '0' : st.eps.toFixed(2); $('stRep').textContent = f(st.replay);
+    if (d.pre) setStatus(`pretraining step ${d.pre.step}/${d.pre.target} · ${d.pre.graphs.toLocaleString()} random maps (n ${d.pre.n[0]}–${d.pre.n[1]}, ${Math.round(d.pre.gps)}/s) · loss dist ${d.pre.loss.a.toFixed(3)} swap ${d.pre.loss.b.toFixed(3)} ssl ${d.pre.loss.c.toFixed(3)}`);
+    $('bStart').textContent = running ? '❚❚ Pause' : '▶ Start'; $('bStart').classList.toggle('on', running);
+    $('bStopSweep').disabled = !sweeping; $('bSweep').disabled = sweeping;
+    $('sumArena').textContent = PAN.length + ' × ' + (PAN[0] && PAN[0].mice ? PAN[0].mice.length / 3 : num('mice')) + ' mice';
+    paintStatus();
+  }
+
+  // ---------------------------------------------------------------- controls
+  $('bStart').onclick = () => { if (running) W.postMessage({ type: 'pause' }); else W.postMessage({ type: 'start', cfg: cfg() }); };
+  $('bReset').onclick = () => { series = []; curName = null; drawCharts(); W.postMessage({ type: 'reset', cfg: cfg() }); renderBoard(); };
+  $('bSave').onclick = () => {
+    const def = 'H' + num('H') + 'K' + num('K') + ($('feats').value === '0' ? ' colours-only' : '') + ' ' + new Date().toISOString().slice(5, 16).replace('T', ' ');
+    const name = prompt('Name for this model on the leaderboard', def); if (name) W.postMessage({ type: 'save', name });
+  };
+  $('speed').onchange = () => { W.postMessage({ type: 'speed', speed: $('speed').value }); saveUI(); };
+  $('heat').onchange = () => { W.postMessage({ type: 'heat', mode: $('heat').value }); PAN.forEach(p => { p.heat = null; drawStatic(p); }); saveUI(); };
+  ['panels', 'mice', 'rotate'].forEach(id => $(id).onchange = () => { W.postMessage({ type: 'reshape', cfg: cfg() }); saveUI(); });
+  ['H', 'K', 'T', 'kind', 'feats'].forEach(id => $(id).addEventListener('change', updateParamCount));
+  ['lr', 'gamma', 'explore', 'epsStart', 'epsEnd', 'epsDecay', 'temp', 'nstep', 'backup', 'batch', 'updateEvery', 'targetSync', 'aux', 'cap', 'startMix', 'evalEvery'].forEach(id =>
+    $(id).addEventListener('change', () => { W.postMessage({ type: 'rl', rl: rlCfg(), evalEvery: num('evalEvery') }); saveUI(); }));
+  ['H', 'K', 'T', 'kind', 'mirror', 'splices', 'feats', 'seed', 'replay', 'pSteps', 'pBatch', 'pSource', 'pN0', 'pN1', 'pW', 'swCfg', 'swEp'].forEach(id => $(id).addEventListener('change', saveUI));
+  $('preset').onchange = () => { applyPreset($('preset').value); saveUI(); };
+  $('bPre').onclick = () => { series = []; curName = null; drawCharts(); const c = cfg(); W.postMessage({ type: 'pretrain', cfg: c, pre: c.pre }); };
+  $('bSweep').onclick = () => {
+    const configs = $('swCfg').value.trim().split(/[\s,]+/).map(s => s.split(/[x×]/).map(Number)).filter(a => a[0] > 0 && a[1] > 0);
+    if (!configs.length) return; series = []; drawCharts();
+    W.postMessage({ type: 'sweep', cfg: cfg(), configs, episodes: num('swEp') });
+  };
+  $('bStopSweep').onclick = () => W.postMessage({ type: 'stopSweep' });
+  W.postMessage({ type: 'init' });
+  renderBoard(); drawCharts();
+})();
+</script>
+</body>
+</html>
