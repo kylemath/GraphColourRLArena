@@ -1,0 +1,11 @@
+{
+  "id": "GraphColourRLArena",
+  "title": "GraphColourRLArena",
+  "oneLiner": "RL Arena to train and test graph colouring bots",
+  "demoUrl": "https://kylemath.github.io/GraphColourRLArena",
+  "screenshot": "https://raw.githubusercontent.com/kylemath/GraphColourRLArena/main/screenshot.png",
+  "kind": "project",
+  "categories": [],
+  "tags": [],
+  "status": "published"
+}
