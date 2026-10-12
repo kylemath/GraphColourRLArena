@@ -1,5 +1,7 @@
 # GraphColourRLArena
 
+🚀 **[Live Demo](https://kylemath.github.io/GraphColourRLArena)** 🚀
+
 The Maze Arena, copied out of [4Square](https://github.com/kylemath/4Square). It trains one map-independent graph network on Kempe-swap mazes and scores it on maps it never trained on. The 4Square game is not in this repo.
 
 Open `lab/MazeArena.html` from a local server (a worker and the model files cannot load from a `file://` page):
