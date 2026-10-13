@@ -1,4 +1,4 @@
-/* lab/arena/worker.js: the Maze Arena's training loop, off the page's main thread.
+/* docs/arena/worker.js: the Maze Arena's training loop, off the page's main thread.
  *
  * One network (the learner) is shared by every mouse (the actors) in every panel. Mice in panels tagged "train" explore
  * (epsilon-greedy or softmax) and feed the replay buffer; mice in panels tagged "test" walk their held-out mazes
@@ -14,7 +14,7 @@
  */
 'use strict';
 self.window = self;
-importScripts('../../levels.js', 'engine.js');
+importScripts('../levels.js', 'engine.js');
 const A = self.ARENA, GAME = self.GAME;
 const MAPS = A.levelMaps(GAME), ALLKEYS = MAPS.map(m => m.key);
 const LEVELS = MAPS.flatMap(m => m.levels.map(L => ({ id: L.id, num: String(L.num), g: L.g, par: L.par, n: GAME.graphs[L.g].n, mapName: m.name })));
@@ -195,7 +195,7 @@ function meta(name, extra) {
   const { trainMaps, testMaps } = splitKeys(cfg);
   return { name, rl: Object.assign({}, T.rl, { seed: cfg.seed, panels: cfg.panels, mice: cfg.mice }),
     training: { trainMaps, testMaps, trainLevels: cfg.trainLevels, episodes: T.episodes, steps: T.steps, updates: T.updates, wallSeconds: +T.wall.toFixed(1),
-      pretrain: T.pretrain || null, tool: 'lab/MazeArena.html' + (extra ? ' ' + extra : '') } };
+      pretrain: T.pretrain || null, tool: 'docs/index.html' + (extra ? ' ' + extra : '') } };
 }
 function saveModel(name, purpose, extra) {
   post('status', { text: 'running the full testbench on all ' + ALLKEYS.length + ' maps…' });

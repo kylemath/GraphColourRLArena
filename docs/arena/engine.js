@@ -1,8 +1,8 @@
-/* lab/arena/engine.js: the Maze Arena engine (puzzle core, map-independent encoding, a small graph neural network
+/* docs/arena/engine.js: the Maze Arena engine (puzzle core, map-independent encoding, a small graph neural network
  * with a hand-written backward pass, afterstate TD learning, pretraining objectives, a random-map generator and the
  * testbench). Pure JS, no dependencies: runs in the page, in a Web Worker (importScripts) and in Node (require).
  *
- * The puzzle (as in lab/core.js): a planar triangulation coloured with 4 elements, one degree-5 region (the hole)
+ * The puzzle (as in docs/core.js): a planar triangulation coloured with 4 elements, one degree-5 region (the hole)
  * left blank because its 5 rim neighbours use all 4. A move is a Kempe swap of a two-colour chain (a connected
  * component of the {a, b} subgraph, hole excluded). A pair with exactly one component is a "web": swapping it only
  * renames two colours, so it is not a move. Goal: the rim uses 3 colours (a fill). Won states are terminal.

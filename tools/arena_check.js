@@ -1,5 +1,5 @@
-// node tools/arena_check.js : checks the Maze Arena engine (lab/arena/engine.js).
-//   1. the puzzle core against lab/core.js on several levels: chains (webs flagged), swaps, canonical forms, census
+// node tools/arena_check.js : checks the Maze Arena engine (docs/arena/engine.js).
+//   1. the puzzle core against docs/core.js on several levels: chains (webs flagged), swaps, canonical forms, census
 //      distances and good moves, walking random swap sequences;
 //   2. exactDistances (BFS over the Kempe class) reproduces the census on the small maps;
 //   3. the encoding is map-independent: renaming the colours or rotating the link list does not change it;
@@ -17,9 +17,9 @@
 const path = require('path');
 const root = path.join(__dirname, '..');
 global.window = global; global.location = { search: '' };
-require(path.join(root, 'levels.js'));
-require(path.join(root, 'lab/core.js'));
-const A = require(path.join(root, 'lab/arena/engine.js'));
+require(path.join(root, 'docs/levels.js'));
+require(path.join(root, 'docs/core.js'));
+const A = require(path.join(root, 'docs/arena/engine.js'));
 const GAME = window.GAME, LAB = window.LAB;
 const args = process.argv.slice(2), QUICK = args.includes('--quick'), SPEED = args.includes('--speed-only');
 let bad = 0;
@@ -28,7 +28,7 @@ const ok = (c, msg) => { if (!c) fail(msg); };
 
 if (!SPEED) {
   // 1. core semantics
-  console.log('1. engine vs lab/core.js');
+  console.log('1. engine vs docs/core.js');
   for (const id of ['tidy-trap', 'kempes-double', 'six-ring-trap', 'depth-4', 'cage', 'round-and-round', 'twin-loops']) {
     const g = LAB.game(id), L = g.level, G = A.graphFromLevels(GAME, L.g), R = A.rng(A.hashStr(id));
     let checks = 0;

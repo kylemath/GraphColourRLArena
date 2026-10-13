@@ -34,8 +34,8 @@
 const fs = require('fs'), path = require('path'), os = require('os');
 const root = path.join(__dirname, '..');
 global.window = global;
-require(path.join(root, 'levels.js'));
-const ARENA_DIR = fs.existsSync(path.join(root, 'lab/arena/engine.js')) ? path.join(root, 'lab/arena') : path.join(root, 'docs/arena');
+require(path.join(root, 'docs/levels.js'));
+const ARENA_DIR = fs.existsSync(path.join(root, 'docs/arena/engine.js')) ? path.join(root, 'docs/arena') : path.join(root, 'docs/arena');
 const A = require(path.join(ARENA_DIR, 'engine.js'));
 const GAME = window.GAME;
 const MODELS = path.join(ARENA_DIR, 'models');

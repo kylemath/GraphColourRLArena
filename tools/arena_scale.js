@@ -7,7 +7,7 @@
 //   --workers 2 --minutes 60 --batch 32 --lr 1e-3 --wd 1e-5 --seed 1
 //   --mix 0.15,0.35,0.3,0.2   sampling weights for states at d = 1, 2, 3, 4+ (deep states oversampled)
 //   --wval 1 --wrank 0.5 --wpol 1    loss weights: value regression, afterstate ranking, (region, colour) policy
-//   --ckpt-min 5              checkpoint + quick eval every N minutes (lab/arena/cache/ckpt-<name>.json)
+//   --ckpt-min 5              checkpoint + quick eval every N minutes (docs/arena/cache/ckpt-<name>.json)
 // Each worker: sample a state from the pool (deep states oversampled), apply a random colour permutation (rec) or
 // a random mirror (gnn), and compute
 //   value loss  Huber(V(s) + d(s))
@@ -26,12 +26,14 @@ const { Worker, isMainThread, parentPort, workerData } = require('worker_threads
 const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
 global.window = global;
-require(path.join(root, 'levels.js'));
-const A = require(path.join(root, 'lab/arena/engine.js'));
+require(path.join(root, 'docs/levels.js'));
+const A = require(path.join(root, 'docs/arena/engine.js'));
 const GAME = window.GAME;
-const CACHE = path.join(root, 'lab/arena/cache'), MODELS = path.join(root, 'lab/arena/models');
+const CACHE = path.join(root, 'docs/arena/cache'), MODELS = path.join(root, 'docs/arena/models');
 const ALL = A.levelMaps(GAME).map(m => m.key);
-const TRAIN_MAPS = ['w9', 'w13', 'w18', 'ico', 'p22', 'r1', 'r178', 'p32r111', 'p31r12'];
+const TRAIN_MAPS = ['w9', 'w13', 'w18', 'ico', 'p22', 'r1', 'r178', 'p32r111', 'p31r12',
+  // Census33/34 batch (4square commit 207ad1b): training only, so the held-out test maps stay the same as before
+  'p33r240', 'p34r51', 'p34r189', 'p34r10', 'p34r84', 'p33r115', 'p34r2_856229', 'p33r57', 'p33r37', 'p33r116', 'p33r219'];
 const TEST_MAPS = ALL.filter(k => TRAIN_MAPS.indexOf(k) < 0);
 
 // ---------------------------------------------------------------- the pool
@@ -193,7 +195,7 @@ if (flags.eval) {
         track: a.kind === 'rec' ? 'tabula rasa' : 'priors', pretrain: !!(M.training && M.training.pretrain), test: metrics.test, train: metrics.train, hardpool: metrics.hardpool, deepStarts: metrics.deepStarts,
         policyHead: metrics.policyHead ? { test: metrics.policyHead.test, hardpool: metrics.policyHead.hardpool, deepStarts: metrics.policyHead.deepStarts } : null,
         atT2: metrics.atT2 ? { T: metrics.atT2.T, test: metrics.atT2.value.test, hardpool: metrics.atT2.value.hardpool, policyTest: metrics.atT2.policy.test, policyHard: metrics.atT2.policy.hardpool } : null }); });
-    log('saved lab/arena/models/' + file);
+    log('saved docs/arena/models/' + file);
   }
   process.exit(0);
 }
@@ -217,7 +219,7 @@ log(`training ${name}: ${net.arch.kind === 'rec' ? 'tabula rasa rec H=' + net.ar
 const workers = Array.from({ length: NW }, (_, i) => new Worker(__filename, { workerData: { arch: net.arch, seed: SEED * 100 + i + step, paramsSAB, gradSAB, slot: i, size, cfg } }));
 const per = Math.ceil(B / NW);
 const meta = () => ({ name, rl: { gamma: 1, note: 'supervised distillation of exact distances; afterstate score = -1 + V(after)' },
-  training: { method: 'supervised distillation on the hard pool (value + afterstate ranking' + (net.arch.kind === 'rec' ? ' + region/colour policy' : '') + ')', pool: 'lab/arena/cache/pool.json (tools/arena_hardgen.js)',
+  training: { method: 'supervised distillation on the hard pool (value + afterstate ranking' + (net.arch.kind === 'rec' ? ' + region/colour policy' : '') + ')', pool: 'docs/arena/cache/pool.json (tools/arena_hardgen.js)',
     trainMaps: TRAIN_MAPS, testMaps: TEST_MAPS, steps: step, samples, batch: B, lr: LR, wd: WD, workers: NW, mix: cfg.mix, weights: { value: cfg.wval, rank: cfg.wrank, policy: cfg.wpol }, tmin: cfg.tmin,
     augment: net.arch.kind === 'rec' ? 'random colour permutation' : 'random mirror', wallSeconds: Math.round(prevWall + (Date.now() - t0) / 1000), curve, pretrain: null, tool: 'tools/arena_scale.js ' + argv.join(' ') } });
 function checkpoint() {

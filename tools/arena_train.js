@@ -1,5 +1,5 @@
 // node tools/arena_train.js [flags] : headless Maze Arena training (pretraining + RL), writes a model into
-// lab/arena/models/<name>.json and lists it in lab/arena/models/index.json (the committed leaderboard).
+// docs/arena/models/<name>.json and lists it in docs/arena/models/index.json (the committed leaderboard).
 //
 //   --name tiny-rl              model name (file name too)
 //   --H 16 --K 3 --H1 0 --Hp 0  network size (H1, Hp default 2H and H); --colours-only drops the chain features
@@ -19,10 +19,10 @@
 const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
 global.window = global;
-require(path.join(root, 'levels.js'));
-const A = require(path.join(root, 'lab/arena/engine.js'));
+require(path.join(root, 'docs/levels.js'));
+const A = require(path.join(root, 'docs/arena/engine.js'));
 const GAME = window.GAME;
-const MODELS = path.join(root, 'lab/arena/models');
+const MODELS = path.join(root, 'docs/arena/models');
 
 const argv = process.argv.slice(2), flags = {};
 for (let i = 0; i < argv.length; i++) {
@@ -33,7 +33,9 @@ const num = (k, d) => flags[k] === undefined ? d : +flags[k];
 const str = (k, d) => flags[k] === undefined ? d : String(flags[k]);
 
 const ALL = A.levelMaps(GAME).map(m => m.key);
-const DEFAULT_TRAIN = ['w9', 'w13', 'w18', 'ico', 'p22', 'r1', 'r178', 'p32r111', 'p31r12'];
+const DEFAULT_TRAIN = ['w9', 'w13', 'w18', 'ico', 'p22', 'r1', 'r178', 'p32r111', 'p31r12',
+  // Census33/34 batch (4square commit 207ad1b): training only, so the held-out test maps stay the same as before
+  'p33r240', 'p34r51', 'p34r189', 'p34r10', 'p34r84', 'p33r115', 'p34r2_856229', 'p33r57', 'p33r37', 'p33r116', 'p33r219'];
 const trainKeys = flags.train ? String(flags.train).split(',') : DEFAULT_TRAIN;
 const testKeys = flags.test ? String(flags.test).split(',') : ALL.filter(k => trainKeys.indexOf(k) < 0);
 const log = (...a) => console.log(...a);
@@ -134,5 +136,5 @@ if (!flags['no-save']) {
   const ix = readIndex(); ix.models = (ix.models || []).filter(m => m.file !== file);
   ix.models.push({ file, name, date: M.date, paramCount: M.paramCount, arch: { H: M.arch.H, K: M.arch.K, chainFeats: M.arch.chainFeats }, pretrain: !!pre, test: S.test, train: S.train });
   writeIndex(ix);
-  log('wrote lab/arena/models/' + file + ' (' + (JSON.stringify(M).length / 1024).toFixed(0) + ' KB) and index.json');
+  log('wrote docs/arena/models/' + file + ' (' + (JSON.stringify(M).length / 1024).toFixed(0) + ' KB) and index.json');
 }

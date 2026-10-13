@@ -256,8 +256,10 @@
   W.onerror = e => showErr('worker: ' + e.message);
   let LEVELS = [], MAPS = [], running = false, phase = 'idle', curName = null, sweeping = false;
   const sel = {};   // level id -> 'train' | 'test' | 'off'
+  // Census33/34 batch (4square 207ad1b): trained on by default, so the held-out test maps stay the same as before
+  const CENSUS34 = ['eight-seas', 'long-locked-shore', 'seven-locked-flips', 'alone-at-four', 'double-record', 'order-33-record', 'eighth-neighbour', 'quarter-sea', 'pit-55666', 'pit-56665', 'pit-of-sixes'];
   const PRESETS = {
-    ladder: ['spark', 'ripples', 'archipelago', 'big-water', 'first-flip', 'open-doors', 'one-lock', 'kempes-double', 'heawoods-catch', 'far-away', 'the-loop', '9-8-9-8', 'depth-3', 'depth-4', 'depth-5', 'deepest-pit', 'quiet-way-out', 'loud-way-out'],
+    ladder: ['spark', 'ripples', 'archipelago', 'big-water', 'first-flip', 'open-doors', 'one-lock', 'kempes-double', 'heawoods-catch', 'far-away', 'the-loop', '9-8-9-8', 'depth-3', 'depth-4', 'depth-5', 'deepest-pit', 'quiet-way-out', 'loud-way-out'].concat(CENSUS34),
     warmups: ['spark', 'ripples', 'archipelago', 'big-water', 'first-flip', 'open-doors', 'one-lock', 'kempes-double'],
     r178: ['big-water', 'far-away', '9-8-9-8', 'depth-3', 'depth-4', 'depth-5', 'deepest-pit'],
     trap: ['tidy-trap'],
@@ -532,7 +534,7 @@
     const d = e.data;
     if (d.type === 'ready') {
       LEVELS = d.levels; MAPS = d.maps;
-      const had = loadUI(); LEVELS.forEach(L => { if (!sel[L.id]) sel[L.id] = 'test'; });
+      const had = loadUI(); LEVELS.forEach(L => { if (!sel[L.id]) sel[L.id] = CENSUS34.indexOf(L.id) >= 0 ? 'train' : 'test'; });
       if (!had) applyPreset($('preset').value); else renderLevels();
       updateParamCount(); W.postMessage({ type: 'speed', speed: $('speed').value }); W.postMessage({ type: 'heat', mode: $('heat').value });
       W.postMessage({ type: 'reset', cfg: cfg() });

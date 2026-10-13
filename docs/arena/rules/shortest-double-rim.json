@@ -1,0 +1,12 @@
+{
+  "format": "mazearena-rule-1",
+  "name": "shortest-double-rim",
+  "admits": "arena-only",
+  "reads": ["won", "rimMask", "size"],
+  "clauses": [
+    { "pick": "fill" },
+    { "pick": "rim", "minBits": 2, "shortest": true },
+    { "pick": "rim", "minBits": 1, "shortest": true },
+    { "pick": "any", "shortest": true }
+  ]
+}

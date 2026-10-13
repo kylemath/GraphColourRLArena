@@ -1,6 +1,6 @@
 // node tools/arena_hardgen.js [--minutes 12] [--workers 4] [--seed 1] : the Maze Arena's hard data pool.
 //
-// Writes lab/arena/cache/ (gitignored; regenerate any time) and a small summary lab/arena/models/pool-summary.json:
+// Writes docs/arena/cache/ (gitignored; regenerate any time) and a small summary docs/arena/models/pool-summary.json:
 //   1. every state of every census TRAINING map (the full state space by enumeration, which equals the census);
 //   2. single-splice variants of the training maps (an edge flip away from the hole, a vertex inserted into a face
 //      without the hole, a degree-3/4 vertex not next to the hole removed and its link retriangulated), kept only if
@@ -29,10 +29,12 @@ const { Worker, isMainThread, parentPort, workerData } = require('worker_threads
 const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
 global.window = global;
-require(path.join(root, 'levels.js'));
-const A = require(path.join(root, 'lab/arena/engine.js'));
+require(path.join(root, 'docs/levels.js'));
+const A = require(path.join(root, 'docs/arena/engine.js'));
 const GAME = window.GAME;
-const TRAIN_MAPS = ['w9', 'w13', 'w18', 'ico', 'p22', 'r1', 'r178', 'p32r111', 'p31r12'];
+const TRAIN_MAPS = ['w9', 'w13', 'w18', 'ico', 'p22', 'r1', 'r178', 'p32r111', 'p31r12',
+  // Census33/34 batch (4square commit 207ad1b): training only, so the held-out test maps stay the same as before
+  'p33r240', 'p34r51', 'p34r189', 'p34r10', 'p34r84', 'p33r115', 'p34r2_856229', 'p33r57', 'p33r37', 'p33r116', 'p33r219'];
 const CAP = 120000, NMAX = 42;
 
 function evaluate(spec) {
@@ -66,7 +68,7 @@ if (!isMainThread) {
 
 const argv = process.argv.slice(2), flag = (k, d) => { const i = argv.indexOf('--' + k); return i >= 0 ? +argv[i + 1] : d; };
 const MINUTES = flag('minutes', 12), NW = flag('workers', 4), SEED = flag('seed', 1);
-const CACHE = path.join(root, 'lab/arena/cache');
+const CACHE = path.join(root, 'docs/arena/cache');
 fs.mkdirSync(CACHE, { recursive: true });
 fs.writeFileSync(path.join(CACHE, '.gitignore'), '*\n');
 const R = A.rng(SEED * 977 + 1), t0 = Date.now(), log = (...a) => console.log(`[${((Date.now() - t0) / 1000).toFixed(0)}s]`, ...a);
@@ -181,8 +183,8 @@ const sig = m => m.spec.n + ':' + m.spec.edges.length + ':' + JSON.stringify(m.e
     round1TrainingCensus: r1, round2: { trainMaps: count('train'), holdoutMaps: count('holdout'), bySource: maps.reduce((o, m) => { o[m.source + ':' + m.split] = (o[m.source + ':' + m.split] || 0) + 1; return o; }, {}),
       allStates: totals, trainingRecords: kept, records: recs }, smallTriangulations: small,
     hardestMaps: maps.slice().sort((a, b) => b.ev.score - a.ev.score).slice(0, 12).map(m => ({ id: m.id, source: m.source, split: m.split, n: m.spec.n, hist: m.ev.hist, unreachable: m.ev.unreachable })) };
-  fs.mkdirSync(path.join(root, 'lab/arena/models'), { recursive: true });
-  fs.writeFileSync(path.join(root, 'lab/arena/models/pool-summary.json'), JSON.stringify(summary, null, 1) + '\n');
+  fs.mkdirSync(path.join(root, 'docs/arena/models'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'docs/arena/models/pool-summary.json'), JSON.stringify(summary, null, 1) + '\n');
   log('pool written:', count('train'), 'train maps,', count('holdout'), 'holdout maps,', recs, 'records');
   log('depth histogram, all states: train', JSON.stringify(totals.train), 'holdout', JSON.stringify(totals.holdout));
   log('round 1 training census:', JSON.stringify(r1));
