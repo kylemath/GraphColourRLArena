@@ -1,0 +1,228 @@
+{
+ "format": "mazearena-pool-summary-1",
+ "date": "2026-10-13T05:40:31.456Z",
+ "minutes": 30,
+ "workers": 10,
+ "mapsEvaluated": 36163,
+ "round1TrainingCensus": {
+  "1": 11468,
+  "2": 3028,
+  "3": 49,
+  "4": 5,
+  "5": 3,
+  "6": 1
+ },
+ "round2": {
+  "trainMaps": 478,
+  "holdoutMaps": 117,
+  "bySource": {
+   "census:train": 9,
+   "splice:train": 78,
+   "splice:holdout": 28,
+   "evolved:holdout": 89,
+   "evolved:train": 391
+  },
+  "allStates": {
+   "train": {
+    "1": 11985765,
+    "2": 4809986,
+    "3": 1013176,
+    "4": 284630,
+    "5": 676,
+    "6": 1
+   },
+   "holdout": {
+    "1": 2655329,
+    "2": 1055727,
+    "3": 214569,
+    "4": 62838,
+    "5": 119,
+    "6": 1
+   }
+  },
+  "trainingRecords": {
+   "train": {
+    "1": 654582,
+    "2": 654128,
+    "3": 1013176,
+    "4": 284630,
+    "5": 676,
+    "6": 1
+   },
+   "holdout": {
+    "1": 159581,
+    "2": 159581,
+    "3": 214569,
+    "4": 62838,
+    "5": 119,
+    "6": 1
+   }
+  },
+  "records": 3203882
+ },
+ "smallTriangulations": {
+  "graphs": 0,
+  "holes": 0,
+  "hist": {},
+  "maxD": 0,
+  "note": "not read: ENOENT: no such file or directory, open '/home/user/GraphColourDeductiveSolver/compute/data/triangulations_n4_11.json'"
+ },
+ "hardestMaps": [
+  {
+   "id": "evo-g491-3",
+   "source": "evolved",
+   "split": "holdout",
+   "n": 42,
+   "hist": {
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g494-6",
+   "source": "evolved",
+   "split": "train",
+   "n": 41,
+   "hist": {
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g513-46",
+   "source": "evolved",
+   "split": "train",
+   "n": 39,
+   "hist": {
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g519-1",
+   "source": "evolved",
+   "split": "train",
+   "n": 40,
+   "hist": {
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g542-5",
+   "source": "evolved",
+   "split": "train",
+   "n": 42,
+   "hist": {
+    "1": 46924,
+    "2": 18809,
+    "3": 4107,
+    "4": 1551
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g545-33",
+   "source": "evolved",
+   "split": "holdout",
+   "n": 41,
+   "hist": {
+    "1": 46924,
+    "2": 18809,
+    "3": 4107,
+    "4": 1551
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g570-15",
+   "source": "evolved",
+   "split": "train",
+   "n": 40,
+   "hist": {
+    "1": 46924,
+    "2": 18809,
+    "3": 4107,
+    "4": 1551
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g512-9",
+   "source": "evolved",
+   "split": "train",
+   "n": 42,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g517-44",
+   "source": "evolved",
+   "split": "train",
+   "n": 41,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g520-13",
+   "source": "evolved",
+   "split": "train",
+   "n": 40,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g583-23",
+   "source": "evolved",
+   "split": "train",
+   "n": 39,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g521-35",
+   "source": "evolved",
+   "split": "train",
+   "n": 42,
+   "hist": {
+    "1": 47214,
+    "2": 18935,
+    "3": 4273,
+    "4": 1343
+   },
+   "unreachable": 0
+  }
+ ]
+}

@@ -1,4 +1,4 @@
-// node tools/arena_hardgen.js [--minutes 12] [--workers 4] [--seed 1] : the Maze Arena's hard data pool.
+// node tools/arena_hardgen.js [--minutes 12] [--workers 4] [--seed 1] [--keep 160] : the Maze Arena's hard data pool.
 //
 // Writes lab/arena/cache/ (gitignored; regenerate any time) and a small summary lab/arena/models/pool-summary.json:
 //   1. every state of every census TRAINING map (the full state space by enumeration, which equals the census);
@@ -65,7 +65,7 @@ if (!isMainThread) {
 }
 
 const argv = process.argv.slice(2), flag = (k, d) => { const i = argv.indexOf('--' + k); return i >= 0 ? +argv[i + 1] : d; };
-const MINUTES = flag('minutes', 12), NW = flag('workers', 4), SEED = flag('seed', 1);
+const MINUTES = flag('minutes', 12), NW = flag('workers', 4), SEED = flag('seed', 1), KEEP = flag('keep', 160);
 const CACHE = path.join(root, 'lab/arena/cache');
 fs.mkdirSync(CACHE, { recursive: true });
 fs.writeFileSync(path.join(CACHE, '.gitignore'), '*\n');
@@ -140,7 +140,7 @@ const sig = m => m.spec.n + ':' + m.spec.edges.length + ':' + JSON.stringify(m.e
   workers.forEach(w => w.terminate());
   // keep the hardest distinct evolved maps
   archive.sort((a, b) => b.ev.score - a.ev.score);
-  const evolved = archive.slice(0, 160); evolved.forEach(m => maps.push(m));
+  const evolved = archive.slice(0, KEEP); evolved.forEach(m => maps.push(m));
   log('evolution:', gen, 'generations,', evals, 'maps evaluated in total,', archive.length, 'distinct maps with d >= 3, kept', evolved.length);
 
   // ---- split and write

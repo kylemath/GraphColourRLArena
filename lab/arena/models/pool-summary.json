@@ -1,9 +1,9 @@
 {
  "format": "mazearena-pool-summary-1",
- "date": "2026-10-12T00:55:43.909Z",
- "minutes": 12,
- "workers": 4,
- "mapsEvaluated": 3371,
+ "date": "2026-10-13T05:40:31.456Z",
+ "minutes": 30,
+ "workers": 10,
+ "mapsEvaluated": 36163,
  "round1TrainingCensus": {
   "1": 11468,
   "2": 3028,
@@ -13,222 +13,214 @@
   "6": 1
  },
  "round2": {
-  "trainMaps": 222,
-  "holdoutMaps": 53,
+  "trainMaps": 478,
+  "holdoutMaps": 117,
   "bySource": {
    "census:train": 9,
-   "splice:train": 84,
-   "splice:holdout": 22,
-   "evolved:train": 129,
-   "evolved:holdout": 31
+   "splice:train": 78,
+   "splice:holdout": 28,
+   "evolved:holdout": 89,
+   "evolved:train": 391
   },
   "allStates": {
    "train": {
-    "1": 3178156,
-    "2": 1390696,
-    "3": 130336,
-    "4": 502,
-    "5": 21,
-    "6": 7
+    "1": 11985765,
+    "2": 4809986,
+    "3": 1013176,
+    "4": 284630,
+    "5": 676,
+    "6": 1
    },
    "holdout": {
-    "1": 784776,
-    "2": 346203,
-    "3": 30941,
-    "4": 63,
-    "5": 6,
-    "6": 2
+    "1": 2655329,
+    "2": 1055727,
+    "3": 214569,
+    "4": 62838,
+    "5": 119,
+    "6": 1
    }
   },
   "trainingRecords": {
    "train": {
-    "1": 262028,
-    "2": 261562,
-    "3": 130336,
-    "4": 502,
-    "5": 21,
-    "6": 7
+    "1": 654582,
+    "2": 654128,
+    "3": 1013176,
+    "4": 284630,
+    "5": 676,
+    "6": 1
    },
    "holdout": {
-    "1": 63062,
-    "2": 63062,
-    "3": 30941,
-    "4": 63,
-    "5": 6,
-    "6": 2
+    "1": 159581,
+    "2": 159581,
+    "3": 214569,
+    "4": 62838,
+    "5": 119,
+    "6": 1
    }
   },
-  "records": 811592
+  "records": 3203882
  },
  "smallTriangulations": {
-  "graphs": 1555,
-  "holes": 1587,
-  "hist": {
-   "1": 6512,
-   "2": 1585
-  },
-  "maxD": 2,
-  "note": "max depth 2 over every (triangulation, degree-5 hole) with n <= 11: too shallow to seed hard cases"
+  "graphs": 0,
+  "holes": 0,
+  "hist": {},
+  "maxD": 0,
+  "note": "not read: ENOENT: no such file or directory, open '/home/user/GraphColourDeductiveSolver/compute/data/triangulations_n4_11.json'"
  },
  "hardestMaps": [
   {
-   "id": "evo-g88-9",
+   "id": "evo-g491-3",
    "source": "evolved",
-   "split": "train",
+   "split": "holdout",
    "n": 42,
    "hist": {
-    "1": 38217,
-    "2": 19898,
-    "3": 3563,
-    "4": 85
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
    },
    "unreachable": 0
   },
   {
-   "id": "evo-g104-14",
-   "source": "evolved",
-   "split": "train",
-   "n": 42,
-   "hist": {
-    "1": 37331,
-    "2": 15592,
-    "3": 2771,
-    "4": 150
-   },
-   "unreachable": 0
-  },
-  {
-   "id": "evo-g73-12",
+   "id": "evo-g494-6",
    "source": "evolved",
    "split": "train",
    "n": 41,
    "hist": {
-    "1": 40324,
-    "2": 21795,
-    "3": 3354
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
    },
    "unreachable": 0
   },
   {
-   "id": "evo-g75-16",
-   "source": "evolved",
-   "split": "train",
-   "n": 42,
-   "hist": {
-    "1": 40324,
-    "2": 21795,
-    "3": 3354
-   },
-   "unreachable": 0
-  },
-  {
-   "id": "evo-g93-4",
-   "source": "evolved",
-   "split": "train",
-   "n": 40,
-   "hist": {
-    "1": 40324,
-    "2": 21795,
-    "3": 3354
-   },
-   "unreachable": 0
-  },
-  {
-   "id": "evo-g101-16",
+   "id": "evo-g513-46",
    "source": "evolved",
    "split": "train",
    "n": 39,
    "hist": {
-    "1": 40324,
-    "2": 21795,
-    "3": 3354
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
    },
    "unreachable": 0
   },
   {
-   "id": "evo-g114-7",
+   "id": "evo-g519-1",
+   "source": "evolved",
+   "split": "train",
+   "n": 40,
+   "hist": {
+    "1": 46924,
+    "2": 18810,
+    "3": 4105,
+    "4": 1552
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g542-5",
    "source": "evolved",
    "split": "train",
    "n": 42,
    "hist": {
-    "1": 40723,
-    "2": 21720,
-    "3": 3303
+    "1": 46924,
+    "2": 18809,
+    "3": 4107,
+    "4": 1551
    },
    "unreachable": 0
   },
   {
-   "id": "r178",
-   "source": "census",
-   "split": "train",
-   "n": 34,
-   "hist": {
-    "1": 3091,
-    "2": 918,
-    "3": 9,
-    "4": 5,
-    "5": 3,
-    "6": 1
-   },
-   "unreachable": 0
-  },
-  {
-   "id": "splice-r178-145",
-   "source": "splice",
-   "split": "train",
-   "n": 35,
-   "hist": {
-    "1": 3091,
-    "2": 918,
-    "3": 9,
-    "4": 5,
-    "5": 3,
-    "6": 1
-   },
-   "unreachable": 0
-  },
-  {
-   "id": "evo-g4-1",
-   "source": "evolved",
-   "split": "train",
-   "n": 37,
-   "hist": {
-    "1": 3091,
-    "2": 918,
-    "3": 9,
-    "4": 5,
-    "5": 3,
-    "6": 1
-   },
-   "unreachable": 0
-  },
-  {
-   "id": "evo-g6-3",
+   "id": "evo-g545-33",
    "source": "evolved",
    "split": "holdout",
-   "n": 38,
+   "n": 41,
    "hist": {
-    "1": 3091,
-    "2": 918,
-    "3": 9,
-    "4": 5,
-    "5": 3,
-    "6": 1
+    "1": 46924,
+    "2": 18809,
+    "3": 4107,
+    "4": 1551
    },
    "unreachable": 0
   },
   {
-   "id": "evo-g9-7",
+   "id": "evo-g570-15",
    "source": "evolved",
-   "split": "holdout",
+   "split": "train",
    "n": 40,
    "hist": {
-    "1": 3091,
-    "2": 918,
-    "3": 9,
-    "4": 5,
-    "5": 3,
-    "6": 1
+    "1": 46924,
+    "2": 18809,
+    "3": 4107,
+    "4": 1551
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g512-9",
+   "source": "evolved",
+   "split": "train",
+   "n": 42,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g517-44",
+   "source": "evolved",
+   "split": "train",
+   "n": 41,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g520-13",
+   "source": "evolved",
+   "split": "train",
+   "n": 40,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g583-23",
+   "source": "evolved",
+   "split": "train",
+   "n": 39,
+   "hist": {
+    "1": 41688,
+    "2": 16668,
+    "3": 3576,
+    "4": 1320
+   },
+   "unreachable": 0
+  },
+  {
+   "id": "evo-g521-35",
+   "source": "evolved",
+   "split": "train",
+   "n": 42,
+   "hist": {
+    "1": 47214,
+    "2": 18935,
+    "3": 4273,
+    "4": 1343
    },
    "unreachable": 0
   }

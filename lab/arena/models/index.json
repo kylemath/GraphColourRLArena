@@ -874,6 +874,489 @@
      "n4": 8
     }
    }
+  },
+  {
+   "file": "studio-rec-h32-t16.json",
+   "name": "studio-rec-h32-t16",
+   "date": "2026-10-13T08:43:05.918Z",
+   "paramCount": 11781,
+   "arch": {
+    "kind": "rec",
+    "H": 32,
+    "T": 16,
+    "chainFeats": false
+   },
+   "track": "tabula rasa",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.8395,
+    "agree3": 0.7551,
+    "agree4": 0.8889,
+    "agreeAll": 0.8877,
+    "success": 0.9341,
+    "stepsRatio": 1.0096,
+    "levelSuccess": 0.5714,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.8365,
+    "agree3": 0.8448,
+    "agree4": 0.4444,
+    "agreeAll": 0.9285,
+    "success": 0.9692,
+    "stepsRatio": 1.0516,
+    "levelSuccess": 0.9365,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.931,
+    "agree3": 0.907,
+    "agree4": 0.9189,
+    "agreeAll": 0.931,
+    "success": 1,
+    "stepsRatio": 1.0181,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 344,
+    "n4": 74
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0,
+    "within3": 0,
+    "n": 4,
+    "detail": {
+     "deepest-pit": null,
+     "depth-5": null,
+     "six-ring-trap": null,
+     "second-pit": null
+    }
+   },
+   "policyHead": {
+    "test": {
+     "agree2": 0.7592,
+     "agree3": 0.8367,
+     "agree4": 0.4444,
+     "agreeAll": 0.7729,
+     "success": 0.7692,
+     "stepsRatio": 1.1775,
+     "levelSuccess": 0.1429,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.9093,
+     "agree3": 0.9215,
+     "agree4": 1,
+     "agreeAll": 0.9093,
+     "success": 0.8667,
+     "stepsRatio": 1.0597,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    },
+    "deepStarts": {
+     "ids": [
+      "six-ring-trap",
+      "second-pit",
+      "deepest-pit",
+      "depth-5"
+     ],
+     "within1": 0,
+     "within3": 0,
+     "n": 4,
+     "detail": {
+      "deepest-pit": null,
+      "depth-5": null,
+      "six-ring-trap": null,
+      "second-pit": null
+     }
+    }
+   },
+   "atT2": {
+    "T": 32,
+    "test": {
+     "agree2": 0.8351,
+     "agree3": 0.8163,
+     "agree4": 0.8889,
+     "agreeAll": 0.8887,
+     "success": 0.9341,
+     "stepsRatio": 1.0147,
+     "levelSuccess": 0.7143,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.9143,
+     "agree3": 0.8837,
+     "agree4": 0.8108,
+     "agreeAll": 0.9143,
+     "success": 1,
+     "stepsRatio": 1.0097,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    },
+    "policyTest": {
+     "agree2": 0.7498,
+     "agree3": 0.8776,
+     "agree4": 0.4444,
+     "agreeAll": 0.7588,
+     "success": 0.7473,
+     "stepsRatio": 1.1631,
+     "levelSuccess": 0.1429,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "policyHard": {
+     "agree2": 0.901,
+     "agree3": 0.907,
+     "agree4": 0.9595,
+     "agreeAll": 0.901,
+     "success": 0.85,
+     "stepsRatio": 1.0597,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    }
+   }
+  },
+  {
+   "file": "studio-rec-h32-t32.json",
+   "name": "studio-rec-h32-t32",
+   "date": "2026-10-13T08:43:05.972Z",
+   "paramCount": 11781,
+   "arch": {
+    "kind": "rec",
+    "H": 32,
+    "T": 32,
+    "chainFeats": false
+   },
+   "track": "tabula rasa",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.727,
+    "agree3": 0.8163,
+    "agree4": 0.6667,
+    "agreeAll": 0.8077,
+    "success": 0.8901,
+    "stepsRatio": 1.0427,
+    "levelSuccess": 0.4286,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.7181,
+    "agree3": 0.7586,
+    "agree4": 0.7778,
+    "agreeAll": 0.8785,
+    "success": 0.9436,
+    "stepsRatio": 1.0369,
+    "levelSuccess": 0.9524,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.906,
+    "agree3": 0.9186,
+    "agree4": 0.973,
+    "agreeAll": 0.906,
+    "success": 1,
+    "stepsRatio": 1.0236,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 344,
+    "n4": 74
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.25,
+    "within3": 0.5,
+    "n": 4,
+    "detail": {
+     "deepest-pit": 6,
+     "depth-5": 7,
+     "six-ring-trap": null,
+     "second-pit": null
+    }
+   },
+   "policyHead": {
+    "test": {
+     "agree2": 0.709,
+     "agree3": 0.8163,
+     "agree4": 0.6667,
+     "agreeAll": 0.7055,
+     "success": 0.6484,
+     "stepsRatio": 1.1875,
+     "levelSuccess": 0.2857,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.9119,
+     "agree3": 0.9157,
+     "agree4": 0.9595,
+     "agreeAll": 0.9119,
+     "success": 0.7667,
+     "stepsRatio": 1.1676,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    },
+    "deepStarts": {
+     "ids": [
+      "six-ring-trap",
+      "second-pit",
+      "deepest-pit",
+      "depth-5"
+     ],
+     "within1": 0,
+     "within3": 0.25,
+     "n": 4,
+     "detail": {
+      "deepest-pit": 8,
+      "depth-5": null,
+      "six-ring-trap": null,
+      "second-pit": null
+     }
+    }
+   },
+   "atT2": {
+    "T": 64,
+    "test": {
+     "agree2": 0.6973,
+     "agree3": 0.7959,
+     "agree4": 0.6667,
+     "agreeAll": 0.7897,
+     "success": 0.9231,
+     "stepsRatio": 1.0772,
+     "levelSuccess": 0.2857,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.906,
+     "agree3": 0.9186,
+     "agree4": 0.973,
+     "agreeAll": 0.906,
+     "success": 1,
+     "stepsRatio": 1.0111,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    },
+    "policyTest": {
+     "agree2": 0.72,
+     "agree3": 0.8367,
+     "agree4": 0.7778,
+     "agreeAll": 0.7131,
+     "success": 0.6593,
+     "stepsRatio": 1.1981,
+     "levelSuccess": 0.2857,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "policyHard": {
+     "agree2": 0.9079,
+     "agree3": 0.9099,
+     "agree4": 0.9595,
+     "agreeAll": 0.9079,
+     "success": 0.75,
+     "stepsRatio": 1.1639,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    }
+   }
+  },
+  {
+   "file": "studio-rec-h64-t24.json",
+   "name": "studio-rec-h64-t24",
+   "date": "2026-10-13T08:43:06.104Z",
+   "paramCount": 46085,
+   "arch": {
+    "kind": "rec",
+    "H": 64,
+    "T": 24,
+    "chainFeats": false
+   },
+   "track": "tabula rasa",
+   "pretrain": false,
+   "test": {
+    "agree2": 0.7539,
+    "agree3": 0.8163,
+    "agree4": 0.7778,
+    "agreeAll": 0.8221,
+    "success": 0.9451,
+    "stepsRatio": 1.071,
+    "levelSuccess": 0.7143,
+    "maps": 7,
+    "n3": 49,
+    "n4": 9
+   },
+   "train": {
+    "agree2": 0.744,
+    "agree3": 0.6897,
+    "agree4": 0.4444,
+    "agreeAll": 0.8892,
+    "success": 0.9595,
+    "stepsRatio": 1.0237,
+    "levelSuccess": 0.7143,
+    "maps": 9,
+    "n3": 58,
+    "n4": 9
+   },
+   "hardpool": {
+    "agree2": 0.9052,
+    "agree3": 0.936,
+    "agree4": 1,
+    "agreeAll": 0.9052,
+    "success": 1,
+    "stepsRatio": 1.0153,
+    "levelSuccess": null,
+    "maps": 30,
+    "n3": 344,
+    "n4": 74
+   },
+   "deepStarts": {
+    "ids": [
+     "six-ring-trap",
+     "second-pit",
+     "deepest-pit",
+     "depth-5"
+    ],
+    "within1": 0.25,
+    "within3": 0.25,
+    "n": 4,
+    "detail": {
+     "deepest-pit": null,
+     "depth-5": null,
+     "six-ring-trap": null,
+     "second-pit": 5
+    }
+   },
+   "policyHead": {
+    "test": {
+     "agree2": 0.7725,
+     "agree3": 0.8367,
+     "agree4": 0.6667,
+     "agreeAll": 0.7407,
+     "success": 0.6923,
+     "stepsRatio": 1.2784,
+     "levelSuccess": 0.2857,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.8905,
+     "agree3": 0.9128,
+     "agree4": 0.9324,
+     "agreeAll": 0.8905,
+     "success": 0.8333,
+     "stepsRatio": 1.2042,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    },
+    "deepStarts": {
+     "ids": [
+      "six-ring-trap",
+      "second-pit",
+      "deepest-pit",
+      "depth-5"
+     ],
+     "within1": 0,
+     "within3": 0,
+     "n": 4,
+     "detail": {
+      "deepest-pit": null,
+      "depth-5": null,
+      "six-ring-trap": null,
+      "second-pit": null
+     }
+    }
+   },
+   "atT2": {
+    "T": 48,
+    "test": {
+     "agree2": 0.7146,
+     "agree3": 0.8163,
+     "agree4": 0.5556,
+     "agreeAll": 0.8,
+     "success": 0.9121,
+     "stepsRatio": 1.0616,
+     "levelSuccess": 0.4286,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "hardpool": {
+     "agree2": 0.9126,
+     "agree3": 0.9331,
+     "agree4": 1,
+     "agreeAll": 0.9126,
+     "success": 1,
+     "stepsRatio": 1.0111,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    },
+    "policyTest": {
+     "agree2": 0.71,
+     "agree3": 0.8367,
+     "agree4": 0.6667,
+     "agreeAll": 0.6856,
+     "success": 0.6374,
+     "stepsRatio": 1.2543,
+     "levelSuccess": 0.1429,
+     "maps": 7,
+     "n3": 49,
+     "n4": 9
+    },
+    "policyHard": {
+     "agree2": 0.8862,
+     "agree3": 0.9099,
+     "agree4": 0.9189,
+     "agreeAll": 0.8862,
+     "success": 0.8333,
+     "stepsRatio": 1.1597,
+     "levelSuccess": null,
+     "maps": 30,
+     "n3": 344,
+     "n4": 74
+    }
+   }
   }
  ],
  "baselines": {
