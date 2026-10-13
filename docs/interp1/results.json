@@ -1,0 +1,10060 @@
+{
+ "behaviour": {
+  "colours-only-pretrained": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.244,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.9366,
+    "valErr": 0.4151,
+    "fail": 0.0076,
+    "gap": 0.0629,
+    "gapMax": 3
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.9184,
+    "valErr": 0.7551,
+    "fail": 0.0612,
+    "gap": 0.1087,
+    "gapMax": 1
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.8889,
+    "valErr": 0.7778,
+    "fail": 0.0,
+    "gap": 0.2222,
+    "gapMax": 1
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.287,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.9514,
+    "valErr": 0.4646,
+    "fail": 0.0013,
+    "gap": 0.0539,
+    "gapMax": 3
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.875,
+    "valErr": 0.5,
+    "fail": 0.125,
+    "gap": 0.0857,
+    "gapMax": 1
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.5556,
+    "valErr": 1.0,
+    "fail": 0.8889,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.269,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.9373,
+    "valErr": 0.4791,
+    "fail": 0.0069,
+    "gap": 0.0641,
+    "gapMax": 3
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.8995,
+    "valErr": 0.6895,
+    "fail": 0.0776,
+    "gap": 0.1683,
+    "gapMax": 3
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.5,
+    "valErr": 0.8889,
+    "fail": 0.6667,
+    "gap": 0.3333,
+    "gapMax": 1
+   }
+  },
+  "colours-only-rl": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.2108,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.9217,
+    "valErr": 0.2559,
+    "fail": 0.0056,
+    "gap": 0.0784,
+    "gapMax": 3
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.898,
+    "valErr": 0.7755,
+    "fail": 0.0816,
+    "gap": 0.1333,
+    "gapMax": 1
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 0.8889,
+    "fail": 0.0,
+    "gap": 0.7778,
+    "gapMax": 2
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.3106,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.9319,
+    "valErr": 0.2739,
+    "fail": 0.0026,
+    "gap": 0.0742,
+    "gapMax": 3
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.825,
+    "valErr": 0.775,
+    "fail": 0.15,
+    "gap": 0.1765,
+    "gapMax": 4
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.5556,
+    "valErr": 1.0,
+    "fail": 0.7778,
+    "gap": 1.5,
+    "gapMax": 2
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.3273,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.9039,
+    "valErr": 0.2912,
+    "fail": 0.0091,
+    "gap": 0.1084,
+    "gapMax": 5
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.9132,
+    "valErr": 0.8128,
+    "fail": 0.0411,
+    "gap": 0.281,
+    "gapMax": 4
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.5,
+    "valErr": 0.8889,
+    "fail": 0.5556,
+    "gap": 1.0,
+    "gapMax": 2
+   }
+  },
+  "mid-pretrained": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 1.0,
+    "valErr": 0.0258,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 1.0,
+    "valErr": 0.6735,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.8889,
+    "valErr": 0.3333,
+    "fail": 0.0,
+    "gap": 0.2222,
+    "gapMax": 1
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 1.0,
+    "valErr": 0.0352,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.95,
+    "valErr": 0.975,
+    "fail": 0.025,
+    "gap": 0.0256,
+    "gapMax": 1
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.5556,
+    "valErr": 0.5556,
+    "fail": 0.5556,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 1.0,
+    "valErr": 0.0525,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.9635,
+    "valErr": 0.7808,
+    "fail": 0.0228,
+    "gap": 0.014,
+    "gapMax": 1
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.5,
+    "valErr": 0.6667,
+    "fail": 0.6667,
+    "gap": 0.1667,
+    "gapMax": 1
+   }
+  },
+  "mid-rl": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 1.0,
+    "valErr": 0.0386,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 1.0,
+    "valErr": 0.6735,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.8889,
+    "valErr": 0.2222,
+    "fail": 0.0,
+    "gap": 0.2222,
+    "gapMax": 1
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 1.0,
+    "valErr": 0.0571,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.975,
+    "valErr": 0.8,
+    "fail": 0.025,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 0.8889,
+    "fail": 0.5556,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 1.0,
+    "valErr": 0.0704,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.9315,
+    "valErr": 0.7169,
+    "fail": 0.0183,
+    "gap": 0.0558,
+    "gapMax": 2
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.5556,
+    "valErr": 0.7778,
+    "fail": 0.5556,
+    "gap": 0.25,
+    "gapMax": 1
+   }
+  },
+  "mid-zero-shot": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.8163,
+    "valErr": 1.0,
+    "fail": 0.0612,
+    "gap": 0.1739,
+    "gapMax": 2
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.55,
+    "valErr": 1.0,
+    "fail": 0.35,
+    "gap": 0.2308,
+    "gapMax": 2
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 0.0,
+    "gap": 0.3333,
+    "gapMax": 2
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.6621,
+    "valErr": 1.0,
+    "fail": 0.21,
+    "gap": 0.1908,
+    "gapMax": 2
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.7222,
+    "valErr": 1.0,
+    "fail": 0.5,
+    "gap": 0.3333,
+    "gapMax": 2
+   }
+  },
+  "nano-rl": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 1.0,
+    "valErr": 0.0618,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.9796,
+    "valErr": 0.7755,
+    "fail": 0.0,
+    "gap": 0.0204,
+    "gapMax": 1
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.8889,
+    "valErr": 0.5556,
+    "fail": 0.0,
+    "gap": 0.2222,
+    "gapMax": 1
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 1.0,
+    "valErr": 0.0717,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.95,
+    "valErr": 0.8,
+    "fail": 0.025,
+    "gap": 0.0256,
+    "gapMax": 1
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 0.6667,
+    "fail": 0.3333,
+    "gap": 0.1667,
+    "gapMax": 1
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 1.0,
+    "valErr": 0.0987,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.9087,
+    "valErr": 0.7306,
+    "fail": 0.0365,
+    "gap": 0.0664,
+    "gapMax": 2
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.6667,
+    "valErr": 0.6667,
+    "fail": 0.4444,
+    "gap": 0.3,
+    "gapMax": 1
+   }
+  },
+  "priors-gnn-h16-k3-pool": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 1.0,
+    "valErr": 0.0314,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.9796,
+    "valErr": 0.3061,
+    "fail": 0.0,
+    "gap": 0.0204,
+    "gapMax": 1
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 1.0,
+    "valErr": 0.0313,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.95,
+    "valErr": 0.4,
+    "fail": 0.025,
+    "gap": 0.0256,
+    "gapMax": 1
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 0.8889,
+    "fail": 0.4444,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 1.0,
+    "valErr": 0.0408,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.9589,
+    "valErr": 0.5571,
+    "fail": 0.0228,
+    "gap": 0.0374,
+    "gapMax": 4
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.6667,
+    "valErr": 0.8333,
+    "fail": 0.2778,
+    "gap": 0.3077,
+    "gapMax": 2
+   }
+  },
+  "random-colours-only-pretrained": {
+   "train:1": {
+    "n": 11468,
+    "agree": 0.0015,
+    "valErr": 1.0,
+    "fail": 0.9985,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.6433,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.6735,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.4444,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 0.0023,
+    "valErr": 1.0,
+    "fail": 0.9977,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.6273,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.8,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 0.0026,
+    "valErr": 1.0,
+    "fail": 0.9974,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.6107,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.7352,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   }
+  },
+  "random-mid-rl": {
+   "train:1": {
+    "n": 11468,
+    "agree": 0.0015,
+    "valErr": 1.0,
+    "fail": 0.9985,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.8118,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.898,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 0.0023,
+    "valErr": 1.0,
+    "fail": 0.9977,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.8243,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.825,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 0.0026,
+    "valErr": 1.0,
+    "fail": 0.9974,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.8224,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.8539,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   }
+  },
+  "random-nano-rl": {
+   "train:1": {
+    "n": 11468,
+    "agree": 0.0015,
+    "valErr": 1.0,
+    "fail": 0.9985,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.8874,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.8571,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 0.0023,
+    "valErr": 1.0,
+    "fail": 0.9977,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.9015,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.925,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 0.0026,
+    "valErr": 1.0,
+    "fail": 0.9974,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.8993,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.7717,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   }
+  },
+  "random-priors-gnn-h16-k3-pool": {
+   "train:1": {
+    "n": 11468,
+    "agree": 0.0015,
+    "valErr": 1.0,
+    "fail": 0.9985,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.8118,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.898,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 0.0023,
+    "valErr": 1.0,
+    "fail": 0.9977,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.8243,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.825,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 0.0026,
+    "valErr": 1.0,
+    "fail": 0.9974,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.8224,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.8539,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   }
+  },
+  "random-tr-rec-h32-t16": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 1.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.6202,
+    "valErr": 1.0,
+    "fail": 0.1308,
+    "gap": 0.4255,
+    "gapMax": 5
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.8571,
+    "valErr": 1.0,
+    "fail": 0.5714,
+    "gap": 1.0,
+    "gapMax": 4
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 1.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.6332,
+    "valErr": 1.0,
+    "fail": 0.0975,
+    "gap": 0.5267,
+    "gapMax": 8
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.85,
+    "valErr": 1.0,
+    "fail": 0.375,
+    "gap": 0.56,
+    "gapMax": 3
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 0.7778,
+    "gap": 1.0,
+    "gapMax": 1
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 1.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.6233,
+    "valErr": 1.0,
+    "fail": 0.1322,
+    "gap": 0.4523,
+    "gapMax": 9
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.8995,
+    "valErr": 1.0,
+    "fail": 0.274,
+    "gap": 0.4969,
+    "gapMax": 3
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.6111,
+    "valErr": 1.0,
+    "fail": 0.7778,
+    "gap": 0.0,
+    "gapMax": 0
+   }
+  },
+  "tiny-rl": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 1.0,
+    "valErr": 0.0198,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.9592,
+    "valErr": 0.7143,
+    "fail": 0.0,
+    "gap": 0.0408,
+    "gapMax": 1
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 1.0,
+    "valErr": 0.1111,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.0002,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 1.0,
+    "valErr": 0.0192,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.9,
+    "valErr": 0.825,
+    "fail": 0.075,
+    "gap": 0.027,
+    "gapMax": 1
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.5556,
+    "valErr": 1.0,
+    "fail": 0.4444,
+    "gap": 0.2,
+    "gapMax": 1
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 1.0,
+    "valErr": 0.0285,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.9452,
+    "valErr": 0.8447,
+    "fail": 0.0365,
+    "gap": 0.0237,
+    "gapMax": 2
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.3889,
+    "valErr": 1.0,
+    "fail": 0.5,
+    "gap": 0.3333,
+    "gapMax": 1
+   }
+  },
+  "tr-rec-h16-t24": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 1.0,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.6351,
+    "valErr": 0.0033,
+    "fail": 0.1255,
+    "gap": 0.4233,
+    "gapMax": 8
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.898,
+    "valErr": 1.0,
+    "fail": 0.3469,
+    "gap": 0.4375,
+    "gapMax": 3
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.8889,
+    "valErr": 1.0,
+    "fail": 1.0,
+    "gap": null,
+    "gapMax": null
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.5475,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.7255,
+    "valErr": 0.3264,
+    "fail": 0.0535,
+    "gap": 0.3793,
+    "gapMax": 7
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.825,
+    "valErr": 1.0,
+    "fail": 0.425,
+    "gap": 0.6957,
+    "gapMax": 3
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.7778,
+    "valErr": 1.0,
+    "fail": 0.6667,
+    "gap": 0.6667,
+    "gapMax": 1
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.9513,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.615,
+    "valErr": 0.1309,
+    "fail": 0.1171,
+    "gap": 0.4726,
+    "gapMax": 8
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.8447,
+    "valErr": 0.8676,
+    "fail": 0.4703,
+    "gap": 0.3879,
+    "gapMax": 3
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.6111,
+    "valErr": 1.0,
+    "fail": 0.6667,
+    "gap": 0.1667,
+    "gapMax": 1
+   }
+  },
+  "tr-rec-h32-t16": {
+   "train:1": {
+    "n": 11468,
+    "agree": 1.0,
+    "valErr": 0.9743,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.5925,
+    "valErr": 0.0112,
+    "fail": 0.1384,
+    "gap": 0.4787,
+    "gapMax": 5
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.898,
+    "valErr": 1.0,
+    "fail": 0.1429,
+    "gap": 0.619,
+    "gapMax": 3
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.4444,
+    "valErr": 1.0,
+    "fail": 0.5556,
+    "gap": 0.25,
+    "gapMax": 1
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 1.0,
+    "valErr": 0.9616,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.6844,
+    "valErr": 0.0231,
+    "fail": 0.0681,
+    "gap": 0.3723,
+    "gapMax": 4
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.6,
+    "valErr": 1.0,
+    "fail": 0.4,
+    "gap": 0.75,
+    "gapMax": 3
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": 1.0,
+    "fail": 0.7778,
+    "gap": 1.0,
+    "gapMax": 2
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 1.0,
+    "valErr": 0.9614,
+    "fail": 0.0,
+    "gap": 0.0,
+    "gapMax": 0
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.6332,
+    "valErr": 0.022,
+    "fail": 0.1078,
+    "gap": 0.4441,
+    "gapMax": 8
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.8858,
+    "valErr": 1.0,
+    "fail": 0.347,
+    "gap": 0.6783,
+    "gapMax": 5
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.5,
+    "valErr": 1.0,
+    "fail": 0.7222,
+    "gap": 0.8,
+    "gapMax": 2
+   }
+  },
+  "pi-agent": {
+   "train:1": {
+    "n": 11468,
+    "agree": 0.7271,
+    "valErr": null,
+    "fail": 0.0,
+    "gap": 0.5351,
+    "gapMax": 22
+   },
+   "train:2": {
+    "n": 3028,
+    "agree": 0.7368,
+    "valErr": null,
+    "fail": 0.0208,
+    "gap": 0.4863,
+    "gapMax": 20
+   },
+   "train:3": {
+    "n": 49,
+    "agree": 0.8571,
+    "valErr": null,
+    "fail": 0.3469,
+    "gap": 2.5938,
+    "gapMax": 15
+   },
+   "train:4": {
+    "n": 9,
+    "agree": 0.5556,
+    "valErr": null,
+    "fail": 0.0,
+    "gap": 5.1111,
+    "gapMax": 13
+   },
+   "test:1": {
+    "n": 12706,
+    "agree": 0.7006,
+    "valErr": null,
+    "fail": 0.0,
+    "gap": 0.5383,
+    "gapMax": 14
+   },
+   "test:2": {
+    "n": 3067,
+    "agree": 0.7105,
+    "valErr": null,
+    "fail": 0.0209,
+    "gap": 0.4822,
+    "gapMax": 12
+   },
+   "test:3": {
+    "n": 40,
+    "agree": 0.875,
+    "valErr": null,
+    "fail": 0.4,
+    "gap": 2.375,
+    "gapMax": 7
+   },
+   "test:4": {
+    "n": 9,
+    "agree": 0.6667,
+    "valErr": null,
+    "fail": 0.0,
+    "gap": 2.2222,
+    "gapMax": 4
+   },
+   "splice:1": {
+    "n": 2279,
+    "agree": 0.7056,
+    "valErr": null,
+    "fail": 0.0,
+    "gap": 0.5792,
+    "gapMax": 16
+   },
+   "splice:2": {
+    "n": 5371,
+    "agree": 0.7209,
+    "valErr": null,
+    "fail": 0.0009,
+    "gap": 0.4946,
+    "gapMax": 20
+   },
+   "splice:3": {
+    "n": 219,
+    "agree": 0.9269,
+    "valErr": null,
+    "fail": 0.0274,
+    "gap": 1.6244,
+    "gapMax": 12
+   },
+   "splice:4": {
+    "n": 18,
+    "agree": 0.5556,
+    "valErr": null,
+    "fail": 0.0,
+    "gap": 2.8889,
+    "gapMax": 10
+   }
+  }
+ },
+ "gapHist": {
+  "priors-gnn-h16-k3-pool": {
+   "1": {
+    "0": 14985
+   },
+   "2": {
+    "0": 8438
+   },
+   "3": {
+    "0": 248,
+    "1": 3,
+    "-1": 6,
+    "4": 1,
+    "2": 1
+   },
+   "4": {
+    "0": 14,
+    "-1": 7,
+    "2": 1,
+    "1": 2
+   },
+   "5": {
+    "-1": 2,
+    "0": 1
+   }
+  },
+  "nano-rl": {
+   "1": {
+    "0": 14985
+   },
+   "2": {
+    "0": 8438
+   },
+   "3": {
+    "0": 237,
+    "-1": 9,
+    "1": 11,
+    "2": 2
+   },
+   "4": {
+    "0": 12,
+    "-1": 8,
+    "1": 4
+   },
+   "5": {
+    "-1": 3
+   }
+  },
+  "colours-only-pretrained": {
+   "1": {
+    "0": 14985
+   },
+   "2": {
+    "0": 7952,
+    "1": 387,
+    "2": 54,
+    "3": 4,
+    "-1": 41
+   },
+   "3": {
+    "0": 203,
+    "1": 32,
+    "-1": 22,
+    "2": 1,
+    "3": 1
+   },
+   "4": {
+    "0": 5,
+    "-1": 17,
+    "1": 2
+   },
+   "5": {
+    "-1": 3
+   }
+  },
+  "tr-rec-h32-t16": {
+   "1": {
+    "0": 14985
+   },
+   "2": {
+    "0": 5500,
+    "2": 501,
+    "1": 1430,
+    "3": 149,
+    "-1": 788,
+    "4": 48,
+    "5": 15,
+    "6": 4,
+    "7": 2,
+    "8": 1
+   },
+   "3": {
+    "3": 5,
+    "2": 15,
+    "1": 43,
+    "0": 98,
+    "-1": 92,
+    "4": 3,
+    "5": 3
+   },
+   "4": {
+    "-1": 17,
+    "0": 3,
+    "2": 2,
+    "1": 2
+   },
+   "5": {
+    "-1": 3
+   }
+  },
+  "pi-agent": {
+   "1": {
+    "2": 1945,
+    "0": 10510,
+    "1": 1885,
+    "3": 430,
+    "4": 104,
+    "5": 59,
+    "6": 31,
+    "7": 10,
+    "14": 1,
+    "13": 1,
+    "12": 4,
+    "8": 2,
+    "10": 1,
+    "11": 1,
+    "16": 1
+   },
+   "2": {
+    "0": 6051,
+    "-1": 69,
+    "1": 1419,
+    "3": 235,
+    "4": 85,
+    "2": 490,
+    "5": 28,
+    "11": 4,
+    "10": 4,
+    "9": 13,
+    "8": 13,
+    "12": 2,
+    "7": 8,
+    "6": 14,
+    "14": 1,
+    "20": 1,
+    "15": 1
+   },
+   "3": {
+    "-1": 22,
+    "0": 99,
+    "2": 25,
+    "7": 5,
+    "6": 18,
+    "1": 56,
+    "5": 9,
+    "3": 14,
+    "4": 7,
+    "12": 1,
+    "9": 1,
+    "8": 1,
+    "10": 1
+   },
+   "4": {
+    "0": 4,
+    "1": 5,
+    "3": 7,
+    "4": 6,
+    "10": 1,
+    "9": 1
+   },
+   "5": {
+    "1": 3
+   }
+  }
+ },
+ "featByDepth": {
+  "1": {
+   "n": 26453,
+   "DL": 0.0
+  },
+  "2": {
+   "n": 11466,
+   "DL": 1.0,
+   "piAllDL": 0.0115,
+   "DD": 0.2777,
+   "sigDL": 0.6717,
+   "sigLockless": 0.1306,
+   "piMoveOpt": 0.7223,
+   "dlRun": 1.0,
+   "lenL1": 15.0,
+   "lenL2": 16.0,
+   "lenSigma": 14.0,
+   "lenAB": 13.0,
+   "classN": 7481.0,
+   "nMoves": 10.0,
+   "nOpt": 6.0,
+   "piToFill_eq_d": 0.7223,
+   "piNoFill": 0.0115,
+   "thick1": 1.0,
+   "thick2": 1.0,
+   "thetaShared": 7.0,
+   "rerouteCuts": 3.0,
+   "ell": {
+    "2": 11466
+   }
+  },
+  "3": {
+   "n": 308,
+   "DL": 1.0,
+   "piAllDL": 0.1266,
+   "DD": 1.0,
+   "sigDL": 1.0,
+   "sigLockless": 0.0,
+   "piMoveOpt": 0.9091,
+   "dlRun": 6.0,
+   "lenL1": 16.0,
+   "lenL2": 16.0,
+   "lenSigma": 15.0,
+   "lenAB": 14.0,
+   "classN": 8222.0,
+   "nMoves": 7.0,
+   "nOpt": 6.0,
+   "piToFill_eq_d": 0.3474,
+   "piNoFill": 0.1266,
+   "thick1": 1.0,
+   "thick2": 1.0,
+   "thetaShared": 8.0,
+   "rerouteCuts": 4.0,
+   "ell": {
+    "3": 268,
+    "None": 40
+   }
+  },
+  "4": {
+   "n": 29,
+   "DL": 1.0,
+   "piAllDL": 0.0,
+   "DD": 1.0,
+   "sigDL": 1.0,
+   "sigLockless": 0.0,
+   "piMoveOpt": 0.5172,
+   "dlRun": 11.0,
+   "lenL1": 16.0,
+   "lenL2": 16.0,
+   "lenSigma": 14.0,
+   "lenAB": 17.0,
+   "classN": 10634.0,
+   "nMoves": 6.0,
+   "nOpt": 2.0,
+   "piToFill_eq_d": 0.1724,
+   "piNoFill": 0.0,
+   "thick1": 1.0,
+   "thick2": 1.0,
+   "thetaShared": 8.0,
+   "rerouteCuts": 3.0,
+   "ell": {
+    "3": 11,
+    "4": 15,
+    "None": 3
+   }
+  },
+  "5": {
+   "n": 6,
+   "DL": 1.0,
+   "piAllDL": 0.0,
+   "DD": 1.0,
+   "sigDL": 1.0,
+   "sigLockless": 0.0,
+   "piMoveOpt": 0.8333,
+   "dlRun": 16.0,
+   "lenL1": 16.0,
+   "lenL2": 16.5,
+   "lenSigma": 17.0,
+   "lenAB": 16.5,
+   "classN": 9057.5,
+   "nMoves": 4.0,
+   "nOpt": 4.0,
+   "piToFill_eq_d": 0.1667,
+   "piNoFill": 0.0,
+   "thick1": 1.0,
+   "thick2": 1.0,
+   "thetaShared": 8.0,
+   "rerouteCuts": 2.0,
+   "ell": {
+    "3": 5,
+    "None": 1
+   }
+  },
+  "6": {
+   "n": 1,
+   "DL": 1.0,
+   "piAllDL": 0.0,
+   "DD": 1.0,
+   "sigDL": 1.0,
+   "sigLockless": 0.0,
+   "piMoveOpt": 1.0,
+   "dlRun": 21.0,
+   "lenL1": 16.0,
+   "lenL2": 17.0,
+   "lenSigma": 14.0,
+   "lenAB": 17.0,
+   "classN": 7481.0,
+   "nMoves": 6.0,
+   "nOpt": 6.0,
+   "piToFill_eq_d": 1.0,
+   "piNoFill": 0.0,
+   "thick1": 1.0,
+   "thick2": 1.0,
+   "thetaShared": 8.0,
+   "rerouteCuts": 3.0,
+   "ell": {
+    "4": 1
+   }
+  }
+ },
+ "deepByGamma": {
+  "0": {
+   "n": 11639,
+   "deep": 0.02620500042959017
+  },
+  "1": {
+   "n": 171,
+   "deep": 0.22807017543859648
+  }
+ },
+ "deepByRun": {
+  "1-1": {
+   "n": 6406,
+   "deep": 0.0
+  },
+  "2-2": {
+   "n": 2332,
+   "deep": 0.0
+  },
+  "3-4": {
+   "n": 1907,
+   "deep": 0.0383
+  },
+  "5-9": {
+   "n": 778,
+   "deep": 0.1735
+  },
+  "10-1000000": {
+   "n": 387,
+   "deep": 0.3514
+  }
+ },
+ "rimPattern": {
+  "0011": {
+   "1": 11219
+  },
+  "0101": {
+   "1": 7605
+  },
+  "1010": {
+   "1": 7629
+  },
+  "1100": {
+   "2": 11466,
+   "3": 344
+  }
+ },
+ "mapsGamma": {
+  "w9": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 4
+   },
+   "degWord": "46445",
+   "set": "census"
+  },
+  "w13": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 2
+   },
+   "degWord": "47484",
+   "set": "census"
+  },
+  "w18": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 36
+   },
+   "degWord": "44845",
+   "set": "census"
+  },
+  "r178": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 3091,
+    "2": 918,
+    "3": 9,
+    "4": 5,
+    "5": 3,
+    "6": 1
+   },
+   "degWord": "75567",
+   "set": "census"
+  },
+  "ico": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 10
+   },
+   "degWord": "55555",
+   "set": "census"
+  },
+  "p22": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 202,
+    "2": 32
+   },
+   "degWord": "65566",
+   "set": "census"
+  },
+  "r1": {
+   "allDL": 1,
+   "posW": 1,
+   "hist": {
+    "1": 2887,
+    "2": 889,
+    "3": 18
+   },
+   "degWord": "57557",
+   "set": "census"
+  },
+  "c30": {
+   "allDL": 1,
+   "posW": 1,
+   "hist": {
+    "1": 30,
+    "2": 20,
+    "3": 10
+   },
+   "degWord": "55555",
+   "set": "census"
+  },
+  "p32r111": {
+   "allDL": 1,
+   "posW": 1,
+   "hist": {
+    "1": 2590,
+    "2": 589,
+    "3": 2
+   },
+   "degWord": "55666",
+   "set": "census"
+  },
+  "p31r12": {
+   "allDL": 2,
+   "posW": 2,
+   "hist": {
+    "1": 2646,
+    "2": 600,
+    "3": 20
+   },
+   "degWord": "75755",
+   "set": "census"
+  },
+  "p32r11": {
+   "allDL": 1,
+   "posW": 1,
+   "hist": {
+    "1": 2276,
+    "2": 768,
+    "3": 4
+   },
+   "degWord": "55667",
+   "set": "census"
+  },
+  "p34r28": {
+   "allDL": 2,
+   "posW": 2,
+   "hist": {
+    "1": 4246,
+    "2": 1202,
+    "3": 14
+   },
+   "degWord": "75585",
+   "set": "census"
+  },
+  "c60": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 1520,
+    "2": 130
+   },
+   "degWord": "66666",
+   "set": "census"
+  },
+  "six": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 455,
+    "2": 117,
+    "3": 3,
+    "4": 1
+   },
+   "degWord": "66666",
+   "set": "census"
+  },
+  "trap17": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 26,
+    "2": 17,
+    "3": 3,
+    "4": 2
+   },
+   "degWord": "65556",
+   "set": "census"
+  },
+  "r210": {
+   "allDL": 0,
+   "posW": 0,
+   "hist": {
+    "1": 4153,
+    "2": 813,
+    "3": 6,
+    "4": 5,
+    "5": 1
+   },
+   "degWord": "56666",
+   "set": "census"
+  }
+ },
+ "ellKappa": {
+  "k4:l3": 11,
+  "k6:l4": 1,
+  "k5:l3": 5,
+  "k3:l3": 268,
+  "k4:l4": 15,
+  "k5:lNone": 1,
+  "k3:lNone": 40,
+  "k4:lNone": 3
+ },
+ "depthFromNamed": {
+  "AUC deep|DL (static colouring features: chain lengths, moves, lock thickness, theta; no swaps applied)": 0.8329279386173074,
+  "AUC deep|DL (pi/sigma/class features only; these apply specific swaps)": 0.9804884461238282,
+  "R2 kappa|DL (static)": 0.08531499598068715,
+  "R2 kappa|DL (pi/sigma/class)": 0.2931978752915536,
+  "R2 kappa|DL (named all)": 0.3858448226684552,
+  "AUC deep|DL (named theory features, no lookahead)": 0.9732804570844438,
+  "AUC deep|DL (+ candidate graph variables)": 0.9897667623996528,
+  "AUC deep|DL (dlRun alone)": 0.9488968142414986,
+  "AUC deep|DL (piToFill alone, no-fill=inf)": 0.9095683294188277,
+  "AUC deep|DL (thick1 alone)": 0.4921070992499564,
+  "AUC deep|DL (thick2 alone)": 0.492717599860457,
+  "AUC deep|DL (thetaShared alone)": 0.588038979754096,
+  "AUC deep|DL (rerouteCuts alone)": 0.6421272295441731,
+  "AUC deep|DL (path1 alone)": 0.7278154777116571,
+  "AUC deep|DL (path2 alone)": 0.7079641934293097
+ },
+ "probe": {
+  "colours-only-pretrained": {
+   "L0": {
+    "DL (d>=2)": 0.8414,
+    "lock1": 0.8665,
+    "lock2": 0.8681,
+    "kappa (clip 4)": 0.2463,
+    "log class size": 0.6395,
+    "n moves": -0.0121,
+    "deep (d>=3) | DL": 0.4942,
+    "Gamma-cycle | DL": 0.7454,
+    "DD | DL": 0.7044,
+    "sigma image DL | DL": 0.8313,
+    "pi move optimal | DL": 0.7201,
+    "log DL run | DL": 0.0746,
+    "pi steps to fill (cap 12) | DL": 0.0383,
+    "log lock1 length | DL": 0.4862,
+    "log lock2 length | DL": 0.4793,
+    "log sigma-chain length | DL": 0.5186,
+    "n exits (optimal afterstates) | DL": 0.0348,
+    "lock1 thickness | DL": 0.0542,
+    "theta overlap | DL": 0.4021,
+    "reroute cuts | DL": 0.0838
+   },
+   "L1": {
+    "DL (d>=2)": 0.8869,
+    "lock1": 0.9252,
+    "lock2": 0.9206,
+    "kappa (clip 4)": 0.3364,
+    "log class size": 0.735,
+    "n moves": 0.2109,
+    "deep (d>=3) | DL": 0.7401,
+    "Gamma-cycle | DL": 0.8051,
+    "DD | DL": 0.8348,
+    "sigma image DL | DL": 0.8792,
+    "pi move optimal | DL": 0.8181,
+    "log DL run | DL": 0.2946,
+    "pi steps to fill (cap 12) | DL": 0.1381,
+    "log lock1 length | DL": 0.5328,
+    "log lock2 length | DL": 0.5349,
+    "log sigma-chain length | DL": 0.5838,
+    "n exits (optimal afterstates) | DL": 0.2309,
+    "lock1 thickness | DL": 0.0614,
+    "theta overlap | DL": 0.49,
+    "reroute cuts | DL": 0.1314
+   },
+   "L2": {
+    "DL (d>=2)": 0.9077,
+    "lock1": 0.9464,
+    "lock2": 0.9315,
+    "kappa (clip 4)": 0.3749,
+    "log class size": 0.6856,
+    "n moves": 0.2219,
+    "deep (d>=3) | DL": 0.7338,
+    "Gamma-cycle | DL": 0.8894,
+    "DD | DL": 0.8426,
+    "sigma image DL | DL": 0.8797,
+    "pi move optimal | DL": 0.8263,
+    "log DL run | DL": 0.3264,
+    "pi steps to fill (cap 12) | DL": 0.1563,
+    "log lock1 length | DL": 0.5571,
+    "log lock2 length | DL": 0.5433,
+    "log sigma-chain length | DL": 0.613,
+    "n exits (optimal afterstates) | DL": 0.224,
+    "lock1 thickness | DL": 0.0477,
+    "theta overlap | DL": 0.5119,
+    "reroute cuts | DL": 0.1329
+   },
+   "L3": {
+    "DL (d>=2)": 0.9197,
+    "lock1": 0.9477,
+    "lock2": 0.948,
+    "kappa (clip 4)": 0.4254,
+    "log class size": 0.669,
+    "n moves": 0.2713,
+    "deep (d>=3) | DL": 0.782,
+    "Gamma-cycle | DL": 0.879,
+    "DD | DL": 0.8386,
+    "sigma image DL | DL": 0.874,
+    "pi move optimal | DL": 0.8232,
+    "log DL run | DL": 0.3226,
+    "pi steps to fill (cap 12) | DL": 0.1556,
+    "log lock1 length | DL": 0.5327,
+    "log lock2 length | DL": 0.5381,
+    "log sigma-chain length | DL": 0.5751,
+    "n exits (optimal afterstates) | DL": 0.2462,
+    "lock1 thickness | DL": 0.0647,
+    "theta overlap | DL": 0.5119,
+    "reroute cuts | DL": 0.1854
+   },
+   "L4": {
+    "DL (d>=2)": 0.9253,
+    "lock1": 0.948,
+    "lock2": 0.9437,
+    "kappa (clip 4)": 0.437,
+    "log class size": 0.5151,
+    "n moves": 0.2449,
+    "deep (d>=3) | DL": 0.7907,
+    "Gamma-cycle | DL": 0.8485,
+    "DD | DL": 0.8344,
+    "sigma image DL | DL": 0.8671,
+    "pi move optimal | DL": 0.819,
+    "log DL run | DL": 0.2875,
+    "pi steps to fill (cap 12) | DL": 0.1463,
+    "log lock1 length | DL": 0.5118,
+    "log lock2 length | DL": 0.5292,
+    "log sigma-chain length | DL": 0.5388,
+    "n exits (optimal afterstates) | DL": 0.2124,
+    "lock1 thickness | DL": -0.1656,
+    "theta overlap | DL": 0.4968,
+    "reroute cuts | DL": 0.1761
+   },
+   "z": {
+    "DL (d>=2)": 0.879,
+    "lock1": 0.8268,
+    "lock2": 0.7974,
+    "kappa (clip 4)": 0.3643,
+    "log class size": -0.1289,
+    "n moves": 0.0439,
+    "deep (d>=3) | DL": 0.7366,
+    "Gamma-cycle | DL": 0.6554,
+    "DD | DL": 0.6884,
+    "sigma image DL | DL": 0.7151,
+    "pi move optimal | DL": 0.6751,
+    "log DL run | DL": 0.14,
+    "pi steps to fill (cap 12) | DL": 0.037,
+    "log lock1 length | DL": 0.0703,
+    "log lock2 length | DL": 0.0624,
+    "log sigma-chain length | DL": 0.1678,
+    "n exits (optimal afterstates) | DL": 0.0508,
+    "lock1 thickness | DL": 0.0055,
+    "theta overlap | DL": 0.1515,
+    "reroute cuts | DL": 0.0633
+   }
+  },
+  "input-colours": {
+   "input": {
+    "DL (d>=2)": 0.7574,
+    "lock1": 0.7645,
+    "lock2": 0.7691,
+    "kappa (clip 4)": 0.1498,
+    "log class size": 0.4604,
+    "n moves": -0.0207,
+    "deep (d>=3) | DL": 0.4469,
+    "Gamma-cycle | DL": 0.5009,
+    "DD | DL": 0.6393,
+    "sigma image DL | DL": 0.7429,
+    "pi move optimal | DL": 0.6423,
+    "log DL run | DL": 0.0414,
+    "pi steps to fill (cap 12) | DL": 0.0258,
+    "log lock1 length | DL": 0.3074,
+    "log lock2 length | DL": 0.3377,
+    "log sigma-chain length | DL": 0.3459,
+    "n exits (optimal afterstates) | DL": 0.0278,
+    "lock1 thickness | DL": 0.0345,
+    "theta overlap | DL": 0.2658,
+    "reroute cuts | DL": 0.0026
+   }
+  },
+  "input-priors": {
+   "input": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.7286,
+    "log class size": 0.4922,
+    "n moves": 0.7582,
+    "deep (d>=3) | DL": 0.8695,
+    "Gamma-cycle | DL": 0.8139,
+    "DD | DL": 0.8449,
+    "sigma image DL | DL": 0.9427,
+    "pi move optimal | DL": 0.8372,
+    "log DL run | DL": 0.2986,
+    "pi steps to fill (cap 12) | DL": 0.1376,
+    "log lock1 length | DL": 0.989,
+    "log lock2 length | DL": 0.9889,
+    "log sigma-chain length | DL": 0.9869,
+    "n exits (optimal afterstates) | DL": 0.4356,
+    "lock1 thickness | DL": 0.0685,
+    "theta overlap | DL": 0.9727,
+    "reroute cuts | DL": 0.3161
+   }
+  },
+  "mid-rl": {
+   "L0": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9521,
+    "log class size": 0.1824,
+    "n moves": 0.6818,
+    "deep (d>=3) | DL": 0.8707,
+    "Gamma-cycle | DL": 0.8316,
+    "DD | DL": 0.8439,
+    "sigma image DL | DL": 0.9336,
+    "pi move optimal | DL": 0.8375,
+    "log DL run | DL": 0.2819,
+    "pi steps to fill (cap 12) | DL": 0.135,
+    "log lock1 length | DL": 0.9172,
+    "log lock2 length | DL": 0.904,
+    "log sigma-chain length | DL": 0.9608,
+    "n exits (optimal afterstates) | DL": 0.3982,
+    "lock1 thickness | DL": 0.0651,
+    "theta overlap | DL": 0.9078,
+    "reroute cuts | DL": 0.3094
+   },
+   "L1": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9528,
+    "log class size": -0.0207,
+    "n moves": 0.6318,
+    "deep (d>=3) | DL": 0.8482,
+    "Gamma-cycle | DL": 0.8351,
+    "DD | DL": 0.8341,
+    "sigma image DL | DL": 0.9412,
+    "pi move optimal | DL": 0.8264,
+    "log DL run | DL": 0.2717,
+    "pi steps to fill (cap 12) | DL": 0.1259,
+    "log lock1 length | DL": 0.7832,
+    "log lock2 length | DL": 0.742,
+    "log sigma-chain length | DL": 0.9073,
+    "n exits (optimal afterstates) | DL": 0.3461,
+    "lock1 thickness | DL": 0.0694,
+    "theta overlap | DL": 0.7675,
+    "reroute cuts | DL": 0.3029
+   },
+   "L2": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.951,
+    "log class size": -0.0925,
+    "n moves": 0.609,
+    "deep (d>=3) | DL": 0.8576,
+    "Gamma-cycle | DL": 0.8351,
+    "DD | DL": 0.8383,
+    "sigma image DL | DL": 0.9395,
+    "pi move optimal | DL": 0.8313,
+    "log DL run | DL": 0.2953,
+    "pi steps to fill (cap 12) | DL": 0.1436,
+    "log lock1 length | DL": 0.6421,
+    "log lock2 length | DL": 0.6255,
+    "log sigma-chain length | DL": 0.8316,
+    "n exits (optimal afterstates) | DL": 0.3,
+    "lock1 thickness | DL": 0.0547,
+    "theta overlap | DL": 0.668,
+    "reroute cuts | DL": 0.2826
+   },
+   "L3": {
+    "DL (d>=2)": 1.0,
+    "lock1": 0.9999,
+    "lock2": 0.9984,
+    "kappa (clip 4)": 0.9491,
+    "log class size": -0.1097,
+    "n moves": 0.4515,
+    "deep (d>=3) | DL": 0.7465,
+    "Gamma-cycle | DL": 0.8082,
+    "DD | DL": 0.7954,
+    "sigma image DL | DL": 0.9201,
+    "pi move optimal | DL": 0.7993,
+    "log DL run | DL": 0.2028,
+    "pi steps to fill (cap 12) | DL": 0.0958,
+    "log lock1 length | DL": 0.4767,
+    "log lock2 length | DL": 0.4304,
+    "log sigma-chain length | DL": 0.6528,
+    "n exits (optimal afterstates) | DL": 0.2105,
+    "lock1 thickness | DL": 0.0201,
+    "theta overlap | DL": 0.5168,
+    "reroute cuts | DL": 0.1489
+   },
+   "z": {
+    "DL (d>=2)": 1.0,
+    "lock1": 0.9915,
+    "lock2": 0.9604,
+    "kappa (clip 4)": 0.9403,
+    "log class size": 0.0588,
+    "n moves": 0.4674,
+    "deep (d>=3) | DL": 0.7259,
+    "Gamma-cycle | DL": 0.7091,
+    "DD | DL": 0.7161,
+    "sigma image DL | DL": 0.8674,
+    "pi move optimal | DL": 0.7165,
+    "log DL run | DL": 0.1085,
+    "pi steps to fill (cap 12) | DL": 0.0473,
+    "log lock1 length | DL": 0.3059,
+    "log lock2 length | DL": 0.2609,
+    "log sigma-chain length | DL": 0.3918,
+    "n exits (optimal afterstates) | DL": 0.0898,
+    "lock1 thickness | DL": 0.004,
+    "theta overlap | DL": 0.3769,
+    "reroute cuts | DL": 0.0967
+   }
+  },
+  "nano-rl": {
+   "L0": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9148,
+    "log class size": -0.1171,
+    "n moves": 0.3812,
+    "deep (d>=3) | DL": 0.8302,
+    "Gamma-cycle | DL": 0.7872,
+    "DD | DL": 0.7787,
+    "sigma image DL | DL": 0.9138,
+    "pi move optimal | DL": 0.7857,
+    "log DL run | DL": 0.2076,
+    "pi steps to fill (cap 12) | DL": 0.0758,
+    "log lock1 length | DL": 0.687,
+    "log lock2 length | DL": 0.6378,
+    "log sigma-chain length | DL": 0.8573,
+    "n exits (optimal afterstates) | DL": 0.284,
+    "lock1 thickness | DL": 0.0368,
+    "theta overlap | DL": 0.7669,
+    "reroute cuts | DL": 0.2193
+   },
+   "L1": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9296,
+    "log class size": -0.1334,
+    "n moves": 0.2692,
+    "deep (d>=3) | DL": 0.858,
+    "Gamma-cycle | DL": 0.7752,
+    "DD | DL": 0.7666,
+    "sigma image DL | DL": 0.9073,
+    "pi move optimal | DL": 0.7602,
+    "log DL run | DL": 0.2171,
+    "pi steps to fill (cap 12) | DL": 0.08,
+    "log lock1 length | DL": 0.5615,
+    "log lock2 length | DL": 0.3711,
+    "log sigma-chain length | DL": 0.742,
+    "n exits (optimal afterstates) | DL": 0.2299,
+    "lock1 thickness | DL": 0.0371,
+    "theta overlap | DL": 0.5276,
+    "reroute cuts | DL": 0.1548
+   },
+   "z": {
+    "DL (d>=2)": 1.0,
+    "lock1": 0.9852,
+    "lock2": 0.8749,
+    "kappa (clip 4)": 0.938,
+    "log class size": -0.1148,
+    "n moves": 0.0824,
+    "deep (d>=3) | DL": 0.7675,
+    "Gamma-cycle | DL": 0.6729,
+    "DD | DL": 0.6914,
+    "sigma image DL | DL": 0.8439,
+    "pi move optimal | DL": 0.6856,
+    "log DL run | DL": 0.1119,
+    "pi steps to fill (cap 12) | DL": 0.0422,
+    "log lock1 length | DL": 0.25,
+    "log lock2 length | DL": 0.092,
+    "log sigma-chain length | DL": 0.5294,
+    "n exits (optimal afterstates) | DL": 0.1238,
+    "lock1 thickness | DL": -0.0006,
+    "theta overlap | DL": 0.2491,
+    "reroute cuts | DL": 0.0765
+   }
+  },
+  "priors-gnn-h16-k3-pool": {
+   "L0": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9527,
+    "log class size": 0.1396,
+    "n moves": 0.7542,
+    "deep (d>=3) | DL": 0.8427,
+    "Gamma-cycle | DL": 0.8137,
+    "DD | DL": 0.8378,
+    "sigma image DL | DL": 0.9371,
+    "pi move optimal | DL": 0.8354,
+    "log DL run | DL": 0.2583,
+    "pi steps to fill (cap 12) | DL": 0.1042,
+    "log lock1 length | DL": 0.9066,
+    "log lock2 length | DL": 0.9051,
+    "log sigma-chain length | DL": 0.9636,
+    "n exits (optimal afterstates) | DL": 0.3926,
+    "lock1 thickness | DL": 0.062,
+    "theta overlap | DL": 0.9034,
+    "reroute cuts | DL": 0.3033
+   },
+   "L1": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9528,
+    "log class size": -0.0204,
+    "n moves": 0.7334,
+    "deep (d>=3) | DL": 0.9178,
+    "Gamma-cycle | DL": 0.8812,
+    "DD | DL": 0.8579,
+    "sigma image DL | DL": 0.9507,
+    "pi move optimal | DL": 0.8461,
+    "log DL run | DL": 0.3184,
+    "pi steps to fill (cap 12) | DL": 0.1677,
+    "log lock1 length | DL": 0.8549,
+    "log lock2 length | DL": 0.8025,
+    "log sigma-chain length | DL": 0.9308,
+    "n exits (optimal afterstates) | DL": 0.4026,
+    "lock1 thickness | DL": 0.1227,
+    "theta overlap | DL": 0.8734,
+    "reroute cuts | DL": 0.3345
+   },
+   "L2": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9519,
+    "log class size": -0.1209,
+    "n moves": 0.6771,
+    "deep (d>=3) | DL": 0.8991,
+    "Gamma-cycle | DL": 0.8659,
+    "DD | DL": 0.8507,
+    "sigma image DL | DL": 0.9368,
+    "pi move optimal | DL": 0.8441,
+    "log DL run | DL": 0.3111,
+    "pi steps to fill (cap 12) | DL": 0.1555,
+    "log lock1 length | DL": 0.7302,
+    "log lock2 length | DL": 0.7425,
+    "log sigma-chain length | DL": 0.8961,
+    "n exits (optimal afterstates) | DL": 0.3803,
+    "lock1 thickness | DL": 0.0909,
+    "theta overlap | DL": 0.8301,
+    "reroute cuts | DL": 0.3209
+   },
+   "L3": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9501,
+    "log class size": -0.1515,
+    "n moves": 0.5281,
+    "deep (d>=3) | DL": 0.9136,
+    "Gamma-cycle | DL": 0.8852,
+    "DD | DL": 0.8512,
+    "sigma image DL | DL": 0.933,
+    "pi move optimal | DL": 0.8418,
+    "log DL run | DL": 0.3164,
+    "pi steps to fill (cap 12) | DL": 0.1671,
+    "log lock1 length | DL": 0.634,
+    "log lock2 length | DL": 0.6412,
+    "log sigma-chain length | DL": 0.8297,
+    "n exits (optimal afterstates) | DL": 0.3481,
+    "lock1 thickness | DL": 0.0767,
+    "theta overlap | DL": 0.7631,
+    "reroute cuts | DL": 0.2721
+   },
+   "z": {
+    "DL (d>=2)": 1.0,
+    "lock1": 0.9173,
+    "lock2": 0.9233,
+    "kappa (clip 4)": 0.9609,
+    "log class size": -0.1315,
+    "n moves": 0.0921,
+    "deep (d>=3) | DL": 0.9194,
+    "Gamma-cycle | DL": 0.7467,
+    "DD | DL": 0.7677,
+    "sigma image DL | DL": 0.7952,
+    "pi move optimal | DL": 0.7379,
+    "log DL run | DL": 0.2631,
+    "pi steps to fill (cap 12) | DL": 0.1395,
+    "log lock1 length | DL": 0.0498,
+    "log lock2 length | DL": 0.1583,
+    "log sigma-chain length | DL": 0.2323,
+    "n exits (optimal afterstates) | DL": 0.2057,
+    "lock1 thickness | DL": 0.002,
+    "theta overlap | DL": 0.2199,
+    "reroute cuts | DL": 0.0426
+   }
+  },
+  "random-colours-only-pretrained": {
+   "L0": {
+    "DL (d>=2)": 0.8628,
+    "lock1": 0.8753,
+    "lock2": 0.8763,
+    "kappa (clip 4)": 0.2882,
+    "log class size": 0.6851,
+    "n moves": -0.0099,
+    "deep (d>=3) | DL": 0.5233,
+    "Gamma-cycle | DL": 0.7156,
+    "DD | DL": 0.7099,
+    "sigma image DL | DL": 0.8319,
+    "pi move optimal | DL": 0.7223,
+    "log DL run | DL": 0.0485,
+    "pi steps to fill (cap 12) | DL": 0.0222,
+    "log lock1 length | DL": 0.4806,
+    "log lock2 length | DL": 0.4901,
+    "log sigma-chain length | DL": 0.5131,
+    "n exits (optimal afterstates) | DL": 0.0218,
+    "lock1 thickness | DL": 0.0104,
+    "theta overlap | DL": 0.4112,
+    "reroute cuts | DL": 0.0818
+   },
+   "L1": {
+    "DL (d>=2)": 0.8768,
+    "lock1": 0.9198,
+    "lock2": 0.9066,
+    "kappa (clip 4)": 0.2976,
+    "log class size": 0.6609,
+    "n moves": 0.1334,
+    "deep (d>=3) | DL": 0.7454,
+    "Gamma-cycle | DL": 0.8308,
+    "DD | DL": 0.8141,
+    "sigma image DL | DL": 0.8612,
+    "pi move optimal | DL": 0.8039,
+    "log DL run | DL": 0.2824,
+    "pi steps to fill (cap 12) | DL": 0.1253,
+    "log lock1 length | DL": 0.5004,
+    "log lock2 length | DL": 0.5047,
+    "log sigma-chain length | DL": 0.5752,
+    "n exits (optimal afterstates) | DL": 0.1892,
+    "lock1 thickness | DL": 0.0255,
+    "theta overlap | DL": 0.4479,
+    "reroute cuts | DL": 0.1346
+   },
+   "L2": {
+    "DL (d>=2)": 0.9031,
+    "lock1": 0.9284,
+    "lock2": 0.9322,
+    "kappa (clip 4)": 0.355,
+    "log class size": 0.6375,
+    "n moves": 0.1531,
+    "deep (d>=3) | DL": 0.7633,
+    "Gamma-cycle | DL": 0.8176,
+    "DD | DL": 0.8354,
+    "sigma image DL | DL": 0.8749,
+    "pi move optimal | DL": 0.8121,
+    "log DL run | DL": 0.3164,
+    "pi steps to fill (cap 12) | DL": 0.1311,
+    "log lock1 length | DL": 0.509,
+    "log lock2 length | DL": 0.5174,
+    "log sigma-chain length | DL": 0.5879,
+    "n exits (optimal afterstates) | DL": 0.1938,
+    "lock1 thickness | DL": 0.0499,
+    "theta overlap | DL": 0.4651,
+    "reroute cuts | DL": 0.1118
+   },
+   "L3": {
+    "DL (d>=2)": 0.8852,
+    "lock1": 0.9171,
+    "lock2": 0.9345,
+    "kappa (clip 4)": 0.3277,
+    "log class size": 0.688,
+    "n moves": 0.1888,
+    "deep (d>=3) | DL": 0.7986,
+    "Gamma-cycle | DL": 0.8822,
+    "DD | DL": 0.8487,
+    "sigma image DL | DL": 0.8694,
+    "pi move optimal | DL": 0.8307,
+    "log DL run | DL": 0.3232,
+    "pi steps to fill (cap 12) | DL": 0.1576,
+    "log lock1 length | DL": 0.5111,
+    "log lock2 length | DL": 0.5202,
+    "log sigma-chain length | DL": 0.5771,
+    "n exits (optimal afterstates) | DL": 0.228,
+    "lock1 thickness | DL": 0.0515,
+    "theta overlap | DL": 0.4737,
+    "reroute cuts | DL": 0.1146
+   },
+   "L4": {
+    "DL (d>=2)": 0.8919,
+    "lock1": 0.9244,
+    "lock2": 0.9295,
+    "kappa (clip 4)": 0.3398,
+    "log class size": 0.6977,
+    "n moves": 0.1558,
+    "deep (d>=3) | DL": 0.8012,
+    "Gamma-cycle | DL": 0.8607,
+    "DD | DL": 0.8251,
+    "sigma image DL | DL": 0.8619,
+    "pi move optimal | DL": 0.8138,
+    "log DL run | DL": 0.2917,
+    "pi steps to fill (cap 12) | DL": 0.1271,
+    "log lock1 length | DL": 0.4996,
+    "log lock2 length | DL": 0.5185,
+    "log sigma-chain length | DL": 0.543,
+    "n exits (optimal afterstates) | DL": 0.1863,
+    "lock1 thickness | DL": 0.0941,
+    "theta overlap | DL": 0.4575,
+    "reroute cuts | DL": 0.1419
+   },
+   "z": {
+    "DL (d>=2)": 0.8453,
+    "lock1": 0.8552,
+    "lock2": 0.8726,
+    "kappa (clip 4)": 0.2648,
+    "log class size": 0.6921,
+    "n moves": 0.9742,
+    "deep (d>=3) | DL": 0.8072,
+    "Gamma-cycle | DL": 0.7271,
+    "DD | DL": 0.7976,
+    "sigma image DL | DL": 0.868,
+    "pi move optimal | DL": 0.7924,
+    "log DL run | DL": 0.2357,
+    "pi steps to fill (cap 12) | DL": 0.0851,
+    "log lock1 length | DL": 0.3443,
+    "log lock2 length | DL": 0.4396,
+    "log sigma-chain length | DL": 0.5078,
+    "n exits (optimal afterstates) | DL": 0.4003,
+    "lock1 thickness | DL": 0.0541,
+    "theta overlap | DL": 0.4046,
+    "reroute cuts | DL": 0.3836
+   }
+  },
+  "random-mid-rl": {
+   "L0": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9456,
+    "log class size": 0.284,
+    "n moves": 0.6948,
+    "deep (d>=3) | DL": 0.855,
+    "Gamma-cycle | DL": 0.8531,
+    "DD | DL": 0.8381,
+    "sigma image DL | DL": 0.924,
+    "pi move optimal | DL": 0.8329,
+    "log DL run | DL": 0.2851,
+    "pi steps to fill (cap 12) | DL": 0.1453,
+    "log lock1 length | DL": 0.9282,
+    "log lock2 length | DL": 0.9227,
+    "log sigma-chain length | DL": 0.9603,
+    "n exits (optimal afterstates) | DL": 0.3465,
+    "lock1 thickness | DL": 0.0652,
+    "theta overlap | DL": 0.9227,
+    "reroute cuts | DL": 0.3104
+   },
+   "L1": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8792,
+    "log class size": 0.0158,
+    "n moves": 0.6404,
+    "deep (d>=3) | DL": 0.8541,
+    "Gamma-cycle | DL": 0.8023,
+    "DD | DL": 0.8066,
+    "sigma image DL | DL": 0.9332,
+    "pi move optimal | DL": 0.8042,
+    "log DL run | DL": 0.2154,
+    "pi steps to fill (cap 12) | DL": 0.0856,
+    "log lock1 length | DL": 0.7488,
+    "log lock2 length | DL": 0.7189,
+    "log sigma-chain length | DL": 0.8758,
+    "n exits (optimal afterstates) | DL": 0.2604,
+    "lock1 thickness | DL": 0.0528,
+    "theta overlap | DL": 0.7559,
+    "reroute cuts | DL": 0.2106
+   },
+   "L2": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8666,
+    "log class size": 0.0115,
+    "n moves": 0.637,
+    "deep (d>=3) | DL": 0.865,
+    "Gamma-cycle | DL": 0.8009,
+    "DD | DL": 0.8351,
+    "sigma image DL | DL": 0.9357,
+    "pi move optimal | DL": 0.8306,
+    "log DL run | DL": 0.2745,
+    "pi steps to fill (cap 12) | DL": 0.1168,
+    "log lock1 length | DL": 0.7261,
+    "log lock2 length | DL": 0.6041,
+    "log sigma-chain length | DL": 0.8673,
+    "n exits (optimal afterstates) | DL": 0.2829,
+    "lock1 thickness | DL": 0.0625,
+    "theta overlap | DL": 0.7097,
+    "reroute cuts | DL": 0.2433
+   },
+   "L3": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8807,
+    "log class size": 0.0232,
+    "n moves": 0.6485,
+    "deep (d>=3) | DL": 0.882,
+    "Gamma-cycle | DL": 0.84,
+    "DD | DL": 0.8456,
+    "sigma image DL | DL": 0.9359,
+    "pi move optimal | DL": 0.84,
+    "log DL run | DL": 0.2378,
+    "pi steps to fill (cap 12) | DL": 0.107,
+    "log lock1 length | DL": 0.6868,
+    "log lock2 length | DL": 0.5732,
+    "log sigma-chain length | DL": 0.8305,
+    "n exits (optimal afterstates) | DL": 0.3017,
+    "lock1 thickness | DL": 0.0641,
+    "theta overlap | DL": 0.6851,
+    "reroute cuts | DL": 0.2221
+   },
+   "z": {
+    "DL (d>=2)": 0.9889,
+    "lock1": 0.999,
+    "lock2": 0.999,
+    "kappa (clip 4)": 0.6483,
+    "log class size": 0.0291,
+    "n moves": 0.5935,
+    "deep (d>=3) | DL": 0.8215,
+    "Gamma-cycle | DL": 0.7844,
+    "DD | DL": 0.7717,
+    "sigma image DL | DL": 0.8931,
+    "pi move optimal | DL": 0.7729,
+    "log DL run | DL": 0.1791,
+    "pi steps to fill (cap 12) | DL": 0.0813,
+    "log lock1 length | DL": 0.1911,
+    "log lock2 length | DL": 0.3793,
+    "log sigma-chain length | DL": 0.5931,
+    "n exits (optimal afterstates) | DL": 0.1824,
+    "lock1 thickness | DL": 0.0026,
+    "theta overlap | DL": 0.3642,
+    "reroute cuts | DL": 0.1962
+   }
+  },
+  "random-nano-rl": {
+   "L0": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8929,
+    "log class size": -0.0733,
+    "n moves": 0.5785,
+    "deep (d>=3) | DL": 0.7939,
+    "Gamma-cycle | DL": 0.7702,
+    "DD | DL": 0.7681,
+    "sigma image DL | DL": 0.8933,
+    "pi move optimal | DL": 0.765,
+    "log DL run | DL": 0.213,
+    "pi steps to fill (cap 12) | DL": 0.085,
+    "log lock1 length | DL": 0.4563,
+    "log lock2 length | DL": 0.5075,
+    "log sigma-chain length | DL": 0.5737,
+    "n exits (optimal afterstates) | DL": 0.2251,
+    "lock1 thickness | DL": 0.0336,
+    "theta overlap | DL": 0.6359,
+    "reroute cuts | DL": 0.2328
+   },
+   "L1": {
+    "DL (d>=2)": 0.9999,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8306,
+    "log class size": -0.1167,
+    "n moves": 0.468,
+    "deep (d>=3) | DL": 0.8262,
+    "Gamma-cycle | DL": 0.7696,
+    "DD | DL": 0.788,
+    "sigma image DL | DL": 0.9214,
+    "pi move optimal | DL": 0.7802,
+    "log DL run | DL": 0.2119,
+    "pi steps to fill (cap 12) | DL": 0.0863,
+    "log lock1 length | DL": 0.4132,
+    "log lock2 length | DL": 0.4699,
+    "log sigma-chain length | DL": 0.5831,
+    "n exits (optimal afterstates) | DL": 0.2386,
+    "lock1 thickness | DL": 0.0322,
+    "theta overlap | DL": 0.522,
+    "reroute cuts | DL": 0.1545
+   },
+   "z": {
+    "DL (d>=2)": 0.9488,
+    "lock1": 0.944,
+    "lock2": 0.9521,
+    "kappa (clip 4)": 0.5176,
+    "log class size": 0.0507,
+    "n moves": 0.362,
+    "deep (d>=3) | DL": 0.7064,
+    "Gamma-cycle | DL": 0.3745,
+    "DD | DL": 0.7012,
+    "sigma image DL | DL": 0.8061,
+    "pi move optimal | DL": 0.6895,
+    "log DL run | DL": 0.0938,
+    "pi steps to fill (cap 12) | DL": 0.0222,
+    "log lock1 length | DL": 0.2531,
+    "log lock2 length | DL": 0.2289,
+    "log sigma-chain length | DL": 0.3159,
+    "n exits (optimal afterstates) | DL": 0.1104,
+    "lock1 thickness | DL": 0.0017,
+    "theta overlap | DL": 0.259,
+    "reroute cuts | DL": 0.1044
+   }
+  },
+  "random-priors-gnn-h16-k3-pool": {
+   "L0": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.9456,
+    "log class size": 0.284,
+    "n moves": 0.6948,
+    "deep (d>=3) | DL": 0.855,
+    "Gamma-cycle | DL": 0.8531,
+    "DD | DL": 0.8381,
+    "sigma image DL | DL": 0.924,
+    "pi move optimal | DL": 0.8329,
+    "log DL run | DL": 0.2851,
+    "pi steps to fill (cap 12) | DL": 0.1453,
+    "log lock1 length | DL": 0.9282,
+    "log lock2 length | DL": 0.9227,
+    "log sigma-chain length | DL": 0.9603,
+    "n exits (optimal afterstates) | DL": 0.3465,
+    "lock1 thickness | DL": 0.0652,
+    "theta overlap | DL": 0.9227,
+    "reroute cuts | DL": 0.3104
+   },
+   "L1": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8792,
+    "log class size": 0.0158,
+    "n moves": 0.6404,
+    "deep (d>=3) | DL": 0.8541,
+    "Gamma-cycle | DL": 0.8023,
+    "DD | DL": 0.8066,
+    "sigma image DL | DL": 0.9332,
+    "pi move optimal | DL": 0.8042,
+    "log DL run | DL": 0.2154,
+    "pi steps to fill (cap 12) | DL": 0.0856,
+    "log lock1 length | DL": 0.7488,
+    "log lock2 length | DL": 0.7189,
+    "log sigma-chain length | DL": 0.8758,
+    "n exits (optimal afterstates) | DL": 0.2604,
+    "lock1 thickness | DL": 0.0528,
+    "theta overlap | DL": 0.7559,
+    "reroute cuts | DL": 0.2106
+   },
+   "L2": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8666,
+    "log class size": 0.0115,
+    "n moves": 0.637,
+    "deep (d>=3) | DL": 0.865,
+    "Gamma-cycle | DL": 0.8009,
+    "DD | DL": 0.8351,
+    "sigma image DL | DL": 0.9357,
+    "pi move optimal | DL": 0.8306,
+    "log DL run | DL": 0.2745,
+    "pi steps to fill (cap 12) | DL": 0.1168,
+    "log lock1 length | DL": 0.7261,
+    "log lock2 length | DL": 0.6041,
+    "log sigma-chain length | DL": 0.8673,
+    "n exits (optimal afterstates) | DL": 0.2829,
+    "lock1 thickness | DL": 0.0625,
+    "theta overlap | DL": 0.7097,
+    "reroute cuts | DL": 0.2433
+   },
+   "L3": {
+    "DL (d>=2)": 1.0,
+    "lock1": 1.0,
+    "lock2": 1.0,
+    "kappa (clip 4)": 0.8807,
+    "log class size": 0.0232,
+    "n moves": 0.6485,
+    "deep (d>=3) | DL": 0.882,
+    "Gamma-cycle | DL": 0.84,
+    "DD | DL": 0.8456,
+    "sigma image DL | DL": 0.9359,
+    "pi move optimal | DL": 0.84,
+    "log DL run | DL": 0.2378,
+    "pi steps to fill (cap 12) | DL": 0.107,
+    "log lock1 length | DL": 0.6868,
+    "log lock2 length | DL": 0.5732,
+    "log sigma-chain length | DL": 0.8305,
+    "n exits (optimal afterstates) | DL": 0.3017,
+    "lock1 thickness | DL": 0.0641,
+    "theta overlap | DL": 0.6851,
+    "reroute cuts | DL": 0.2221
+   },
+   "z": {
+    "DL (d>=2)": 0.9889,
+    "lock1": 0.999,
+    "lock2": 0.999,
+    "kappa (clip 4)": 0.6483,
+    "log class size": 0.0291,
+    "n moves": 0.5935,
+    "deep (d>=3) | DL": 0.8215,
+    "Gamma-cycle | DL": 0.7844,
+    "DD | DL": 0.7717,
+    "sigma image DL | DL": 0.8931,
+    "pi move optimal | DL": 0.7729,
+    "log DL run | DL": 0.1791,
+    "pi steps to fill (cap 12) | DL": 0.0813,
+    "log lock1 length | DL": 0.1911,
+    "log lock2 length | DL": 0.3793,
+    "log sigma-chain length | DL": 0.5931,
+    "n exits (optimal afterstates) | DL": 0.1824,
+    "lock1 thickness | DL": 0.0026,
+    "theta overlap | DL": 0.3642,
+    "reroute cuts | DL": 0.1962
+   }
+  },
+  "random-tr-rec-h32-t16": {
+   "t0": {
+    "DL (d>=2)": 0.5773,
+    "lock1": 0.6062,
+    "lock2": 0.5975,
+    "kappa (clip 4)": 0.002,
+    "log class size": 0.7244,
+    "n moves": 0.014,
+    "deep (d>=3) | DL": 0.4591,
+    "Gamma-cycle | DL": 0.5819,
+    "DD | DL": 0.6067,
+    "sigma image DL | DL": 0.6577,
+    "pi move optimal | DL": 0.6005,
+    "log DL run | DL": 0.0203,
+    "pi steps to fill (cap 12) | DL": 0.0096,
+    "log lock1 length | DL": 0.0993,
+    "log lock2 length | DL": 0.1062,
+    "log sigma-chain length | DL": 0.0868,
+    "n exits (optimal afterstates) | DL": 0.04,
+    "lock1 thickness | DL": -0.0178,
+    "theta overlap | DL": 0.0325,
+    "reroute cuts | DL": -0.0005
+   },
+   "t4": {
+    "DL (d>=2)": 0.7874,
+    "lock1": 0.7617,
+    "lock2": 0.77,
+    "kappa (clip 4)": 0.1961,
+    "log class size": 0.7293,
+    "n moves": 0.178,
+    "deep (d>=3) | DL": 0.6392,
+    "Gamma-cycle | DL": 0.6715,
+    "DD | DL": 0.6928,
+    "sigma image DL | DL": 0.6887,
+    "pi move optimal | DL": 0.683,
+    "log DL run | DL": 0.0753,
+    "pi steps to fill (cap 12) | DL": 0.0214,
+    "log lock1 length | DL": 0.0327,
+    "log lock2 length | DL": 0.0756,
+    "log sigma-chain length | DL": 0.1621,
+    "n exits (optimal afterstates) | DL": 0.0751,
+    "lock1 thickness | DL": 0.0084,
+    "theta overlap | DL": 0.0288,
+    "reroute cuts | DL": 0.0192
+   },
+   "t8": {
+    "DL (d>=2)": 0.7813,
+    "lock1": 0.7579,
+    "lock2": 0.7631,
+    "kappa (clip 4)": 0.1874,
+    "log class size": 0.7311,
+    "n moves": 0.1761,
+    "deep (d>=3) | DL": 0.6565,
+    "Gamma-cycle | DL": 0.6486,
+    "DD | DL": 0.6863,
+    "sigma image DL | DL": 0.6942,
+    "pi move optimal | DL": 0.6779,
+    "log DL run | DL": 0.0623,
+    "pi steps to fill (cap 12) | DL": 0.0114,
+    "log lock1 length | DL": 0.0383,
+    "log lock2 length | DL": 0.0762,
+    "log sigma-chain length | DL": 0.1709,
+    "n exits (optimal afterstates) | DL": 0.067,
+    "lock1 thickness | DL": 0.0103,
+    "theta overlap | DL": 0.0312,
+    "reroute cuts | DL": 0.0065
+   },
+   "t12": {
+    "DL (d>=2)": 0.7788,
+    "lock1": 0.7563,
+    "lock2": 0.7605,
+    "kappa (clip 4)": 0.1842,
+    "log class size": 0.7286,
+    "n moves": 0.173,
+    "deep (d>=3) | DL": 0.6467,
+    "Gamma-cycle | DL": 0.6477,
+    "DD | DL": 0.6841,
+    "sigma image DL | DL": 0.6928,
+    "pi move optimal | DL": 0.6766,
+    "log DL run | DL": 0.0582,
+    "pi steps to fill (cap 12) | DL": 0.0085,
+    "log lock1 length | DL": 0.0378,
+    "log lock2 length | DL": 0.0729,
+    "log sigma-chain length | DL": 0.1678,
+    "n exits (optimal afterstates) | DL": 0.0604,
+    "lock1 thickness | DL": 0.0094,
+    "theta overlap | DL": 0.0274,
+    "reroute cuts | DL": 0.0077
+   },
+   "t16": {
+    "DL (d>=2)": 0.7794,
+    "lock1": 0.7567,
+    "lock2": 0.761,
+    "kappa (clip 4)": 0.1849,
+    "log class size": 0.7286,
+    "n moves": 0.1721,
+    "deep (d>=3) | DL": 0.6487,
+    "Gamma-cycle | DL": 0.6478,
+    "DD | DL": 0.6842,
+    "sigma image DL | DL": 0.6931,
+    "pi move optimal | DL": 0.6767,
+    "log DL run | DL": 0.0585,
+    "pi steps to fill (cap 12) | DL": 0.0087,
+    "log lock1 length | DL": 0.0375,
+    "log lock2 length | DL": 0.0736,
+    "log sigma-chain length | DL": 0.1684,
+    "n exits (optimal afterstates) | DL": 0.0611,
+    "lock1 thickness | DL": 0.0094,
+    "theta overlap | DL": 0.0278,
+    "reroute cuts | DL": 0.0073
+   },
+   "z": {
+    "DL (d>=2)": 0.6726,
+    "lock1": 0.6224,
+    "lock2": 0.6365,
+    "kappa (clip 4)": 0.0724,
+    "log class size": 0.4244,
+    "n moves": 0.0613,
+    "deep (d>=3) | DL": 0.6384,
+    "Gamma-cycle | DL": 0.5182,
+    "DD | DL": 0.6125,
+    "sigma image DL | DL": 0.6411,
+    "pi move optimal | DL": 0.6065,
+    "log DL run | DL": 0.0356,
+    "pi steps to fill (cap 12) | DL": 0.0016,
+    "log lock1 length | DL": 0.069,
+    "log lock2 length | DL": 0.072,
+    "log sigma-chain length | DL": 0.0688,
+    "n exits (optimal afterstates) | DL": 0.0447,
+    "lock1 thickness | DL": -0.0195,
+    "theta overlap | DL": 0.0603,
+    "reroute cuts | DL": -0.0076
+   }
+  },
+  "tr-rec-h32-t16": {
+   "t0": {
+    "DL (d>=2)": 0.5773,
+    "lock1": 0.6062,
+    "lock2": 0.5975,
+    "kappa (clip 4)": 0.002,
+    "log class size": 0.7244,
+    "n moves": 0.014,
+    "deep (d>=3) | DL": 0.4595,
+    "Gamma-cycle | DL": 0.5835,
+    "DD | DL": 0.6069,
+    "sigma image DL | DL": 0.6577,
+    "pi move optimal | DL": 0.6006,
+    "log DL run | DL": 0.0205,
+    "pi steps to fill (cap 12) | DL": 0.0096,
+    "log lock1 length | DL": 0.0991,
+    "log lock2 length | DL": 0.1061,
+    "log sigma-chain length | DL": 0.087,
+    "n exits (optimal afterstates) | DL": 0.0401,
+    "lock1 thickness | DL": -0.0178,
+    "theta overlap | DL": 0.0324,
+    "reroute cuts | DL": -0.0007
+   },
+   "t4": {
+    "DL (d>=2)": 0.7235,
+    "lock1": 0.7014,
+    "lock2": 0.716,
+    "kappa (clip 4)": -0.1148,
+    "log class size": 0.5738,
+    "n moves": -0.0745,
+    "deep (d>=3) | DL": 0.4808,
+    "Gamma-cycle | DL": 0.6864,
+    "DD | DL": 0.6452,
+    "sigma image DL | DL": 0.6864,
+    "pi move optimal | DL": 0.641,
+    "log DL run | DL": -0.242,
+    "pi steps to fill (cap 12) | DL": -0.1684,
+    "log lock1 length | DL": -0.0529,
+    "log lock2 length | DL": -0.0475,
+    "log sigma-chain length | DL": -0.1575,
+    "n exits (optimal afterstates) | DL": -0.1288,
+    "lock1 thickness | DL": -0.2063,
+    "theta overlap | DL": -0.1132,
+    "reroute cuts | DL": -0.2734
+   },
+   "t8": {
+    "DL (d>=2)": 0.6668,
+    "lock1": 0.611,
+    "lock2": 0.6876,
+    "kappa (clip 4)": -0.6086,
+    "log class size": 0.3624,
+    "n moves": -0.313,
+    "deep (d>=3) | DL": 0.5007,
+    "Gamma-cycle | DL": 0.4733,
+    "DD | DL": 0.6271,
+    "sigma image DL | DL": 0.615,
+    "pi move optimal | DL": 0.6205,
+    "log DL run | DL": -0.3181,
+    "pi steps to fill (cap 12) | DL": -0.253,
+    "log lock1 length | DL": -0.2057,
+    "log lock2 length | DL": -0.1774,
+    "log sigma-chain length | DL": -0.3659,
+    "n exits (optimal afterstates) | DL": -0.1708,
+    "lock1 thickness | DL": -0.2598,
+    "theta overlap | DL": -0.3523,
+    "reroute cuts | DL": -0.5035
+   },
+   "t12": {
+    "DL (d>=2)": 0.6676,
+    "lock1": 0.6359,
+    "lock2": 0.6636,
+    "kappa (clip 4)": -0.5885,
+    "log class size": 0.4246,
+    "n moves": -0.1087,
+    "deep (d>=3) | DL": 0.5673,
+    "Gamma-cycle | DL": 0.5706,
+    "DD | DL": 0.6025,
+    "sigma image DL | DL": 0.6219,
+    "pi move optimal | DL": 0.5934,
+    "log DL run | DL": -0.3838,
+    "pi steps to fill (cap 12) | DL": -0.3294,
+    "log lock1 length | DL": -0.2708,
+    "log lock2 length | DL": -0.1176,
+    "log sigma-chain length | DL": -0.3924,
+    "n exits (optimal afterstates) | DL": -0.3172,
+    "lock1 thickness | DL": -0.2389,
+    "theta overlap | DL": -0.3805,
+    "reroute cuts | DL": -0.4704
+   },
+   "t16": {
+    "DL (d>=2)": 0.6325,
+    "lock1": 0.6538,
+    "lock2": 0.6368,
+    "kappa (clip 4)": -0.5865,
+    "log class size": 0.3799,
+    "n moves": -0.1056,
+    "deep (d>=3) | DL": 0.5156,
+    "Gamma-cycle | DL": 0.6301,
+    "DD | DL": 0.5993,
+    "sigma image DL | DL": 0.6247,
+    "pi move optimal | DL": 0.5944,
+    "log DL run | DL": -0.3879,
+    "pi steps to fill (cap 12) | DL": -0.2725,
+    "log lock1 length | DL": -0.1425,
+    "log lock2 length | DL": -0.0722,
+    "log sigma-chain length | DL": -0.2917,
+    "n exits (optimal afterstates) | DL": -0.2841,
+    "lock1 thickness | DL": -0.2545,
+    "theta overlap | DL": -0.2076,
+    "reroute cuts | DL": -0.5017
+   },
+   "z": {
+    "DL (d>=2)": 0.5768,
+    "lock1": 0.5708,
+    "lock2": 0.5628,
+    "kappa (clip 4)": -0.0043,
+    "log class size": -1.3306,
+    "n moves": -0.2533,
+    "deep (d>=3) | DL": 0.4156,
+    "Gamma-cycle | DL": 0.5938,
+    "DD | DL": 0.503,
+    "sigma image DL | DL": 0.5061,
+    "pi move optimal | DL": 0.5131,
+    "log DL run | DL": -0.0455,
+    "pi steps to fill (cap 12) | DL": -0.0441,
+    "log lock1 length | DL": -0.0689,
+    "log lock2 length | DL": -0.1527,
+    "log sigma-chain length | DL": -0.0289,
+    "n exits (optimal afterstates) | DL": -0.1038,
+    "lock1 thickness | DL": -0.0533,
+    "theta overlap | DL": -0.0839,
+    "reroute cuts | DL": -0.0378
+   }
+  }
+ },
+ "probeShuffled": {
+  "priors-gnn-h16-k3-pool": {
+   "L3": {
+    "DL (d>=2)": 0.504,
+    "lock1": 0.5015,
+    "lock2": 0.4971,
+    "kappa (clip 4)": -0.0031,
+    "log class size": -0.0037,
+    "n moves": -0.0029,
+    "deep (d>=3) | DL": 0.5622,
+    "Gamma-cycle | DL": 0.5383,
+    "DD | DL": 0.501,
+    "sigma image DL | DL": 0.51,
+    "pi move optimal | DL": 0.5021,
+    "log DL run | DL": -0.0118,
+    "pi steps to fill (cap 12) | DL": -0.0071,
+    "log lock1 length | DL": -0.0117,
+    "log lock2 length | DL": -0.0085,
+    "log sigma-chain length | DL": -0.0113,
+    "n exits (optimal afterstates) | DL": -0.0082,
+    "lock1 thickness | DL": -0.0104,
+    "theta overlap | DL": -0.0091,
+    "reroute cuts | DL": -0.0137
+   },
+   "z": {
+    "DL (d>=2)": 0.4992,
+    "lock1": 0.5003,
+    "lock2": 0.4995,
+    "kappa (clip 4)": -0.0011,
+    "log class size": -0.0006,
+    "n moves": -0.0011,
+    "deep (d>=3) | DL": 0.4748,
+    "Gamma-cycle | DL": 0.4435,
+    "DD | DL": 0.482,
+    "sigma image DL | DL": 0.5023,
+    "pi move optimal | DL": 0.5106,
+    "log DL run | DL": -0.0019,
+    "pi steps to fill (cap 12) | DL": -0.001,
+    "log lock1 length | DL": -0.0025,
+    "log lock2 length | DL": -0.0025,
+    "log sigma-chain length | DL": -0.0026,
+    "n exits (optimal afterstates) | DL": -0.0021,
+    "lock1 thickness | DL": -0.0017,
+    "theta overlap | DL": -0.0025,
+    "reroute cuts | DL": -0.005
+   }
+  }
+ },
+ "probeNamedBaseline": {
+  "kappa (clip 4)": 0.9175,
+  "deep (d>=3) | DL": 0.9733,
+  "n exits (optimal afterstates) | DL": 0.5374
+ },
+ "units": {
+  "priors-gnn-h16-k3-pool": {
+   "DL (d>=2)": [
+    {
+     "unit": "z.27",
+     "r": 0.997,
+     "MI_bits": 0.8827
+    },
+    {
+     "unit": "z.15",
+     "r": 0.989,
+     "MI_bits": 0.886
+    },
+    {
+     "unit": "L0.rim2.15",
+     "r": 0.989,
+     "MI_bits": 0.8788
+    },
+    {
+     "unit": "L1.rim2.13",
+     "r": 0.983,
+     "MI_bits": 0.8491
+    },
+    {
+     "unit": "L3.rim2.4",
+     "r": 0.956,
+     "MI_bits": 0.8655
+    }
+   ],
+   "DL (d>=2) :: max|r| by layer": {
+    "L0": 0.989,
+    "L1": 0.983,
+    "L2": 0.955,
+    "L3": 0.956,
+    "z": 0.997
+   },
+   "lock1": [
+    {
+     "unit": "L1.hole.4",
+     "r": -0.945,
+     "MI_bits": 0.9595
+    },
+    {
+     "unit": "L2.hole.7",
+     "r": -0.935,
+     "MI_bits": 0.9513
+    },
+    {
+     "unit": "L0.rim3.1",
+     "r": 0.934,
+     "MI_bits": 0.9532
+    },
+    {
+     "unit": "L1.rim4.6",
+     "r": -0.932,
+     "MI_bits": 0.9583
+    },
+    {
+     "unit": "L0.rim2.5",
+     "r": 0.931,
+     "MI_bits": 0.9998
+    }
+   ],
+   "lock1 :: max|r| by layer": {
+    "L0": 0.934,
+    "L1": 0.945,
+    "L2": 0.935,
+    "L3": 0.841,
+    "z": 0.689
+   },
+   "lock2": [
+    {
+     "unit": "L0.rim2.9",
+     "r": 0.932,
+     "MI_bits": 0.9836
+    },
+    {
+     "unit": "L0.rim2.2",
+     "r": -0.926,
+     "MI_bits": 0.9618
+    },
+    {
+     "unit": "L0.rim1.9",
+     "r": -0.918,
+     "MI_bits": 0.9643
+    },
+    {
+     "unit": "L2.rim1.4",
+     "r": -0.912,
+     "MI_bits": 0.9115
+    },
+    {
+     "unit": "L0.rim2.12",
+     "r": -0.909,
+     "MI_bits": 0.9242
+    }
+   ],
+   "lock2 :: max|r| by layer": {
+    "L0": 0.932,
+    "L1": 0.875,
+    "L2": 0.912,
+    "L3": 0.869,
+    "z": 0.697
+   },
+   "kappa (clip 4)": [
+    {
+     "unit": "z.27",
+     "r": 0.974,
+     "MI_bits": 0.8836
+    },
+    {
+     "unit": "L0.rim2.15",
+     "r": 0.963,
+     "MI_bits": 0.8793
+    },
+    {
+     "unit": "z.15",
+     "r": 0.962,
+     "MI_bits": 0.8882
+    },
+    {
+     "unit": "L1.rim2.13",
+     "r": 0.96,
+     "MI_bits": 0.8495
+    },
+    {
+     "unit": "L3.rim2.4",
+     "r": 0.94,
+     "MI_bits": 0.868
+    }
+   ],
+   "kappa (clip 4) :: max|r| by layer": {
+    "L0": 0.963,
+    "L1": 0.96,
+    "L2": 0.94,
+    "L3": 0.94,
+    "z": 0.974
+   },
+   "log class size": [
+    {
+     "unit": "L2.mean.14",
+     "r": -0.113,
+     "MI_bits": 0.0394
+    },
+    {
+     "unit": "L0.mean.14",
+     "r": 0.111,
+     "MI_bits": 0.025
+    },
+    {
+     "unit": "L0.max.9",
+     "r": 0.104,
+     "MI_bits": 0.0291
+    },
+    {
+     "unit": "L1.hole.7",
+     "r": -0.099,
+     "MI_bits": 0.0025
+    },
+    {
+     "unit": "L2.max.6",
+     "r": 0.098,
+     "MI_bits": 0.0334
+    }
+   ],
+   "log class size :: max|r| by layer": {
+    "L0": 0.111,
+    "L1": 0.099,
+    "L2": 0.113,
+    "L3": 0.087,
+    "z": 0.07
+   },
+   "n moves": [
+    {
+     "unit": "L0.mean.5",
+     "r": -0.525,
+     "MI_bits": 0.2222
+    },
+    {
+     "unit": "L1.mean.4",
+     "r": -0.462,
+     "MI_bits": 0.1651
+    },
+    {
+     "unit": "L2.mean.13",
+     "r": -0.46,
+     "MI_bits": 0.1668
+    },
+    {
+     "unit": "L1.rim1.6",
+     "r": 0.419,
+     "MI_bits": 0.1661
+    },
+    {
+     "unit": "L0.max.5",
+     "r": -0.401,
+     "MI_bits": 0.182
+    }
+   ],
+   "n moves :: max|r| by layer": {
+    "L0": 0.525,
+    "L1": 0.462,
+    "L2": 0.46,
+    "L3": 0.259,
+    "z": 0.195
+   },
+   "deep (d>=3) | DL": [
+    {
+     "unit": "z.12",
+     "r": 0.43,
+     "MI_bits": 0.0499
+    },
+    {
+     "unit": "z.25",
+     "r": 0.396,
+     "MI_bits": 0.0384
+    },
+    {
+     "unit": "z.19",
+     "r": 0.3,
+     "MI_bits": 0.0187
+    },
+    {
+     "unit": "z.30",
+     "r": 0.289,
+     "MI_bits": 0.0172
+    },
+    {
+     "unit": "z.5",
+     "r": 0.241,
+     "MI_bits": 0.0252
+    }
+   ],
+   "deep (d>=3) | DL :: max|r| by layer": {
+    "L0": 0.175,
+    "L1": 0.18,
+    "L2": 0.196,
+    "L3": 0.212,
+    "z": 0.43
+   },
+   "Gamma-cycle | DL": [
+    {
+     "unit": "z.30",
+     "r": 0.182,
+     "MI_bits": 0.011
+    },
+    {
+     "unit": "z.21",
+     "r": 0.16,
+     "MI_bits": 0.0068
+    },
+    {
+     "unit": "L1.hole.7",
+     "r": 0.132,
+     "MI_bits": 0.0027
+    },
+    {
+     "unit": "L1.max.8",
+     "r": 0.115,
+     "MI_bits": 0.0084
+    },
+    {
+     "unit": "z.12",
+     "r": 0.114,
+     "MI_bits": 0.0049
+    }
+   ],
+   "Gamma-cycle | DL :: max|r| by layer": {
+    "L0": 0.105,
+    "L1": 0.132,
+    "L2": 0.084,
+    "L3": 0.111,
+    "z": 0.182
+   },
+   "DD | DL": [
+    {
+     "unit": "L2.rim2.13",
+     "r": 0.422,
+     "MI_bits": 0.1595
+    },
+    {
+     "unit": "L3.rim2.1",
+     "r": 0.417,
+     "MI_bits": 0.1559
+    },
+    {
+     "unit": "L3.rim2.7",
+     "r": -0.412,
+     "MI_bits": 0.1366
+    },
+    {
+     "unit": "L3.hole.7",
+     "r": -0.381,
+     "MI_bits": 0.1131
+    },
+    {
+     "unit": "L1.rim2.4",
+     "r": 0.373,
+     "MI_bits": 0.1183
+    }
+   ],
+   "DD | DL :: max|r| by layer": {
+    "L0": 0.35,
+    "L1": 0.373,
+    "L2": 0.422,
+    "L3": 0.417,
+    "z": 0.366
+   },
+   "sigma image DL | DL": [
+    {
+     "unit": "L0.rim2.14",
+     "r": -0.588,
+     "MI_bits": 0.3327
+    },
+    {
+     "unit": "L0.max.14",
+     "r": -0.565,
+     "MI_bits": 0.3057
+    },
+    {
+     "unit": "L0.rim2.9",
+     "r": -0.556,
+     "MI_bits": 0.2885
+    },
+    {
+     "unit": "L2.hole.3",
+     "r": 0.549,
+     "MI_bits": 0.2552
+    },
+    {
+     "unit": "L1.hole.3",
+     "r": 0.547,
+     "MI_bits": 0.2628
+    }
+   ],
+   "sigma image DL | DL :: max|r| by layer": {
+    "L0": 0.588,
+    "L1": 0.547,
+    "L2": 0.549,
+    "L3": 0.505,
+    "z": 0.27
+   },
+   "pi move optimal | DL": [
+    {
+     "unit": "L3.rim2.7",
+     "r": 0.401,
+     "MI_bits": 0.1288
+    },
+    {
+     "unit": "L2.rim2.13",
+     "r": -0.4,
+     "MI_bits": 0.1417
+    },
+    {
+     "unit": "L3.rim2.1",
+     "r": -0.386,
+     "MI_bits": 0.135
+    },
+    {
+     "unit": "L3.hole.7",
+     "r": 0.372,
+     "MI_bits": 0.1075
+    },
+    {
+     "unit": "L1.rim2.4",
+     "r": -0.352,
+     "MI_bits": 0.1032
+    }
+   ],
+   "pi move optimal | DL :: max|r| by layer": {
+    "L0": 0.351,
+    "L1": 0.352,
+    "L2": 0.4,
+    "L3": 0.401,
+    "z": 0.318
+   },
+   "log DL run | DL": [
+    {
+     "unit": "L2.rim2.13",
+     "r": 0.406,
+     "MI_bits": 0.1942
+    },
+    {
+     "unit": "L1.max.4",
+     "r": 0.402,
+     "MI_bits": 0.1669
+    },
+    {
+     "unit": "L1.rim2.4",
+     "r": 0.398,
+     "MI_bits": 0.1595
+    },
+    {
+     "unit": "L3.rim2.1",
+     "r": 0.393,
+     "MI_bits": 0.1935
+    },
+    {
+     "unit": "L3.hole.7",
+     "r": -0.387,
+     "MI_bits": 0.169
+    }
+   ],
+   "log DL run | DL :: max|r| by layer": {
+    "L0": 0.32,
+    "L1": 0.402,
+    "L2": 0.406,
+    "L3": 0.393,
+    "z": 0.361
+   }
+  },
+  "colours-only-pretrained": {
+   "DL (d>=2)": [
+    {
+     "unit": "z.32",
+     "r": 0.58,
+     "MI_bits": 0.2819
+    },
+    {
+     "unit": "z.38",
+     "r": 0.564,
+     "MI_bits": 0.2933
+    },
+    {
+     "unit": "L3.mean.15",
+     "r": -0.488,
+     "MI_bits": 0.2104
+    },
+    {
+     "unit": "L3.mean.17",
+     "r": 0.456,
+     "MI_bits": 0.1625
+    },
+    {
+     "unit": "L4.mean.16",
+     "r": 0.453,
+     "MI_bits": 0.168
+    }
+   ],
+   "DL (d>=2) :: max|r| by layer": {
+    "L0": 0.398,
+    "L1": 0.383,
+    "L2": 0.435,
+    "L3": 0.488,
+    "L4": 0.453,
+    "z": 0.58
+   },
+   "lock1": [
+    {
+     "unit": "z.38",
+     "r": 0.562,
+     "MI_bits": 0.2629
+    },
+    {
+     "unit": "L4.rim3.0",
+     "r": -0.546,
+     "MI_bits": 0.2691
+    },
+    {
+     "unit": "L3.rim3.6",
+     "r": -0.518,
+     "MI_bits": 0.2482
+    },
+    {
+     "unit": "L4.rim3.21",
+     "r": -0.516,
+     "MI_bits": 0.242
+    },
+    {
+     "unit": "L4.rim3.30",
+     "r": -0.515,
+     "MI_bits": 0.2387
+    }
+   ],
+   "lock1 :: max|r| by layer": {
+    "L0": 0.385,
+    "L1": 0.455,
+    "L2": 0.484,
+    "L3": 0.518,
+    "L4": 0.546,
+    "z": 0.562
+   },
+   "lock2": [
+    {
+     "unit": "L4.max.9",
+     "r": -0.562,
+     "MI_bits": 0.2692
+    },
+    {
+     "unit": "L4.mean.9",
+     "r": -0.549,
+     "MI_bits": 0.2569
+    },
+    {
+     "unit": "L3.rim4.30",
+     "r": -0.54,
+     "MI_bits": 0.2756
+    },
+    {
+     "unit": "L2.mean.11",
+     "r": 0.538,
+     "MI_bits": 0.2485
+    },
+    {
+     "unit": "L4.mean.12",
+     "r": -0.536,
+     "MI_bits": 0.2484
+    }
+   ],
+   "lock2 :: max|r| by layer": {
+    "L0": 0.494,
+    "L1": 0.463,
+    "L2": 0.538,
+    "L3": 0.54,
+    "L4": 0.562,
+    "z": 0.485
+   },
+   "kappa (clip 4)": [
+    {
+     "unit": "z.32",
+     "r": 0.572,
+     "MI_bits": 0.2833
+    },
+    {
+     "unit": "z.38",
+     "r": 0.548,
+     "MI_bits": 0.2943
+    },
+    {
+     "unit": "L3.mean.15",
+     "r": -0.478,
+     "MI_bits": 0.2122
+    },
+    {
+     "unit": "L3.mean.17",
+     "r": 0.447,
+     "MI_bits": 0.1646
+    },
+    {
+     "unit": "L4.mean.16",
+     "r": 0.436,
+     "MI_bits": 0.1699
+    }
+   ],
+   "kappa (clip 4) :: max|r| by layer": {
+    "L0": 0.388,
+    "L1": 0.371,
+    "L2": 0.424,
+    "L3": 0.478,
+    "L4": 0.436,
+    "z": 0.572
+   },
+   "log class size": [
+    {
+     "unit": "L0.mean.0",
+     "r": -0.854,
+     "MI_bits": 1.4966
+    },
+    {
+     "unit": "L0.mean.13",
+     "r": -0.772,
+     "MI_bits": 1.0716
+    },
+    {
+     "unit": "L1.mean.27",
+     "r": -0.713,
+     "MI_bits": 0.237
+    },
+    {
+     "unit": "L0.mean.28",
+     "r": -0.664,
+     "MI_bits": 0.1801
+    },
+    {
+     "unit": "L0.mean.20",
+     "r": 0.525,
+     "MI_bits": 0.1816
+    }
+   ],
+   "log class size :: max|r| by layer": {
+    "L0": 0.854,
+    "L1": 0.713,
+    "L2": 0.287,
+    "L3": 0.407,
+    "L4": 0.204,
+    "z": 0.104
+   },
+   "n moves": [
+    {
+     "unit": "L4.max.8",
+     "r": 0.291,
+     "MI_bits": 0.0676
+    },
+    {
+     "unit": "L4.mean.8",
+     "r": 0.289,
+     "MI_bits": 0.0637
+    },
+    {
+     "unit": "L4.mean.9",
+     "r": 0.288,
+     "MI_bits": 0.0707
+    },
+    {
+     "unit": "L4.mean.15",
+     "r": 0.283,
+     "MI_bits": 0.0661
+    },
+    {
+     "unit": "L3.mean.15",
+     "r": 0.268,
+     "MI_bits": 0.0748
+    }
+   ],
+   "n moves :: max|r| by layer": {
+    "L0": 0.184,
+    "L1": 0.178,
+    "L2": 0.199,
+    "L3": 0.268,
+    "L4": 0.291,
+    "z": 0.244
+   },
+   "deep (d>=3) | DL": [
+    {
+     "unit": "L2.rim0.26",
+     "r": -0.167,
+     "MI_bits": 0.024
+    },
+    {
+     "unit": "L1.rim0.25",
+     "r": 0.164,
+     "MI_bits": 0.023
+    },
+    {
+     "unit": "L1.rim0.17",
+     "r": -0.159,
+     "MI_bits": 0.0224
+    },
+    {
+     "unit": "L4.rim0.2",
+     "r": 0.158,
+     "MI_bits": 0.0242
+    },
+    {
+     "unit": "L1.rim0.31",
+     "r": 0.157,
+     "MI_bits": 0.0203
+    }
+   ],
+   "deep (d>=3) | DL :: max|r| by layer": {
+    "L0": 0.1,
+    "L1": 0.164,
+    "L2": 0.167,
+    "L3": 0.152,
+    "L4": 0.158,
+    "z": 0.152
+   },
+   "Gamma-cycle | DL": [
+    {
+     "unit": "L0.mean.13",
+     "r": 0.127,
+     "MI_bits": 0.0034
+    },
+    {
+     "unit": "L0.mean.0",
+     "r": 0.12,
+     "MI_bits": 0.0043
+    },
+    {
+     "unit": "L2.hole.5",
+     "r": 0.11,
+     "MI_bits": 0.0058
+    },
+    {
+     "unit": "L1.hole.6",
+     "r": 0.104,
+     "MI_bits": 0.0047
+    },
+    {
+     "unit": "L1.mean.2",
+     "r": -0.101,
+     "MI_bits": 0.0056
+    }
+   ],
+   "Gamma-cycle | DL :: max|r| by layer": {
+    "L0": 0.127,
+    "L1": 0.104,
+    "L2": 0.11,
+    "L3": 0.087,
+    "L4": 0.09,
+    "z": 0.062
+   },
+   "DD | DL": [
+    {
+     "unit": "L2.rim2.14",
+     "r": -0.437,
+     "MI_bits": 0.1773
+    },
+    {
+     "unit": "L3.rim2.23",
+     "r": -0.426,
+     "MI_bits": 0.1719
+    },
+    {
+     "unit": "L2.rim2.1",
+     "r": -0.424,
+     "MI_bits": 0.1677
+    },
+    {
+     "unit": "L4.rim2.2",
+     "r": -0.424,
+     "MI_bits": 0.1698
+    },
+    {
+     "unit": "L2.max.1",
+     "r": -0.415,
+     "MI_bits": 0.1635
+    }
+   ],
+   "DD | DL :: max|r| by layer": {
+    "L0": 0.274,
+    "L1": 0.41,
+    "L2": 0.437,
+    "L3": 0.426,
+    "L4": 0.424,
+    "z": 0.243
+   },
+   "sigma image DL | DL": [
+    {
+     "unit": "L4.mean.7",
+     "r": 0.461,
+     "MI_bits": 0.1706
+    },
+    {
+     "unit": "L1.mean.15",
+     "r": -0.456,
+     "MI_bits": 0.1642
+    },
+    {
+     "unit": "L2.mean.31",
+     "r": 0.453,
+     "MI_bits": 0.1688
+    },
+    {
+     "unit": "L1.mean.26",
+     "r": -0.452,
+     "MI_bits": 0.1636
+    },
+    {
+     "unit": "L0.mean.19",
+     "r": 0.447,
+     "MI_bits": 0.1604
+    }
+   ],
+   "sigma image DL | DL :: max|r| by layer": {
+    "L0": 0.447,
+    "L1": 0.456,
+    "L2": 0.453,
+    "L3": 0.397,
+    "L4": 0.461,
+    "z": 0.359
+   },
+   "pi move optimal | DL": [
+    {
+     "unit": "L2.rim2.14",
+     "r": 0.401,
+     "MI_bits": 0.1528
+    },
+    {
+     "unit": "L3.rim2.23",
+     "r": 0.394,
+     "MI_bits": 0.1498
+    },
+    {
+     "unit": "L2.rim2.1",
+     "r": 0.394,
+     "MI_bits": 0.1476
+    },
+    {
+     "unit": "L4.rim2.2",
+     "r": 0.392,
+     "MI_bits": 0.1487
+    },
+    {
+     "unit": "L2.max.1",
+     "r": 0.391,
+     "MI_bits": 0.1468
+    }
+   ],
+   "pi move optimal | DL :: max|r| by layer": {
+    "L0": 0.282,
+    "L1": 0.375,
+    "L2": 0.401,
+    "L3": 0.394,
+    "L4": 0.392,
+    "z": 0.239
+   },
+   "log DL run | DL": [
+    {
+     "unit": "L2.rim2.14",
+     "r": -0.409,
+     "MI_bits": 0.1981
+    },
+    {
+     "unit": "L2.rim0.7",
+     "r": -0.409,
+     "MI_bits": 0.2143
+    },
+    {
+     "unit": "L2.rim2.1",
+     "r": -0.408,
+     "MI_bits": 0.1955
+    },
+    {
+     "unit": "L4.rim2.2",
+     "r": -0.407,
+     "MI_bits": 0.1989
+    },
+    {
+     "unit": "L3.rim2.23",
+     "r": -0.404,
+     "MI_bits": 0.2029
+    }
+   ],
+   "log DL run | DL :: max|r| by layer": {
+    "L0": 0.254,
+    "L1": 0.397,
+    "L2": 0.409,
+    "L3": 0.404,
+    "L4": 0.407,
+    "z": 0.272
+   }
+  },
+  "nano-rl": {
+   "DL (d>=2)": [
+    {
+     "unit": "z.6",
+     "r": 0.984,
+     "MI_bits": 0.8517
+    },
+    {
+     "unit": "z.0",
+     "r": 0.964,
+     "MI_bits": 0.8545
+    },
+    {
+     "unit": "L1.rim4.1",
+     "r": 0.905,
+     "MI_bits": 0.7932
+    },
+    {
+     "unit": "L0.rim4.2",
+     "r": 0.874,
+     "MI_bits": 0.7805
+    },
+    {
+     "unit": "L1.hole.0",
+     "r": 0.861,
+     "MI_bits": 0.7654
+    }
+   ],
+   "DL (d>=2) :: max|r| by layer": {
+    "L0": 0.874,
+    "L1": 0.905,
+    "z": 0.984
+   },
+   "lock1": [
+    {
+     "unit": "L1.hole.3",
+     "r": 0.953,
+     "MI_bits": 0.9594
+    },
+    {
+     "unit": "L0.rim0.0",
+     "r": -0.801,
+     "MI_bits": 0.6835
+    },
+    {
+     "unit": "L1.rim4.3",
+     "r": 0.798,
+     "MI_bits": 0.6349
+    },
+    {
+     "unit": "L0.rim4.2",
+     "r": 0.793,
+     "MI_bits": 0.7083
+    },
+    {
+     "unit": "L0.mean.0",
+     "r": -0.79,
+     "MI_bits": 0.6718
+    }
+   ],
+   "lock1 :: max|r| by layer": {
+    "L0": 0.801,
+    "L1": 0.953,
+    "z": 0.78
+   },
+   "lock2": [
+    {
+     "unit": "L1.rim4.2",
+     "r": -0.907,
+     "MI_bits": 0.9211
+    },
+    {
+     "unit": "L0.rim4.1",
+     "r": 0.881,
+     "MI_bits": 0.8434
+    },
+    {
+     "unit": "L1.rim4.1",
+     "r": 0.811,
+     "MI_bits": 0.8311
+    },
+    {
+     "unit": "L0.rim4.3",
+     "r": -0.761,
+     "MI_bits": 0.7315
+    },
+    {
+     "unit": "L0.rim1.2",
+     "r": 0.748,
+     "MI_bits": 0.6049
+    }
+   ],
+   "lock2 :: max|r| by layer": {
+    "L0": 0.881,
+    "L1": 0.907,
+    "z": 0.644
+   },
+   "kappa (clip 4)": [
+    {
+     "unit": "z.6",
+     "r": 0.967,
+     "MI_bits": 0.8548
+    },
+    {
+     "unit": "z.0",
+     "r": 0.947,
+     "MI_bits": 0.8568
+    },
+    {
+     "unit": "L1.rim4.1",
+     "r": 0.89,
+     "MI_bits": 0.7968
+    },
+    {
+     "unit": "L0.rim4.2",
+     "r": 0.853,
+     "MI_bits": 0.7814
+    },
+    {
+     "unit": "L1.hole.0",
+     "r": 0.846,
+     "MI_bits": 0.7687
+    }
+   ],
+   "kappa (clip 4) :: max|r| by layer": {
+    "L0": 0.853,
+    "L1": 0.89,
+    "z": 0.967
+   },
+   "log class size": [
+    {
+     "unit": "z.2",
+     "r": -0.094,
+     "MI_bits": 0.0325
+    },
+    {
+     "unit": "L1.mean.0",
+     "r": -0.083,
+     "MI_bits": 0.0312
+    },
+    {
+     "unit": "L1.rim0.0",
+     "r": -0.082,
+     "MI_bits": 0.019
+    },
+    {
+     "unit": "L0.mean.2",
+     "r": -0.081,
+     "MI_bits": 0.0262
+    },
+    {
+     "unit": "L1.mean.2",
+     "r": -0.078,
+     "MI_bits": 0.0187
+    }
+   ],
+   "log class size :: max|r| by layer": {
+    "L0": 0.081,
+    "L1": 0.083,
+    "z": 0.094
+   },
+   "n moves": [
+    {
+     "unit": "L1.mean.0",
+     "r": -0.298,
+     "MI_bits": 0.0772
+    },
+    {
+     "unit": "L0.mean.2",
+     "r": -0.296,
+     "MI_bits": 0.0795
+    },
+    {
+     "unit": "L1.rim4.0",
+     "r": -0.249,
+     "MI_bits": 0.0558
+    },
+    {
+     "unit": "L1.rim2.1",
+     "r": -0.23,
+     "MI_bits": 0.0427
+    },
+    {
+     "unit": "L1.mean.1",
+     "r": -0.22,
+     "MI_bits": 0.0569
+    }
+   ],
+   "n moves :: max|r| by layer": {
+    "L0": 0.296,
+    "L1": 0.298,
+    "z": 0.21
+   },
+   "deep (d>=3) | DL": [
+    {
+     "unit": "z.1",
+     "r": 0.289,
+     "MI_bits": 0.0226
+    },
+    {
+     "unit": "z.2",
+     "r": 0.216,
+     "MI_bits": 0.0249
+    },
+    {
+     "unit": "L1.rim2.1",
+     "r": 0.196,
+     "MI_bits": 0.0217
+    },
+    {
+     "unit": "z.6",
+     "r": 0.174,
+     "MI_bits": 0.0165
+    },
+    {
+     "unit": "z.3",
+     "r": 0.16,
+     "MI_bits": 0.0213
+    }
+   ],
+   "deep (d>=3) | DL :: max|r| by layer": {
+    "L0": 0.109,
+    "L1": 0.196,
+    "z": 0.289
+   },
+   "Gamma-cycle | DL": [
+    {
+     "unit": "L0.mean.0",
+     "r": 0.11,
+     "MI_bits": 0.0081
+    },
+    {
+     "unit": "L0.rim1.2",
+     "r": 0.103,
+     "MI_bits": 0.0108
+    },
+    {
+     "unit": "L1.rim1.3",
+     "r": -0.088,
+     "MI_bits": 0.0068
+    },
+    {
+     "unit": "L0.rim0.0",
+     "r": 0.081,
+     "MI_bits": 0.0061
+    },
+    {
+     "unit": "L1.rim4.0",
+     "r": 0.081,
+     "MI_bits": 0.0064
+    }
+   ],
+   "Gamma-cycle | DL :: max|r| by layer": {
+    "L0": 0.11,
+    "L1": 0.088,
+    "z": 0.079
+   },
+   "DD | DL": [
+    {
+     "unit": "L1.mean.2",
+     "r": 0.344,
+     "MI_bits": 0.0902
+    },
+    {
+     "unit": "L0.mean.0",
+     "r": 0.336,
+     "MI_bits": 0.0917
+    },
+    {
+     "unit": "L1.hole.2",
+     "r": 0.289,
+     "MI_bits": 0.0641
+    },
+    {
+     "unit": "L1.max.2",
+     "r": 0.289,
+     "MI_bits": 0.0641
+    },
+    {
+     "unit": "L1.rim3.3",
+     "r": -0.282,
+     "MI_bits": 0.0621
+    }
+   ],
+   "DD | DL :: max|r| by layer": {
+    "L0": 0.336,
+    "L1": 0.344,
+    "z": 0.126
+   },
+   "sigma image DL | DL": [
+    {
+     "unit": "L0.rim2.0",
+     "r": -0.573,
+     "MI_bits": 0.2698
+    },
+    {
+     "unit": "L0.rim0.0",
+     "r": -0.572,
+     "MI_bits": 0.2753
+    },
+    {
+     "unit": "L0.mean.0",
+     "r": -0.569,
+     "MI_bits": 0.2739
+    },
+    {
+     "unit": "L1.hole.2",
+     "r": -0.568,
+     "MI_bits": 0.3228
+    },
+    {
+     "unit": "L1.max.2",
+     "r": -0.568,
+     "MI_bits": 0.3228
+    }
+   ],
+   "sigma image DL | DL :: max|r| by layer": {
+    "L0": 0.573,
+    "L1": 0.568,
+    "z": 0.324
+   },
+   "pi move optimal | DL": [
+    {
+     "unit": "L0.mean.0",
+     "r": -0.353,
+     "MI_bits": 0.0983
+    },
+    {
+     "unit": "L1.mean.2",
+     "r": -0.347,
+     "MI_bits": 0.0894
+    },
+    {
+     "unit": "L1.hole.2",
+     "r": -0.292,
+     "MI_bits": 0.0646
+    },
+    {
+     "unit": "L1.max.2",
+     "r": -0.292,
+     "MI_bits": 0.0646
+    },
+    {
+     "unit": "L0.rim2.0",
+     "r": -0.287,
+     "MI_bits": 0.0576
+    }
+   ],
+   "pi move optimal | DL :: max|r| by layer": {
+    "L0": 0.353,
+    "L1": 0.347,
+    "z": 0.155
+   },
+   "log DL run | DL": [
+    {
+     "unit": "L1.rim0.0",
+     "r": 0.346,
+     "MI_bits": 0.1288
+    },
+    {
+     "unit": "L1.mean.2",
+     "r": 0.332,
+     "MI_bits": 0.1423
+    },
+    {
+     "unit": "L1.rim0.2",
+     "r": 0.313,
+     "MI_bits": 0.137
+    },
+    {
+     "unit": "L0.rim0.3",
+     "r": 0.308,
+     "MI_bits": 0.1131
+    },
+    {
+     "unit": "L0.mean.0",
+     "r": 0.295,
+     "MI_bits": 0.1012
+    }
+   ],
+   "log DL run | DL :: max|r| by layer": {
+    "L0": 0.308,
+    "L1": 0.346,
+    "z": 0.155
+   }
+  },
+  "tr-rec-h32-t16": {
+   "DL (d>=2)": [
+    {
+     "unit": "t4.max.2",
+     "r": 0.215,
+     "MI_bits": 0.0803
+    },
+    {
+     "unit": "z.7",
+     "r": 0.214,
+     "MI_bits": 0.0332
+    },
+    {
+     "unit": "t4.mean.15",
+     "r": 0.2,
+     "MI_bits": 0.0374
+    },
+    {
+     "unit": "t8.max.2",
+     "r": 0.198,
+     "MI_bits": 0.0458
+    },
+    {
+     "unit": "t8.rim0.22",
+     "r": 0.198,
+     "MI_bits": 0.0379
+    }
+   ],
+   "DL (d>=2) :: max|r| by layer": {
+    "t0": 0.195,
+    "t4": 0.215,
+    "t8": 0.198,
+    "t12": 0.189,
+    "t16": 0.192,
+    "z": 0.214
+   },
+   "lock1": [
+    {
+     "unit": "t4.rim2.14",
+     "r": -0.236,
+     "MI_bits": 0.0602
+    },
+    {
+     "unit": "t4.rim2.2",
+     "r": 0.224,
+     "MI_bits": 0.0566
+    },
+    {
+     "unit": "t8.rim2.9",
+     "r": 0.217,
+     "MI_bits": 0.0413
+    },
+    {
+     "unit": "t4.rim3.14",
+     "r": 0.217,
+     "MI_bits": 0.035
+    },
+    {
+     "unit": "t16.rim3.14",
+     "r": 0.215,
+     "MI_bits": 0.0393
+    }
+   ],
+   "lock1 :: max|r| by layer": {
+    "t0": 0.208,
+    "t4": 0.236,
+    "t8": 0.217,
+    "t12": 0.213,
+    "t16": 0.215,
+    "z": 0.169
+   },
+   "lock2": [
+    {
+     "unit": "t8.rim0.2",
+     "r": 0.238,
+     "MI_bits": 0.0445
+    },
+    {
+     "unit": "t16.rim0.14",
+     "r": -0.227,
+     "MI_bits": 0.0465
+    },
+    {
+     "unit": "t12.rim0.2",
+     "r": 0.226,
+     "MI_bits": 0.0391
+    },
+    {
+     "unit": "t12.rim0.14",
+     "r": -0.223,
+     "MI_bits": 0.0449
+    },
+    {
+     "unit": "t8.rim0.22",
+     "r": 0.221,
+     "MI_bits": 0.0497
+    }
+   ],
+   "lock2 :: max|r| by layer": {
+    "t0": 0.211,
+    "t4": 0.221,
+    "t8": 0.238,
+    "t12": 0.226,
+    "t16": 0.227,
+    "z": 0.153
+   },
+   "kappa (clip 4)": [
+    {
+     "unit": "t4.max.2",
+     "r": 0.213,
+     "MI_bits": 0.0824
+    },
+    {
+     "unit": "z.7",
+     "r": 0.209,
+     "MI_bits": 0.0337
+    },
+    {
+     "unit": "t4.mean.15",
+     "r": 0.199,
+     "MI_bits": 0.0388
+    },
+    {
+     "unit": "t4.max.7",
+     "r": 0.199,
+     "MI_bits": 0.0403
+    },
+    {
+     "unit": "t4.max.24",
+     "r": 0.195,
+     "MI_bits": 0.0307
+    }
+   ],
+   "kappa (clip 4) :: max|r| by layer": {
+    "t0": 0.189,
+    "t4": 0.213,
+    "t8": 0.193,
+    "t12": 0.183,
+    "t16": 0.184,
+    "z": 0.209
+   },
+   "log class size": [
+    {
+     "unit": "t0.mean.27",
+     "r": -0.851,
+     "MI_bits": 0.8652
+    },
+    {
+     "unit": "t4.mean.11",
+     "r": -0.821,
+     "MI_bits": 0.463
+    },
+    {
+     "unit": "t12.mean.11",
+     "r": -0.677,
+     "MI_bits": 0.4142
+    },
+    {
+     "unit": "t4.mean.27",
+     "r": -0.64,
+     "MI_bits": 0.3996
+    },
+    {
+     "unit": "t4.mean.16",
+     "r": -0.632,
+     "MI_bits": 0.2201
+    }
+   ],
+   "log class size :: max|r| by layer": {
+    "t0": 0.851,
+    "t4": 0.821,
+    "t8": 0.597,
+    "t12": 0.677,
+    "t16": 0.612,
+    "z": 0.214
+   },
+   "n moves": [
+    {
+     "unit": "t0.mean.4",
+     "r": -0.199,
+     "MI_bits": 0.027
+    },
+    {
+     "unit": "t0.mean.19",
+     "r": -0.198,
+     "MI_bits": 0.0269
+    },
+    {
+     "unit": "t4.mean.21",
+     "r": 0.168,
+     "MI_bits": 0.0207
+    },
+    {
+     "unit": "t4.max.26",
+     "r": 0.166,
+     "MI_bits": 0.0258
+    },
+    {
+     "unit": "t4.mean.11",
+     "r": -0.164,
+     "MI_bits": 0.0248
+    }
+   ],
+   "n moves :: max|r| by layer": {
+    "t0": 0.199,
+    "t4": 0.168,
+    "t8": 0.144,
+    "t12": 0.134,
+    "t16": 0.132,
+    "z": 0.128
+   },
+   "deep (d>=3) | DL": [
+    {
+     "unit": "t8.rim0.8",
+     "r": 0.116,
+     "MI_bits": 0.0035
+    },
+    {
+     "unit": "t4.mean.11",
+     "r": 0.108,
+     "MI_bits": 0.003
+    },
+    {
+     "unit": "t4.mean.8",
+     "r": 0.106,
+     "MI_bits": 0.0054
+    },
+    {
+     "unit": "t0.mean.19",
+     "r": 0.099,
+     "MI_bits": 0.0057
+    },
+    {
+     "unit": "t0.mean.4",
+     "r": 0.099,
+     "MI_bits": 0.0052
+    }
+   ],
+   "deep (d>=3) | DL :: max|r| by layer": {
+    "t0": 0.099,
+    "t4": 0.108,
+    "t8": 0.116,
+    "t12": 0.088,
+    "t16": 0.081,
+    "z": 0.05
+   },
+   "Gamma-cycle | DL": [
+    {
+     "unit": "t16.hole.12",
+     "r": 0.229,
+     "MI_bits": 0.008
+    },
+    {
+     "unit": "t12.hole.12",
+     "r": 0.222,
+     "MI_bits": 0.0095
+    },
+    {
+     "unit": "t16.hole.17",
+     "r": 0.22,
+     "MI_bits": 0.0077
+    },
+    {
+     "unit": "t12.hole.17",
+     "r": 0.214,
+     "MI_bits": 0.0086
+    },
+    {
+     "unit": "t8.hole.12",
+     "r": 0.212,
+     "MI_bits": 0.004
+    }
+   ],
+   "Gamma-cycle | DL :: max|r| by layer": {
+    "t0": 0.121,
+    "t4": 0.189,
+    "t8": 0.212,
+    "t12": 0.222,
+    "t16": 0.229,
+    "z": 0.152
+   },
+   "DD | DL": [
+    {
+     "unit": "t4.rim2.2",
+     "r": -0.152,
+     "MI_bits": 0.029
+    },
+    {
+     "unit": "t16.rim3.14",
+     "r": -0.148,
+     "MI_bits": 0.0179
+    },
+    {
+     "unit": "t4.rim2.14",
+     "r": 0.146,
+     "MI_bits": 0.0262
+    },
+    {
+     "unit": "t12.rim3.14",
+     "r": -0.145,
+     "MI_bits": 0.0169
+    },
+    {
+     "unit": "t8.rim3.14",
+     "r": -0.143,
+     "MI_bits": 0.0169
+    }
+   ],
+   "DD | DL :: max|r| by layer": {
+    "t0": 0.13,
+    "t4": 0.152,
+    "t8": 0.143,
+    "t12": 0.145,
+    "t16": 0.148,
+    "z": 0.061
+   },
+   "sigma image DL | DL": [
+    {
+     "unit": "t0.rim1.24",
+     "r": 0.17,
+     "MI_bits": 0.0216
+    },
+    {
+     "unit": "t0.rim1.26",
+     "r": 0.169,
+     "MI_bits": 0.0216
+    },
+    {
+     "unit": "t4.rim2.0",
+     "r": -0.165,
+     "MI_bits": 0.0314
+    },
+    {
+     "unit": "t0.rim1.12",
+     "r": 0.163,
+     "MI_bits": 0.0216
+    },
+    {
+     "unit": "t0.rim1.18",
+     "r": -0.16,
+     "MI_bits": 0.0216
+    }
+   ],
+   "sigma image DL | DL :: max|r| by layer": {
+    "t0": 0.17,
+    "t4": 0.165,
+    "t8": 0.156,
+    "t12": 0.152,
+    "t16": 0.144,
+    "z": 0.065
+   },
+   "pi move optimal | DL": [
+    {
+     "unit": "t4.rim2.2",
+     "r": 0.148,
+     "MI_bits": 0.0267
+    },
+    {
+     "unit": "t16.rim3.14",
+     "r": 0.14,
+     "MI_bits": 0.0148
+    },
+    {
+     "unit": "t12.rim3.14",
+     "r": 0.139,
+     "MI_bits": 0.0145
+    },
+    {
+     "unit": "t4.rim2.14",
+     "r": -0.139,
+     "MI_bits": 0.0251
+    },
+    {
+     "unit": "t4.rim2.0",
+     "r": -0.138,
+     "MI_bits": 0.02
+    }
+   ],
+   "pi move optimal | DL :: max|r| by layer": {
+    "t0": 0.133,
+    "t4": 0.148,
+    "t8": 0.137,
+    "t12": 0.139,
+    "t16": 0.14,
+    "z": 0.062
+   },
+   "log DL run | DL": [
+    {
+     "unit": "t0.mean.19",
+     "r": 0.158,
+     "MI_bits": 0.0286
+    },
+    {
+     "unit": "t0.mean.3",
+     "r": 0.158,
+     "MI_bits": 0.029
+    },
+    {
+     "unit": "t4.mean.16",
+     "r": 0.156,
+     "MI_bits": 0.0416
+    },
+    {
+     "unit": "t4.mean.11",
+     "r": 0.153,
+     "MI_bits": 0.0166
+    },
+    {
+     "unit": "t0.mean.4",
+     "r": 0.151,
+     "MI_bits": 0.0251
+    }
+   ],
+   "log DL run | DL :: max|r| by layer": {
+    "t0": 0.158,
+    "t4": 0.156,
+    "t8": 0.133,
+    "t12": 0.136,
+    "t16": 0.142,
+    "z": 0.083
+   }
+  }
+ },
+ "nodeProbe": {
+  "colours-only-pretrained": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.6066,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6285,
+    "on sigma chain | DL, colour in {al,mu}": 0.711,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.7082,
+    "on lock1 chain | DL (unconditional)": 0.9744,
+    "log own {c,1} chain size": 0.015,
+    "log own {c,2} chain size": 0.0783,
+    "rim reach of {c,1} chain": 0.2879,
+    "graph distance to hole": 0.9959
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.7975,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8302,
+    "on sigma chain | DL, colour in {al,mu}": 0.8028,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8007,
+    "on lock1 chain | DL (unconditional)": 0.9842,
+    "log own {c,1} chain size": 0.1867,
+    "log own {c,2} chain size": 0.2339,
+    "rim reach of {c,1} chain": 0.3473,
+    "graph distance to hole": 0.8026
+   },
+   "2": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8273,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8531,
+    "on sigma chain | DL, colour in {al,mu}": 0.8085,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.7555,
+    "on lock1 chain | DL (unconditional)": 0.9851,
+    "log own {c,1} chain size": 0.1749,
+    "log own {c,2} chain size": 0.2867,
+    "rim reach of {c,1} chain": 0.3361,
+    "graph distance to hole": 0.7309
+   },
+   "3": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8521,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8766,
+    "on sigma chain | DL, colour in {al,mu}": 0.7973,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.7777,
+    "on lock1 chain | DL (unconditional)": 0.9889,
+    "log own {c,1} chain size": 0.2713,
+    "log own {c,2} chain size": 0.2858,
+    "rim reach of {c,1} chain": 0.3229,
+    "graph distance to hole": 0.7234
+   },
+   "4": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8329,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8734,
+    "on sigma chain | DL, colour in {al,mu}": 0.7745,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.7196,
+    "on lock1 chain | DL (unconditional)": 0.9778,
+    "log own {c,1} chain size": 0.2589,
+    "log own {c,2} chain size": 0.2942,
+    "rim reach of {c,1} chain": 0.3283,
+    "graph distance to hole": 0.5789
+   }
+  },
+  "mid-rl": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.9882,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9895,
+    "on sigma chain | DL, colour in {al,mu}": 0.9998,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.9986,
+    "on lock1 chain | DL (unconditional)": 0.9586,
+    "log own {c,1} chain size": 0.5558,
+    "log own {c,2} chain size": 0.515,
+    "rim reach of {c,1} chain": 0.8506,
+    "graph distance to hole": 0.4361
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.9675,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9777,
+    "on sigma chain | DL, colour in {al,mu}": 0.9657,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.964,
+    "on lock1 chain | DL (unconditional)": 0.8852,
+    "log own {c,1} chain size": 0.3619,
+    "log own {c,2} chain size": 0.3,
+    "rim reach of {c,1} chain": 0.5414,
+    "graph distance to hole": 0.2887
+   },
+   "2": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.9366,
+    "on lock2 chain | DL, colour in {mu,B}": 0.904,
+    "on sigma chain | DL, colour in {al,mu}": 0.8493,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.9479,
+    "on lock1 chain | DL (unconditional)": 0.7829,
+    "log own {c,1} chain size": 0.1959,
+    "log own {c,2} chain size": 0.2388,
+    "rim reach of {c,1} chain": 0.3879,
+    "graph distance to hole": 0.2553
+   },
+   "3": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.7437,
+    "on lock2 chain | DL, colour in {mu,B}": 0.7579,
+    "on sigma chain | DL, colour in {al,mu}": 0.724,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8531,
+    "on lock1 chain | DL (unconditional)": 0.7467,
+    "log own {c,1} chain size": 0.0531,
+    "log own {c,2} chain size": 0.1453,
+    "rim reach of {c,1} chain": 0.1956,
+    "graph distance to hole": 0.123
+   }
+  },
+  "nano-rl": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8894,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9037,
+    "on sigma chain | DL, colour in {al,mu}": 0.9807,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8705,
+    "on lock1 chain | DL (unconditional)": 0.9001,
+    "log own {c,1} chain size": 0.211,
+    "log own {c,2} chain size": 0.061,
+    "rim reach of {c,1} chain": 0.4696,
+    "graph distance to hole": 0.0594
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.7251,
+    "on lock2 chain | DL, colour in {mu,B}": 0.7037,
+    "on sigma chain | DL, colour in {al,mu}": 0.8855,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.6315,
+    "on lock1 chain | DL (unconditional)": 0.8547,
+    "log own {c,1} chain size": 0.2135,
+    "log own {c,2} chain size": 0.0526,
+    "rim reach of {c,1} chain": 0.3055,
+    "graph distance to hole": 0.0711
+   }
+  },
+  "priors-gnn-h16-k3-pool": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 1.0,
+    "on lock2 chain | DL, colour in {mu,B}": 1.0,
+    "on sigma chain | DL, colour in {al,mu}": 0.9978,
+    "on pi (R+3) chain | DL, colour in {al,A}": 1.0,
+    "on lock1 chain | DL (unconditional)": 0.9995,
+    "log own {c,1} chain size": 0.4461,
+    "log own {c,2} chain size": 0.4484,
+    "rim reach of {c,1} chain": 0.609,
+    "graph distance to hole": 0.4393
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.9933,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9502,
+    "on sigma chain | DL, colour in {al,mu}": 0.9466,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.9834,
+    "on lock1 chain | DL (unconditional)": 0.9949,
+    "log own {c,1} chain size": 0.1617,
+    "log own {c,2} chain size": 0.3364,
+    "rim reach of {c,1} chain": 0.2608,
+    "graph distance to hole": 0.3792
+   },
+   "2": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.9614,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9778,
+    "on sigma chain | DL, colour in {al,mu}": 0.9852,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.9794,
+    "on lock1 chain | DL (unconditional)": 0.9786,
+    "log own {c,1} chain size": 0.3428,
+    "log own {c,2} chain size": 0.1466,
+    "rim reach of {c,1} chain": 0.4591,
+    "graph distance to hole": 0.2659
+   },
+   "3": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8768,
+    "on lock2 chain | DL, colour in {mu,B}": 0.929,
+    "on sigma chain | DL, colour in {al,mu}": 0.9549,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.9423,
+    "on lock1 chain | DL (unconditional)": 0.9054,
+    "log own {c,1} chain size": 0.2461,
+    "log own {c,2} chain size": 0.1549,
+    "rim reach of {c,1} chain": 0.2636,
+    "graph distance to hole": 0.0978
+   }
+  },
+  "random-colours-only-pretrained": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.6037,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6246,
+    "on sigma chain | DL, colour in {al,mu}": 0.7133,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.7322,
+    "on lock1 chain | DL (unconditional)": 0.9742,
+    "log own {c,1} chain size": 0.0144,
+    "log own {c,2} chain size": 0.0776,
+    "rim reach of {c,1} chain": 0.2881,
+    "graph distance to hole": 0.9995
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.7761,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8377,
+    "on sigma chain | DL, colour in {al,mu}": 0.8218,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8082,
+    "on lock1 chain | DL (unconditional)": 0.9824,
+    "log own {c,1} chain size": 0.1571,
+    "log own {c,2} chain size": 0.2173,
+    "rim reach of {c,1} chain": 0.3383,
+    "graph distance to hole": 0.9201
+   },
+   "2": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.821,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8732,
+    "on sigma chain | DL, colour in {al,mu}": 0.8214,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8437,
+    "on lock1 chain | DL (unconditional)": 0.983,
+    "log own {c,1} chain size": 0.1818,
+    "log own {c,2} chain size": 0.2233,
+    "rim reach of {c,1} chain": 0.3577,
+    "graph distance to hole": 0.8852
+   },
+   "3": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8153,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8967,
+    "on sigma chain | DL, colour in {al,mu}": 0.8255,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8417,
+    "on lock1 chain | DL (unconditional)": 0.9762,
+    "log own {c,1} chain size": 0.1435,
+    "log own {c,2} chain size": 0.2106,
+    "rim reach of {c,1} chain": 0.3513,
+    "graph distance to hole": 0.8656
+   },
+   "4": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8266,
+    "on lock2 chain | DL, colour in {mu,B}": 0.8925,
+    "on sigma chain | DL, colour in {al,mu}": 0.8198,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8328,
+    "on lock1 chain | DL (unconditional)": 0.9701,
+    "log own {c,1} chain size": 0.1371,
+    "log own {c,2} chain size": 0.2173,
+    "rim reach of {c,1} chain": 0.3315,
+    "graph distance to hole": 0.8423
+   }
+  },
+  "random-mid-rl": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.9786,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9999,
+    "on sigma chain | DL, colour in {al,mu}": 0.9999,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.9987,
+    "on lock1 chain | DL (unconditional)": 0.9969,
+    "log own {c,1} chain size": 0.4657,
+    "log own {c,2} chain size": 0.3571,
+    "rim reach of {c,1} chain": 0.7883,
+    "graph distance to hole": 0.4771
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.893,
+    "on lock2 chain | DL, colour in {mu,B}": 0.949,
+    "on sigma chain | DL, colour in {al,mu}": 0.9257,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8844,
+    "on lock1 chain | DL (unconditional)": 0.965,
+    "log own {c,1} chain size": 0.3747,
+    "log own {c,2} chain size": 0.1967,
+    "rim reach of {c,1} chain": 0.5999,
+    "graph distance to hole": 0.3516
+   },
+   "2": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8324,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9737,
+    "on sigma chain | DL, colour in {al,mu}": 0.9159,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8643,
+    "on lock1 chain | DL (unconditional)": 0.9448,
+    "log own {c,1} chain size": 0.3211,
+    "log own {c,2} chain size": 0.1502,
+    "rim reach of {c,1} chain": 0.5281,
+    "graph distance to hole": 0.4804
+   },
+   "3": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8092,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9527,
+    "on sigma chain | DL, colour in {al,mu}": 0.895,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8611,
+    "on lock1 chain | DL (unconditional)": 0.9354,
+    "log own {c,1} chain size": 0.2839,
+    "log own {c,2} chain size": 0.1135,
+    "rim reach of {c,1} chain": 0.5531,
+    "graph distance to hole": 0.4566
+   }
+  },
+  "random-nano-rl": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.7976,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6343,
+    "on sigma chain | DL, colour in {al,mu}": 0.8677,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8159,
+    "on lock1 chain | DL (unconditional)": 0.7657,
+    "log own {c,1} chain size": 0.1047,
+    "log own {c,2} chain size": 0.1647,
+    "rim reach of {c,1} chain": 0.1045,
+    "graph distance to hole": 0.1236
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.7207,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6767,
+    "on sigma chain | DL, colour in {al,mu}": 0.7622,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8753,
+    "on lock1 chain | DL (unconditional)": 0.6764,
+    "log own {c,1} chain size": 0.0297,
+    "log own {c,2} chain size": 0.2116,
+    "rim reach of {c,1} chain": 0.1348,
+    "graph distance to hole": 0.0545
+   }
+  },
+  "random-priors-gnn-h16-k3-pool": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.9786,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9999,
+    "on sigma chain | DL, colour in {al,mu}": 0.9999,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.9987,
+    "on lock1 chain | DL (unconditional)": 0.9969,
+    "log own {c,1} chain size": 0.4657,
+    "log own {c,2} chain size": 0.3571,
+    "rim reach of {c,1} chain": 0.7883,
+    "graph distance to hole": 0.4771
+   },
+   "1": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.893,
+    "on lock2 chain | DL, colour in {mu,B}": 0.949,
+    "on sigma chain | DL, colour in {al,mu}": 0.9257,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8844,
+    "on lock1 chain | DL (unconditional)": 0.965,
+    "log own {c,1} chain size": 0.3747,
+    "log own {c,2} chain size": 0.1967,
+    "rim reach of {c,1} chain": 0.5999,
+    "graph distance to hole": 0.3516
+   },
+   "2": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8324,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9737,
+    "on sigma chain | DL, colour in {al,mu}": 0.9159,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8643,
+    "on lock1 chain | DL (unconditional)": 0.9448,
+    "log own {c,1} chain size": 0.3211,
+    "log own {c,2} chain size": 0.1502,
+    "rim reach of {c,1} chain": 0.5281,
+    "graph distance to hole": 0.4804
+   },
+   "3": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.8092,
+    "on lock2 chain | DL, colour in {mu,B}": 0.9527,
+    "on sigma chain | DL, colour in {al,mu}": 0.895,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.8611,
+    "on lock1 chain | DL (unconditional)": 0.9354,
+    "log own {c,1} chain size": 0.2839,
+    "log own {c,2} chain size": 0.1135,
+    "rim reach of {c,1} chain": 0.5531,
+    "graph distance to hole": 0.4566
+   }
+  },
+  "random-tr-rec-h32-t16": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.455,
+    "on lock2 chain | DL, colour in {mu,B}": 0.4893,
+    "on sigma chain | DL, colour in {al,mu}": 0.4937,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.4687,
+    "on lock1 chain | DL (unconditional)": 0.5557,
+    "log own {c,1} chain size": -0.0069,
+    "log own {c,2} chain size": 0.0063,
+    "rim reach of {c,1} chain": 0.0009,
+    "graph distance to hole": -0.0022
+   },
+   "4": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.6425,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6567,
+    "on sigma chain | DL, colour in {al,mu}": 0.7091,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5474,
+    "on lock1 chain | DL (unconditional)": 0.594,
+    "log own {c,1} chain size": 0.03,
+    "log own {c,2} chain size": 0.0604,
+    "rim reach of {c,1} chain": 0.0595,
+    "graph distance to hole": 0.6224
+   },
+   "8": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.6398,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6611,
+    "on sigma chain | DL, colour in {al,mu}": 0.7121,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5474,
+    "on lock1 chain | DL (unconditional)": 0.597,
+    "log own {c,1} chain size": 0.0244,
+    "log own {c,2} chain size": 0.0575,
+    "rim reach of {c,1} chain": 0.0571,
+    "graph distance to hole": 0.685
+   },
+   "12": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.6413,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6612,
+    "on sigma chain | DL, colour in {al,mu}": 0.7126,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5475,
+    "on lock1 chain | DL (unconditional)": 0.5968,
+    "log own {c,1} chain size": 0.0245,
+    "log own {c,2} chain size": 0.0574,
+    "rim reach of {c,1} chain": 0.0576,
+    "graph distance to hole": 0.6902
+   },
+   "16": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.6412,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6612,
+    "on sigma chain | DL, colour in {al,mu}": 0.7128,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5476,
+    "on lock1 chain | DL (unconditional)": 0.5968,
+    "log own {c,1} chain size": 0.0247,
+    "log own {c,2} chain size": 0.0575,
+    "rim reach of {c,1} chain": 0.0577,
+    "graph distance to hole": 0.6893
+   }
+  },
+  "tr-rec-h32-t16": {
+   "0": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.455,
+    "on lock2 chain | DL, colour in {mu,B}": 0.4893,
+    "on sigma chain | DL, colour in {al,mu}": 0.4937,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.4687,
+    "on lock1 chain | DL (unconditional)": 0.5557,
+    "log own {c,1} chain size": -0.0069,
+    "log own {c,2} chain size": 0.0063,
+    "rim reach of {c,1} chain": 0.0009,
+    "graph distance to hole": -0.0022
+   },
+   "4": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.5826,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6171,
+    "on sigma chain | DL, colour in {al,mu}": 0.7096,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5297,
+    "on lock1 chain | DL (unconditional)": 0.5855,
+    "log own {c,1} chain size": 0.0047,
+    "log own {c,2} chain size": 0.039,
+    "rim reach of {c,1} chain": 0.0448,
+    "graph distance to hole": 0.6818
+   },
+   "8": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.5938,
+    "on lock2 chain | DL, colour in {mu,B}": 0.5904,
+    "on sigma chain | DL, colour in {al,mu}": 0.6854,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5108,
+    "on lock1 chain | DL (unconditional)": 0.582,
+    "log own {c,1} chain size": -0.0006,
+    "log own {c,2} chain size": 0.0348,
+    "rim reach of {c,1} chain": 0.0439,
+    "graph distance to hole": 0.6425
+   },
+   "12": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.5734,
+    "on lock2 chain | DL, colour in {mu,B}": 0.585,
+    "on sigma chain | DL, colour in {al,mu}": 0.6751,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5068,
+    "on lock1 chain | DL (unconditional)": 0.5785,
+    "log own {c,1} chain size": 0.0004,
+    "log own {c,2} chain size": 0.0359,
+    "rim reach of {c,1} chain": 0.0395,
+    "graph distance to hole": 0.6042
+   },
+   "16": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.5665,
+    "on lock2 chain | DL, colour in {mu,B}": 0.5818,
+    "on sigma chain | DL, colour in {al,mu}": 0.6866,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.5068,
+    "on lock1 chain | DL (unconditional)": 0.5787,
+    "log own {c,1} chain size": 0.0008,
+    "log own {c,2} chain size": 0.0351,
+    "rim reach of {c,1} chain": 0.0383,
+    "graph distance to hole": 0.5962
+   }
+  },
+  "input-colours": {
+   "input": {
+    "on lock1 chain | DL, colour in {mu,A}": 0.6183,
+    "on lock2 chain | DL, colour in {mu,B}": 0.6352,
+    "on sigma chain | DL, colour in {al,mu}": 0.7135,
+    "on pi (R+3) chain | DL, colour in {al,A}": 0.4946,
+    "on lock1 chain | DL (unconditional)": 0.9738,
+    "log own {c,1} chain size": 0.0042,
+    "log own {c,2} chain size": 0.0473,
+    "rim reach of {c,1} chain": 0.2806,
+    "graph distance to hole": 1.0
+   }
+  }
+ },
+ "errors": {
+  "priors-gnn-h16-k3-pool": {
+   "valueErrors|DL": 586,
+   "policyErrors|DL": 21,
+   "DL states": 11810,
+   "valueErr by depth": {
+    "2": [
+     410,
+     11466
+    ],
+    "3": [
+     153,
+     308
+    ],
+    "4": [
+     20,
+     29
+    ],
+    "5": [
+     3,
+     6
+    ],
+    "6": [
+     0,
+     1
+    ]
+   },
+   "policyErr by depth": {
+    "2": [
+     0,
+     11466
+    ],
+    "3": [
+     12,
+     308
+    ],
+    "4": [
+     9,
+     29
+    ],
+    "5": [
+     0,
+     6
+    ],
+    "6": [
+     0,
+     1
+    ]
+   },
+   "valueErr sign (over-optimistic share)": 0.2577,
+   "AUC value-error ~ named": 0.8956,
+   "R2 residual ~ named": -0.0213,
+   "AUC policy-error ~ named": 0.8844,
+   "AUC value-error ~ named+candidates": 0.8964,
+   "R2 residual ~ named+candidates": 0.0138,
+   "AUC policy-error ~ named+candidates": 0.9189,
+   "R2 residual ~ named+candidates+depth": 0.1968,
+   "AUC value-error ~ named+candidates+depth": 0.9045,
+   "contrasts (value errors / states)": {
+    "piAllDL @d=2": {
+     "0": [
+      387,
+      11334
+     ],
+     "1": [
+      23,
+      132
+     ]
+    },
+    "piAllDL @d=3": {
+     "0": [
+      139,
+      269
+     ],
+     "1": [
+      14,
+      39
+     ]
+    },
+    "DD @d=2": {
+     "0": [
+      206,
+      8282
+     ],
+     "1": [
+      204,
+      3184
+     ]
+    },
+    "DD @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      153,
+      308
+     ]
+    },
+    "sigDL @d=2": {
+     "0": [
+      89,
+      3764
+     ],
+     "1": [
+      321,
+      7702
+     ]
+    },
+    "sigDL @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      153,
+      308
+     ]
+    },
+    "exitsAllInterior @d=2": {
+     "0": [
+      392,
+      11406
+     ],
+     "1": [
+      18,
+      60
+     ]
+    },
+    "exitsAllInterior @d=3": {
+     "0": [
+      153,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "runBound tight @d=2": {
+     "0": [
+      112,
+      1320
+     ],
+     "1": [
+      298,
+      10146
+     ]
+    },
+    "runBound tight @d=3": {
+     "0": [
+      76,
+      163
+     ],
+     "1": [
+      77,
+      145
+     ]
+    },
+    "nOptDistinct==1 @d=2": {
+     "0": [
+      305,
+      10985
+     ],
+     "1": [
+      105,
+      481
+     ]
+    },
+    "nOptDistinct==1 @d=3": {
+     "0": [
+      138,
+      277
+     ],
+     "1": [
+      15,
+      31
+     ]
+    },
+    "thick1>=2 @d=2": {
+     "0": [
+      410,
+      11285
+     ],
+     "1": [
+      0,
+      181
+     ]
+    },
+    "thick1>=2 @d=3": {
+     "0": [
+      153,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "thick2>=2 @d=2": {
+     "0": [
+      408,
+      11299
+     ],
+     "1": [
+      2,
+      167
+     ]
+    },
+    "thick2>=2 @d=3": {
+     "0": [
+      153,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    }
+   },
+   "errors": 594,
+   "unexplained (feature-model score below the 75th percentile of DL states)": 83,
+   "value residual by depth (mean dhat-d, share over-optimistic among value errors)": {
+    "2": [
+     0.185,
+     0.002
+    ],
+    "3": [
+     -0.286,
+     0.83
+    ],
+    "4": [
+     -0.935,
+     1.0
+    ],
+    "5": [
+     -1.282,
+     1.0
+    ],
+    "6": [
+     0.296,
+     null
+    ]
+   },
+   "policy errors: chosen-minus-best-optimal score (median, max)": [
+    0.1384,
+    1.8518
+   ],
+   "policy errors with exact score tie between distinct afterstates": 0,
+   "correct deep decisions: median margin to the next distinct afterstate": 0.0969
+  },
+  "nano-rl": {
+   "valueErrors|DL": 1190,
+   "policyErrors|DL": 33,
+   "DL states": 11810,
+   "valueErr by depth": {
+    "2": [
+     937,
+     11466
+    ],
+    "3": [
+     230,
+     308
+    ],
+    "4": [
+     18,
+     29
+    ],
+    "5": [
+     4,
+     6
+    ],
+    "6": [
+     1,
+     1
+    ]
+   },
+   "policyErr by depth": {
+    "2": [
+     0,
+     11466
+    ],
+    "3": [
+     23,
+     308
+    ],
+    "4": [
+     10,
+     29
+    ],
+    "5": [
+     0,
+     6
+    ],
+    "6": [
+     0,
+     1
+    ]
+   },
+   "valueErr sign (over-optimistic share)": 0.1613,
+   "AUC value-error ~ named": 0.8943,
+   "R2 residual ~ named": 0.131,
+   "AUC policy-error ~ named": 0.6776,
+   "AUC value-error ~ named+candidates": 0.904,
+   "R2 residual ~ named+candidates": 0.1427,
+   "AUC policy-error ~ named+candidates": 0.7844,
+   "R2 residual ~ named+candidates+depth": 0.2167,
+   "AUC value-error ~ named+candidates+depth": 0.9244,
+   "contrasts (value errors / states)": {
+    "piAllDL @d=2": {
+     "0": [
+      930,
+      11334
+     ],
+     "1": [
+      7,
+      132
+     ]
+    },
+    "piAllDL @d=3": {
+     "0": [
+      195,
+      269
+     ],
+     "1": [
+      35,
+      39
+     ]
+    },
+    "DD @d=2": {
+     "0": [
+      628,
+      8282
+     ],
+     "1": [
+      309,
+      3184
+     ]
+    },
+    "DD @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      230,
+      308
+     ]
+    },
+    "sigDL @d=2": {
+     "0": [
+      334,
+      3764
+     ],
+     "1": [
+      603,
+      7702
+     ]
+    },
+    "sigDL @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      230,
+      308
+     ]
+    },
+    "exitsAllInterior @d=2": {
+     "0": [
+      920,
+      11406
+     ],
+     "1": [
+      17,
+      60
+     ]
+    },
+    "exitsAllInterior @d=3": {
+     "0": [
+      230,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "runBound tight @d=2": {
+     "0": [
+      113,
+      1320
+     ],
+     "1": [
+      824,
+      10146
+     ]
+    },
+    "runBound tight @d=3": {
+     "0": [
+      128,
+      163
+     ],
+     "1": [
+      102,
+      145
+     ]
+    },
+    "nOptDistinct==1 @d=2": {
+     "0": [
+      813,
+      10985
+     ],
+     "1": [
+      124,
+      481
+     ]
+    },
+    "nOptDistinct==1 @d=3": {
+     "0": [
+      212,
+      277
+     ],
+     "1": [
+      18,
+      31
+     ]
+    },
+    "thick1>=2 @d=2": {
+     "0": [
+      934,
+      11285
+     ],
+     "1": [
+      3,
+      181
+     ]
+    },
+    "thick1>=2 @d=3": {
+     "0": [
+      230,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "thick2>=2 @d=2": {
+     "0": [
+      932,
+      11299
+     ],
+     "1": [
+      5,
+      167
+     ]
+    },
+    "thick2>=2 @d=3": {
+     "0": [
+      230,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    }
+   },
+   "errors": 1200,
+   "unexplained (feature-model score below the 75th percentile of DL states)": 144,
+   "value residual by depth (mean dhat-d, share over-optimistic among value errors)": {
+    "2": [
+     0.197,
+     0.0
+    ],
+    "3": [
+     -0.274,
+     0.748
+    ],
+    "4": [
+     -0.443,
+     0.889
+    ],
+    "5": [
+     -0.587,
+     0.75
+    ],
+    "6": [
+     -0.819,
+     1.0
+    ]
+   },
+   "policy errors: chosen-minus-best-optimal score (median, max)": [
+    0.1583,
+    1.616
+   ],
+   "policy errors with exact score tie between distinct afterstates": 0,
+   "correct deep decisions: median margin to the next distinct afterstate": 0.1307
+  },
+  "mid-rl": {
+   "valueErrors|DL": 916,
+   "policyErrors|DL": 28,
+   "DL states": 11810,
+   "valueErr by depth": {
+    "2": [
+     670,
+     11466
+    ],
+    "3": [
+     222,
+     308
+    ],
+    "4": [
+     21,
+     29
+    ],
+    "5": [
+     3,
+     6
+    ],
+    "6": [
+     0,
+     1
+    ]
+   },
+   "policyErr by depth": {
+    "2": [
+     0,
+     11466
+    ],
+    "3": [
+     16,
+     308
+    ],
+    "4": [
+     12,
+     29
+    ],
+    "5": [
+     0,
+     6
+    ],
+    "6": [
+     0,
+     1
+    ]
+   },
+   "valueErr sign (over-optimistic share)": 0.2336,
+   "AUC value-error ~ named": 0.9004,
+   "R2 residual ~ named": 0.1438,
+   "AUC policy-error ~ named": 0.9664,
+   "AUC value-error ~ named+candidates": 0.9038,
+   "R2 residual ~ named+candidates": 0.1799,
+   "AUC policy-error ~ named+candidates": 0.981,
+   "R2 residual ~ named+candidates+depth": 0.269,
+   "AUC value-error ~ named+candidates+depth": 0.9374,
+   "contrasts (value errors / states)": {
+    "piAllDL @d=2": {
+     "0": [
+      657,
+      11334
+     ],
+     "1": [
+      13,
+      132
+     ]
+    },
+    "piAllDL @d=3": {
+     "0": [
+      194,
+      269
+     ],
+     "1": [
+      28,
+      39
+     ]
+    },
+    "DD @d=2": {
+     "0": [
+      442,
+      8282
+     ],
+     "1": [
+      228,
+      3184
+     ]
+    },
+    "DD @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      222,
+      308
+     ]
+    },
+    "sigDL @d=2": {
+     "0": [
+      188,
+      3764
+     ],
+     "1": [
+      482,
+      7702
+     ]
+    },
+    "sigDL @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      222,
+      308
+     ]
+    },
+    "exitsAllInterior @d=2": {
+     "0": [
+      660,
+      11406
+     ],
+     "1": [
+      10,
+      60
+     ]
+    },
+    "exitsAllInterior @d=3": {
+     "0": [
+      222,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "runBound tight @d=2": {
+     "0": [
+      80,
+      1320
+     ],
+     "1": [
+      590,
+      10146
+     ]
+    },
+    "runBound tight @d=3": {
+     "0": [
+      124,
+      163
+     ],
+     "1": [
+      98,
+      145
+     ]
+    },
+    "nOptDistinct==1 @d=2": {
+     "0": [
+      588,
+      10985
+     ],
+     "1": [
+      82,
+      481
+     ]
+    },
+    "nOptDistinct==1 @d=3": {
+     "0": [
+      209,
+      277
+     ],
+     "1": [
+      13,
+      31
+     ]
+    },
+    "thick1>=2 @d=2": {
+     "0": [
+      655,
+      11285
+     ],
+     "1": [
+      15,
+      181
+     ]
+    },
+    "thick1>=2 @d=3": {
+     "0": [
+      222,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "thick2>=2 @d=2": {
+     "0": [
+      661,
+      11299
+     ],
+     "1": [
+      9,
+      167
+     ]
+    },
+    "thick2>=2 @d=3": {
+     "0": [
+      222,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    }
+   },
+   "errors": 925,
+   "unexplained (feature-model score below the 75th percentile of DL states)": 72,
+   "value residual by depth (mean dhat-d, share over-optimistic among value errors)": {
+    "2": [
+     0.097,
+     0.0
+    ],
+    "3": [
+     -0.495,
+     0.869
+    ],
+    "4": [
+     -0.555,
+     0.857
+    ],
+    "5": [
+     -0.963,
+     1.0
+    ],
+    "6": [
+     -0.018,
+     null
+    ]
+   },
+   "policy errors: chosen-minus-best-optimal score (median, max)": [
+    0.0731,
+    1.0803
+   ],
+   "policy errors with exact score tie between distinct afterstates": 0,
+   "correct deep decisions: median margin to the next distinct afterstate": 0.0765
+  },
+  "colours-only-pretrained": {
+   "valueErrors|DL": 5495,
+   "policyErrors|DL": 723,
+   "DL states": 11810,
+   "valueErr by depth": {
+    "2": [
+     5255,
+     11466
+    ],
+    "3": [
+     208,
+     308
+    ],
+    "4": [
+     26,
+     29
+    ],
+    "5": [
+     5,
+     6
+    ],
+    "6": [
+     1,
+     1
+    ]
+   },
+   "policyErr by depth": {
+    "2": [
+     678,
+     11466
+    ],
+    "3": [
+     31,
+     308
+    ],
+    "4": [
+     14,
+     29
+    ],
+    "5": [
+     0,
+     6
+    ],
+    "6": [
+     0,
+     1
+    ]
+   },
+   "valueErr sign (over-optimistic share)": 0.2915,
+   "AUC value-error ~ named": 0.5676,
+   "R2 residual ~ named": 0.1789,
+   "AUC policy-error ~ named": 0.8153,
+   "AUC value-error ~ named+candidates": 0.5694,
+   "R2 residual ~ named+candidates": 0.1933,
+   "AUC policy-error ~ named+candidates": 0.8373,
+   "R2 residual ~ named+candidates+depth": 0.1831,
+   "AUC value-error ~ named+candidates+depth": 0.5727,
+   "contrasts (value errors / states)": {
+    "piAllDL @d=2": {
+     "0": [
+      5191,
+      11334
+     ],
+     "1": [
+      64,
+      132
+     ]
+    },
+    "piAllDL @d=3": {
+     "0": [
+      186,
+      269
+     ],
+     "1": [
+      22,
+      39
+     ]
+    },
+    "DD @d=2": {
+     "0": [
+      3736,
+      8282
+     ],
+     "1": [
+      1519,
+      3184
+     ]
+    },
+    "DD @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      208,
+      308
+     ]
+    },
+    "sigDL @d=2": {
+     "0": [
+      1822,
+      3764
+     ],
+     "1": [
+      3433,
+      7702
+     ]
+    },
+    "sigDL @d=3": {
+     "0": [
+      0,
+      0
+     ],
+     "1": [
+      208,
+      308
+     ]
+    },
+    "exitsAllInterior @d=2": {
+     "0": [
+      5219,
+      11406
+     ],
+     "1": [
+      36,
+      60
+     ]
+    },
+    "exitsAllInterior @d=3": {
+     "0": [
+      208,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "runBound tight @d=2": {
+     "0": [
+      718,
+      1320
+     ],
+     "1": [
+      4537,
+      10146
+     ]
+    },
+    "runBound tight @d=3": {
+     "0": [
+      110,
+      163
+     ],
+     "1": [
+      98,
+      145
+     ]
+    },
+    "nOptDistinct==1 @d=2": {
+     "0": [
+      4997,
+      10985
+     ],
+     "1": [
+      258,
+      481
+     ]
+    },
+    "nOptDistinct==1 @d=3": {
+     "0": [
+      195,
+      277
+     ],
+     "1": [
+      13,
+      31
+     ]
+    },
+    "thick1>=2 @d=2": {
+     "0": [
+      5138,
+      11285
+     ],
+     "1": [
+      117,
+      181
+     ]
+    },
+    "thick1>=2 @d=3": {
+     "0": [
+      208,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    },
+    "thick2>=2 @d=2": {
+     "0": [
+      5156,
+      11299
+     ],
+     "1": [
+      99,
+      167
+     ]
+    },
+    "thick2>=2 @d=3": {
+     "0": [
+      208,
+      308
+     ],
+     "1": [
+      0,
+      0
+     ]
+    }
+   },
+   "errors": 5803,
+   "unexplained (feature-model score below the 75th percentile of DL states)": 4006,
+   "value residual by depth (mean dhat-d, share over-optimistic among value errors)": {
+    "2": [
+     0.318,
+     0.274
+    ],
+    "3": [
+     -0.197,
+     0.668
+    ],
+    "4": [
+     -1.13,
+     0.731
+    ],
+    "5": [
+     -0.83,
+     0.6
+    ],
+    "6": [
+     2.1,
+     0.0
+    ]
+   },
+   "policy errors: chosen-minus-best-optimal score (median, max)": [
+    0.2386,
+    4.0441
+   ],
+   "policy errors with exact score tie between distinct afterstates": 0,
+   "correct deep decisions: median margin to the next distinct afterstate": 0.4334
+  }
+ },
+ "clusters": {
+  "priors-gnn-h16-k3-pool": [
+   {
+    "cluster": 0,
+    "size": 73,
+    "top degree words": {
+     "65675": 18,
+     "65666": 12,
+     "66666": 8,
+     "55667": 3
+    },
+    "depths": {
+     "2": 26,
+     "3": 47
+    },
+    "families": {
+     "r210": 39,
+     "p34r28": 11,
+     "c60": 8,
+     "p32r11": 5,
+     "r178": 4
+    },
+    "valueErr": 72,
+    "policyErr": 3,
+    "unexplained": 4,
+    "mean residual (dhat-d)": -0.183,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.0,
+      0.015
+     ],
+     "dlRun": [
+      4.247,
+      2.349
+     ],
+     "DD": [
+      0.808,
+      0.297
+     ],
+     "sigDL": [
+      0.753,
+      0.68
+     ],
+     "classN": [
+      8661.589,
+      7712.102
+     ],
+     "lenL1": [
+      15.425,
+      14.577
+     ],
+     "lenL2": [
+      14.63,
+      14.672
+     ],
+     "lenSigma": [
+      14.616,
+      13.291
+     ],
+     "nMoves": [
+      7.877,
+      10.017
+     ],
+     "nOptDistinct": [
+      3.726,
+      4.39
+     ],
+     "thick1": [
+      1.0,
+      1.015
+     ],
+     "thick2": [
+      1.0,
+      1.014
+     ],
+     "thetaShared": [
+      6.959,
+      6.709
+     ],
+     "rerouteCuts": [
+      4.233,
+      3.198
+     ],
+     "exitsAllInterior": [
+      0.0,
+      0.005
+     ],
+     "n": [
+      33.712,
+      32.807
+     ]
+    },
+    "chosen move types": {
+     "al-A rim pi ok": 26,
+     "al-B rim  ok": 11,
+     "al-mu rim  ok": 8,
+     "al-A rim  ok": 7,
+     "al-mu int  ok": 5,
+     "A-B rim  ok": 3
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012312130231030213021031231321320",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.96,
+      "j": 1,
+      "degWord": "55677",
+      "chosen": {
+       "pair": "al-A",
+       "size": 11,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 11,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 2,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 16,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 7,
+      "rerouteCuts": 1,
+      "nExits": 2
+     },
+     {
+      "map": "r178",
+      "colouring": "012313130231020213020232131321310",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.54,
+      "j": 1,
+      "degWord": "55677",
+      "chosen": {
+       "pair": "al-mu",
+       "size": 2,
+       "rim": "-",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 2,
+       "rim": "-",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 7,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 16,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 7,
+      "rerouteCuts": 2,
+      "nExits": 5
+     },
+     {
+      "map": "r178",
+      "colouring": "012132132303213010213203021323210",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.78,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "al-B",
+       "size": 10,
+       "rim": "2",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 13,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 5,
+      "piToFill": 6,
+      "sigDL": 0,
+      "lenL1": 16,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 7,
+      "rerouteCuts": 1,
+      "nExits": 2
+     },
+     {
+      "map": "r178",
+      "colouring": "012132132303213030213203021213210",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.68,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "al-A",
+       "size": 10,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 13,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 5,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 16,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 7,
+      "rerouteCuts": 1,
+      "nExits": 2
+     }
+    ]
+   },
+   {
+    "cluster": 1,
+    "size": 170,
+    "top degree words": {
+     "75575": 13,
+     "57575": 11,
+     "75566": 11,
+     "75585": 11
+    },
+    "depths": {
+     "2": 129,
+     "3": 41
+    },
+    "families": {
+     "p34r28": 56,
+     "p32r11": 32,
+     "p31r12": 24,
+     "r1": 15,
+     "six": 11
+    },
+    "valueErr": 169,
+    "policyErr": 5,
+    "unexplained": 47,
+    "mean residual (dhat-d)": 0.374,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.147,
+      0.015
+     ],
+     "dlRun": [
+      7.259,
+      2.349
+     ],
+     "DD": [
+      0.694,
+      0.297
+     ],
+     "sigDL": [
+      0.759,
+      0.68
+     ],
+     "classN": [
+      7629.265,
+      7712.102
+     ],
+     "lenL1": [
+      15.359,
+      14.577
+     ],
+     "lenL2": [
+      15.141,
+      14.672
+     ],
+     "lenSigma": [
+      13.729,
+      13.291
+     ],
+     "nMoves": [
+      9.412,
+      10.017
+     ],
+     "nOptDistinct": [
+      3.235,
+      4.39
+     ],
+     "thick1": [
+      1.0,
+      1.015
+     ],
+     "thick2": [
+      1.006,
+      1.014
+     ],
+     "thetaShared": [
+      7.571,
+      6.709
+     ],
+     "rerouteCuts": [
+      4.4,
+      3.198
+     ],
+     "exitsAllInterior": [
+      0.071,
+      0.005
+     ],
+     "n": [
+      32.335,
+      32.807
+     ]
+    },
+    "chosen move types": {
+     "al-A rim pi ok": 35,
+     "al-B rim  ok": 27,
+     "A-B int  ok": 22,
+     "al-mu rim  ok": 19,
+     "al-A int  ok": 19,
+     "al-mu int  ok": 9
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012131323003202121232101303030132",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.86,
+      "j": 4,
+      "degWord": "77556",
+      "chosen": {
+       "pair": "al-A",
+       "size": 5,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 14,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 2,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 12,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 6,
+      "rerouteCuts": 2,
+      "nExits": 2
+     },
+     {
+      "map": "r178",
+      "colouring": "012132323203201020132101323132130",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.02,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 7,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 7,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 18,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 9,
+      "rerouteCuts": 3,
+      "nExits": 2
+     },
+     {
+      "map": "r178",
+      "colouring": "012312130230230213020230131301312",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.7,
+      "j": 1,
+      "degWord": "55677",
+      "chosen": {
+       "pair": "mu-B",
+       "size": 15,
+       "rim": "14",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "mu-B",
+       "size": 15,
+       "rim": "14",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 4,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 17,
+      "lenL2": 15,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 7,
+      "rerouteCuts": 2,
+      "nExits": 3
+     },
+     {
+      "map": "r178",
+      "colouring": "012132132303213010231201021321230",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.48,
+      "j": 1,
+      "degWord": "55677",
+      "chosen": {
+       "pair": "al-mu",
+       "size": 15,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 15,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 5,
+      "piToFill": 5,
+      "sigDL": 0,
+      "lenL1": 16,
+      "lenL2": 18,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 9,
+      "rerouteCuts": 3,
+      "nExits": 1
+     }
+    ]
+   },
+   {
+    "cluster": 2,
+    "size": 168,
+    "top degree words": {
+     "66666": 17,
+     "55667": 13,
+     "57558": 12,
+     "67556": 8
+    },
+    "depths": {
+     "2": 126,
+     "3": 34,
+     "4": 8
+    },
+    "families": {
+     "six": 35,
+     "p32r11": 33,
+     "p34r28": 30,
+     "r210": 28,
+     "c60": 12
+    },
+    "valueErr": 166,
+    "policyErr": 5,
+    "unexplained": 17,
+    "mean residual (dhat-d)": 0.489,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.054,
+      0.014
+     ],
+     "dlRun": [
+      5.125,
+      2.373
+     ],
+     "DD": [
+      0.661,
+      0.298
+     ],
+     "sigDL": [
+      0.893,
+      0.681
+     ],
+     "classN": [
+      6598.286,
+      7710.155
+     ],
+     "lenL1": [
+      15.47,
+      14.578
+     ],
+     "lenL2": [
+      15.565,
+      14.673
+     ],
+     "lenSigma": [
+      14.363,
+      13.292
+     ],
+     "nMoves": [
+      6.661,
+      10.005
+     ],
+     "nOptDistinct": [
+      2.542,
+      4.382
+     ],
+     "thick1": [
+      1.0,
+      1.015
+     ],
+     "thick2": [
+      1.0,
+      1.014
+     ],
+     "thetaShared": [
+      7.702,
+      6.711
+     ],
+     "rerouteCuts": [
+      2.923,
+      3.196
+     ],
+     "exitsAllInterior": [
+      0.024,
+      0.005
+     ],
+     "n": [
+      32.202,
+      32.802
+     ]
+    },
+    "chosen move types": {
+     "al-B rim  ok": 43,
+     "al-A rim pi ok": 43,
+     "al-A int  ok": 18,
+     "al-B int  ok": 15,
+     "al-mu rim  ok": 13,
+     "al-A rim  ok": 8
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012321320330102121202132310303102",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.1,
+      "j": 4,
+      "degWord": "77556",
+      "chosen": {
+       "pair": "al-A",
+       "size": 6,
+       "rim": "-",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 2,
+       "rim": "2",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 21,
+      "piToFill": 20,
+      "sigDL": 1,
+      "lenL1": 17,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 8,
+      "rerouteCuts": 4,
+      "nExits": 3
+     },
+     {
+      "map": "r178",
+      "colouring": "012321320330132121202123010303102",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.07,
+      "j": 4,
+      "degWord": "77556",
+      "chosen": {
+       "pair": "al-mu",
+       "size": 7,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 7,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 5,
+      "piToFill": 5,
+      "sigDL": 0,
+      "lenL1": 17,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 8,
+      "rerouteCuts": 4,
+      "nExits": 3
+     },
+     {
+      "map": "r178",
+      "colouring": "012321320330132121202132010303102",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.8,
+      "j": 4,
+      "degWord": "77556",
+      "chosen": {
+       "pair": "al-mu",
+       "size": 15,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 15,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 17,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 8,
+      "rerouteCuts": 4,
+      "nExits": 3
+     },
+     {
+      "map": "r178",
+      "colouring": "012131323030202102320210310310132",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.78,
+      "j": 2,
+      "degWord": "56775",
+      "chosen": {
+       "pair": "al-B",
+       "size": 10,
+       "rim": "2",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 1,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 0
+      },
+      "Gamma": 0,
+      "dlRun": 2,
+      "piToFill": 3,
+      "sigDL": 1,
+      "lenL1": 16,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 8,
+      "rerouteCuts": 1,
+      "nExits": 3
+     }
+    ]
+   },
+   {
+    "cluster": 3,
+    "size": 183,
+    "top degree words": {
+     "66666": 20,
+     "65666": 12,
+     "57558": 10,
+     "56666": 10
+    },
+    "depths": {
+     "2": 129,
+     "3": 36,
+     "4": 15,
+     "5": 3
+    },
+    "families": {
+     "r210": 44,
+     "six": 40,
+     "p34r28": 34,
+     "p32r11": 17,
+     "r1": 13
+    },
+    "valueErr": 179,
+    "policyErr": 8,
+    "unexplained": 15,
+    "mean residual (dhat-d)": 0.475,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.016,
+      0.014
+     ],
+     "dlRun": [
+      5.071,
+      2.38
+     ],
+     "DD": [
+      0.546,
+      0.299
+     ],
+     "sigDL": [
+      0.934,
+      0.681
+     ],
+     "classN": [
+      6752.869,
+      7710.839
+     ],
+     "lenL1": [
+      15.027,
+      14.579
+     ],
+     "lenL2": [
+      15.186,
+      14.674
+     ],
+     "lenSigma": [
+      14.874,
+      13.294
+     ],
+     "nMoves": [
+      5.716,
+      10.002
+     ],
+     "nOptDistinct": [
+      2.197,
+      4.381
+     ],
+     "thick1": [
+      1.0,
+      1.015
+     ],
+     "thick2": [
+      1.005,
+      1.014
+     ],
+     "thetaShared": [
+      7.426,
+      6.712
+     ],
+     "rerouteCuts": [
+      1.885,
+      3.196
+     ],
+     "exitsAllInterior": [
+      0.011,
+      0.005
+     ],
+     "n": [
+      31.82,
+      32.803
+     ]
+    },
+    "chosen move types": {
+     "al-B rim  ok": 81,
+     "al-A rim pi ok": 49,
+     "A-B rim  ok": 9,
+     "mu-A rim  ok": 7,
+     "al-B int  ok": 7,
+     "al-mu rim  ok": 5
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012312120331230312020203121231310",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.73,
+      "j": 4,
+      "degWord": "77556",
+      "chosen": {
+       "pair": "al-B",
+       "size": 11,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 2,
+       "rim": "-",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 16,
+      "lenL2": 18,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 9,
+      "rerouteCuts": 1,
+      "nExits": 4
+     },
+     {
+      "map": "r178",
+      "colouring": "012321323030132121202123010303102",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.67,
+      "j": 1,
+      "degWord": "55677",
+      "chosen": {
+       "pair": "al-A",
+       "size": 10,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 6,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 15,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 8,
+      "rerouteCuts": 3,
+      "nExits": 2
+     },
+     {
+      "map": "r178",
+      "colouring": "012323123030102021202132313103102",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.56,
+      "j": 1,
+      "degWord": "55677",
+      "chosen": {
+       "pair": "A-B",
+       "size": 14,
+       "rim": "34",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "A-B",
+       "size": 14,
+       "rim": "34",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 21,
+      "piToFill": 11,
+      "sigDL": 1,
+      "lenL1": 14,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 7,
+      "rerouteCuts": 3,
+      "nExits": 1
+     },
+     {
+      "map": "r178",
+      "colouring": "012131230203203131323103102020123",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.43,
+      "j": 1,
+      "degWord": "55677",
+      "chosen": {
+       "pair": "al-A",
+       "size": 14,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 8,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 17,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 9,
+      "rerouteCuts": 0,
+      "nExits": 4
+     }
+    ]
+   },
+   {
+    "purity of cluster given the relative rim degree word": 0.589,
+    "chance purity (largest cluster share)": 0.308,
+    "distinct degree words": 88
+   }
+  ],
+  "colours-only-pretrained": [
+   {
+    "cluster": 0,
+    "size": 955,
+    "top degree words": {
+     "66666": 145,
+     "67755": 54,
+     "55667": 52,
+     "66656": 49
+    },
+    "depths": {
+     "2": 882,
+     "3": 67,
+     "4": 6
+    },
+    "families": {
+     "p34r28": 182,
+     "p32r11": 155,
+     "r210": 147,
+     "six": 132,
+     "c60": 128
+    },
+    "valueErr": 848,
+    "policyErr": 202,
+    "unexplained": 777,
+    "mean residual (dhat-d)": -0.354,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.019,
+      0.014
+     ],
+     "dlRun": [
+      2.683,
+      2.373
+     ],
+     "DD": [
+      0.293,
+      0.298
+     ],
+     "sigDL": [
+      0.78,
+      0.681
+     ],
+     "classN": [
+      7172.094,
+      7710.155
+     ],
+     "lenL1": [
+      13.848,
+      14.578
+     ],
+     "lenL2": [
+      13.516,
+      14.673
+     ],
+     "lenSigma": [
+      14.804,
+      13.292
+     ],
+     "nMoves": [
+      10.309,
+      10.005
+     ],
+     "nOptDistinct": [
+      4.854,
+      4.382
+     ],
+     "thick1": [
+      1.002,
+      1.015
+     ],
+     "thick2": [
+      1.001,
+      1.014
+     ],
+     "thetaShared": [
+      5.911,
+      6.711
+     ],
+     "rerouteCuts": [
+      2.796,
+      3.196
+     ],
+     "exitsAllInterior": [
+      0.007,
+      0.005
+     ],
+     "n": [
+      32.683,
+      32.802
+     ]
+    },
+    "chosen move types": {
+     "al-B rim  ok": 148,
+     "al-A rim pi ok": 130,
+     "mu-B rim  ok": 119,
+     "A-B int  ok": 73,
+     "A-B rim  ok": 71,
+     "mu-B int  ok": 57
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012121320203030121312121232030301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 1.4,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "mu-B",
+       "size": 14,
+       "rim": "14",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 12,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 16,
+      "lenL2": 14,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 6,
+      "rerouteCuts": 5,
+      "nExits": 8
+     },
+     {
+      "map": "r178",
+      "colouring": "012121320203030121312123123030301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 1.43,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "mu-B",
+       "size": 15,
+       "rim": "14",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 10,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 15,
+      "lenL2": 15,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 6,
+      "rerouteCuts": 6,
+      "nExits": 8
+     },
+     {
+      "map": "r178",
+      "colouring": "012121320203030131312121232020301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 1.41,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "mu-B",
+       "size": 12,
+       "rim": "14",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 12,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 17,
+      "lenL2": 12,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 6,
+      "rerouteCuts": 3,
+      "nExits": 8
+     },
+     {
+      "map": "r178",
+      "colouring": "012121320203030131312123123020301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 1.41,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "mu-A",
+       "size": 13,
+       "rim": "13",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 13,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 13,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 6,
+      "rerouteCuts": 4,
+      "nExits": 7
+     }
+    ]
+   },
+   {
+    "cluster": 1,
+    "size": 1139,
+    "top degree words": {
+     "66666": 84,
+     "66755": 82,
+     "66656": 65,
+     "55667": 53
+    },
+    "depths": {
+     "2": 1078,
+     "4": 9,
+     "5": 4,
+     "3": 48
+    },
+    "families": {
+     "p32r11": 281,
+     "r210": 208,
+     "p34r28": 201,
+     "six": 116,
+     "r178": 103
+    },
+    "valueErr": 1088,
+    "policyErr": 156,
+    "unexplained": 714,
+    "mean residual (dhat-d)": 0.616,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.023,
+      0.014
+     ],
+     "dlRun": [
+      3.596,
+      2.38
+     ],
+     "DD": [
+      0.494,
+      0.299
+     ],
+     "sigDL": [
+      0.397,
+      0.681
+     ],
+     "classN": [
+      7282.608,
+      7710.839
+     ],
+     "lenL1": [
+      14.768,
+      14.579
+     ],
+     "lenL2": [
+      14.898,
+      14.674
+     ],
+     "lenSigma": [
+      11.783,
+      13.294
+     ],
+     "nMoves": [
+      9.442,
+      10.002
+     ],
+     "nOptDistinct": [
+      3.972,
+      4.381
+     ],
+     "thick1": [
+      1.005,
+      1.015
+     ],
+     "thick2": [
+      1.006,
+      1.014
+     ],
+     "thetaShared": [
+      6.832,
+      6.712
+     ],
+     "rerouteCuts": [
+      3.294,
+      3.196
+     ],
+     "exitsAllInterior": [
+      0.004,
+      0.005
+     ],
+     "n": [
+      32.705,
+      32.803
+     ]
+    },
+    "chosen move types": {
+     "al-mu rim  ok": 299,
+     "al-B rim  ok": 183,
+     "al-A rim pi ok": 178,
+     "al-mu int  ok": 125,
+     "al-B rim  bad": 56,
+     "al-A rim  ok": 51
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012121320230302121301212130302301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 1.25,
+      "j": 2,
+      "degWord": "56775",
+      "chosen": {
+       "pair": "al-mu",
+       "size": 12,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 14,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 2,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 17,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 8,
+      "rerouteCuts": 4,
+      "nExits": 4
+     },
+     {
+      "map": "r178",
+      "colouring": "012121320230302131301212130202301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 1.33,
+      "j": 2,
+      "degWord": "56775",
+      "chosen": {
+       "pair": "al-mu",
+       "size": 10,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 10,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 17,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 8,
+      "rerouteCuts": 2,
+      "nExits": 6
+     },
+     {
+      "map": "r178",
+      "colouring": "012123120230312313012121030202301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.85,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "al-A",
+       "size": 9,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 9,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 5,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 7,
+      "lenL2": 13,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 3,
+      "rerouteCuts": 2,
+      "nExits": 2
+     },
+     {
+      "map": "r178",
+      "colouring": "012312320231030121301031232302321",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 1.28,
+      "j": 2,
+      "degWord": "56775",
+      "chosen": {
+       "pair": "al-B",
+       "size": 3,
+       "rim": "2",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "A-B",
+       "size": 15,
+       "rim": "34",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 15,
+      "lenL2": 14,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 6,
+      "rerouteCuts": 1,
+      "nExits": 6
+     }
+    ]
+   },
+   {
+    "cluster": 2,
+    "size": 1192,
+    "top degree words": {
+     "75566": 166,
+     "66666": 114,
+     "56666": 64,
+     "57575": 55
+    },
+    "depths": {
+     "2": 1089,
+     "6": 1,
+     "5": 1,
+     "3": 91,
+     "4": 10
+    },
+    "families": {
+     "p32r11": 281,
+     "p34r28": 239,
+     "r210": 175,
+     "c60": 106,
+     "r178": 85
+    },
+    "valueErr": 1073,
+    "policyErr": 310,
+    "unexplained": 631,
+    "mean residual (dhat-d)": 1.134,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.034,
+      0.014
+     ],
+     "dlRun": [
+      3.987,
+      2.382
+     ],
+     "DD": [
+      0.508,
+      0.299
+     ],
+     "sigDL": [
+      0.738,
+      0.681
+     ],
+     "classN": [
+      7399.339,
+      7710.82
+     ],
+     "lenL1": [
+      15.368,
+      14.579
+     ],
+     "lenL2": [
+      15.202,
+      14.674
+     ],
+     "lenSigma": [
+      13.297,
+      13.294
+     ],
+     "nMoves": [
+      9.513,
+      10.002
+     ],
+     "nOptDistinct": [
+      3.434,
+      4.381
+     ],
+     "thick1": [
+      1.013,
+      1.015
+     ],
+     "thick2": [
+      1.008,
+      1.014
+     ],
+     "thetaShared": [
+      7.403,
+      6.712
+     ],
+     "rerouteCuts": [
+      4.096,
+      3.196
+     ],
+     "exitsAllInterior": [
+      0.029,
+      0.005
+     ],
+     "n": [
+      32.591,
+      32.803
+     ]
+    },
+    "chosen move types": {
+     "al-B rim  ok": 388,
+     "al-A rim pi ok": 198,
+     "al-B rim  bad": 135,
+     "al-A rim pi bad": 83,
+     "al-A rim  ok": 71,
+     "al-B int  ok": 61
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012123120230312313102121030202301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.66,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "mu-B",
+       "size": 7,
+       "rim": "14",
+       "afterD": 2,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-mu",
+       "size": 14,
+       "rim": "012",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 1,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 5,
+      "piToFill": 3,
+      "sigDL": 0,
+      "lenL1": 17,
+      "lenL2": 7,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 4,
+      "rerouteCuts": 3,
+      "nExits": 2
+     },
+     {
+      "map": "r178",
+      "colouring": "012312320231230123101030132312320",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.81,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 11,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 8,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 16,
+      "lenL2": 18,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 9,
+      "rerouteCuts": 3,
+      "nExits": 3
+     },
+     {
+      "map": "r178",
+      "colouring": "012312320231030123101232132302301",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.57,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 2,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 9,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 7,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 12,
+      "lenL2": 14,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 5,
+      "rerouteCuts": 5,
+      "nExits": 3
+     },
+     {
+      "map": "r178",
+      "colouring": "012312320231030123102032132312310",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 4.7,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 11,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 13,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 14,
+      "lenL2": 14,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 6,
+      "rerouteCuts": 2,
+      "nExits": 6
+     }
+    ]
+   },
+   {
+    "cluster": 3,
+    "size": 1288,
+    "top degree words": {
+     "58575": 143,
+     "57558": 97,
+     "75585": 97,
+     "57557": 79
+    },
+    "depths": {
+     "2": 1288
+    },
+    "families": {
+     "p34r28": 426,
+     "p32r11": 215,
+     "r178": 166,
+     "r210": 131,
+     "p31r12": 115
+    },
+    "valueErr": 1273,
+    "policyErr": 22,
+    "unexplained": 1111,
+    "mean residual (dhat-d)": 0.316,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.001,
+      0.012
+     ],
+     "dlRun": [
+      1.245,
+      2.183
+     ],
+     "DD": [
+      0.104,
+      0.278
+     ],
+     "sigDL": [
+      0.889,
+      0.672
+     ],
+     "classN": [
+      8414.631,
+      7716.985
+     ],
+     "lenL1": [
+      14.264,
+      14.569
+     ],
+     "lenL2": [
+      14.47,
+      14.67
+     ],
+     "lenSigma": [
+      14.671,
+      13.265
+     ],
+     "nMoves": [
+      10.808,
+      10.092
+     ],
+     "nOptDistinct": [
+      4.911,
+      4.409
+     ],
+     "thick1": [
+      1.026,
+      1.016
+     ],
+     "thick2": [
+      1.036,
+      1.015
+     ],
+     "thetaShared": [
+      6.443,
+      6.695
+     ],
+     "rerouteCuts": [
+      3.248,
+      3.167
+     ],
+     "exitsAllInterior": [
+      0.003,
+      0.005
+     ],
+     "n": [
+      33.182,
+      32.832
+     ]
+    },
+    "chosen move types": {
+     "al-B rim  ok": 576,
+     "al-A rim pi ok": 311,
+     "al-A rim  ok": 130,
+     "A-B rim  ok": 58,
+     "A-B int  ok": 50,
+     "mu-A rim  ok": 47
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012121320203030121312123213030302",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.63,
+      "j": 3,
+      "degWord": "67755",
+      "chosen": {
+       "pair": "al-A",
+       "size": 4,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-A",
+       "size": 10,
+       "rim": "23",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 17,
+      "lenL2": 15,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 7,
+      "rerouteCuts": 5,
+      "nExits": 7
+     },
+     {
+      "map": "r178",
+      "colouring": "012121320203030123132123212012103",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 2.78,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 8,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 4,
+      "rerouteCuts": 3,
+      "nExits": 5
+     },
+     {
+      "map": "r178",
+      "colouring": "012123120203010313131213212020203",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.53,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 2,
+      "piToFill": 3,
+      "sigDL": 0,
+      "lenL1": 9,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 5,
+      "rerouteCuts": 6,
+      "nExits": 5
+     },
+     {
+      "map": "r178",
+      "colouring": "012123120203010323131212312010203",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.16,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 13,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 13,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 9,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 5,
+      "rerouteCuts": 5,
+      "nExits": 5
+     }
+    ]
+   },
+   {
+    "cluster": 4,
+    "size": 1229,
+    "top degree words": {
+     "66666": 137,
+     "75566": 134,
+     "66566": 128,
+     "56666": 82
+    },
+    "depths": {
+     "2": 1220,
+     "4": 1,
+     "3": 8
+    },
+    "families": {
+     "r210": 303,
+     "p32r11": 270,
+     "p34r28": 208,
+     "six": 135,
+     "c60": 118
+    },
+    "valueErr": 1213,
+    "policyErr": 33,
+    "unexplained": 773,
+    "mean residual (dhat-d)": 0.926,
+    "feature mean (cluster, reference)": {
+     "piAllDL": [
+      0.006,
+      0.014
+     ],
+     "dlRun": [
+      2.068,
+      2.373
+     ],
+     "DD": [
+      0.287,
+      0.298
+     ],
+     "sigDL": [
+      0.548,
+      0.681
+     ],
+     "classN": [
+      7538.483,
+      7710.155
+     ],
+     "lenL1": [
+      15.416,
+      14.578
+     ],
+     "lenL2": [
+      15.736,
+      14.673
+     ],
+     "lenSigma": [
+      11.583,
+      13.292
+     ],
+     "nMoves": [
+      9.797,
+      10.005
+     ],
+     "nOptDistinct": [
+      4.328,
+      4.382
+     ],
+     "thick1": [
+      1.049,
+      1.015
+     ],
+     "thick2": [
+      1.028,
+      1.014
+     ],
+     "thetaShared": [
+      7.577,
+      6.711
+     ],
+     "rerouteCuts": [
+      3.561,
+      3.196
+     ],
+     "exitsAllInterior": [
+      0.0,
+      0.005
+     ],
+     "n": [
+      32.737,
+      32.802
+     ]
+    },
+    "chosen move types": {
+     "al-B rim  ok": 463,
+     "al-A rim pi ok": 304,
+     "al-A rim  ok": 194,
+     "al-mu rim  ok": 109,
+     "al-mu int  ok": 72,
+     "al-A int  ok": 38
+    },
+    "examples": [
+     {
+      "map": "r178",
+      "colouring": "012123120203010313131212312020203",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 3.77,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 0,
+      "lenL1": 9,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 5,
+      "rerouteCuts": 5,
+      "nExits": 5
+     },
+     {
+      "map": "r178",
+      "colouring": "012313120201020313131231321020203",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 4.77,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-A",
+       "size": 1,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 1,
+       "sigma": 0,
+       "meetsLock": 0
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 15,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 1,
+      "piToFill": 2,
+      "sigDL": 1,
+      "lenL1": 10,
+      "lenL2": 16,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 5,
+      "rerouteCuts": 6,
+      "nExits": 4
+     },
+     {
+      "map": "r178",
+      "colouring": "012313120201020313131232312020203",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 5.17,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-A",
+       "size": 1,
+       "rim": "0",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 0
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 14,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 2,
+      "piToFill": 3,
+      "sigDL": 0,
+      "lenL1": 9,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 5,
+      "rerouteCuts": 6,
+      "nExits": 5
+     },
+     {
+      "map": "r178",
+      "colouring": "012313120201020323131232312010203",
+      "kappa": 2,
+      "ell": 2,
+      "dhat": 4.3,
+      "j": 0,
+      "degWord": "75567",
+      "chosen": {
+       "pair": "al-B",
+       "size": 12,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "optimal": {
+       "pair": "al-B",
+       "size": 12,
+       "rim": "04",
+       "afterD": 1,
+       "pi": 0,
+       "sigma": 0,
+       "meetsLock": 1
+      },
+      "Gamma": 0,
+      "dlRun": 2,
+      "piToFill": 3,
+      "sigDL": 1,
+      "lenL1": 9,
+      "lenL2": 17,
+      "thick": [
+       1,
+       1
+      ],
+      "theta": 5,
+      "rerouteCuts": 6,
+      "nExits": 5
+     }
+    ]
+   },
+   {
+    "purity of cluster given the relative rim degree word": 0.414,
+    "chance purity (largest cluster share)": 0.222,
+    "distinct degree words": 105
+   }
+  ]
+ },
+ "mainPolicyErrors": [
+  {
+   "map": "p31r12",
+   "set": "census",
+   "colouring": "012323202310103012102323213101",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 2.34,
+   "chosen": {
+    "pair": "al-A",
+    "size": 2,
+    "rim": "-",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 9,
+    "rim": "23",
+    "afterD": 2,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 1,
+   "dlRun": 20,
+   "piToFill": -1,
+   "nExits": 7,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 7,
+   "rerouteCuts": 9,
+   "margin": 0.013
+  },
+  {
+   "map": "p34r28",
+   "set": "census",
+   "colouring": "012131230303212301210210230232130",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 2.38,
+   "chosen": {
+    "pair": "mu-B",
+    "size": 15,
+    "rim": "14",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 11,
+    "rim": "04",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 12,
+   "piToFill": 10,
+   "nExits": 3,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 8,
+   "rerouteCuts": 5,
+   "margin": 0.031
+  },
+  {
+   "map": "r210",
+   "set": "census",
+   "colouring": "012123230302301010231010232312310",
+   "kappa": 4,
+   "ell": 4,
+   "dhat": 3.31,
+   "chosen": {
+    "pair": "al-B",
+    "size": 4,
+    "rim": "2",
+    "afterD": 5,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 10,
+    "rim": "0",
+    "afterD": 3,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 5,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 8,
+   "rerouteCuts": 3,
+   "margin": 0.077
+  },
+  {
+   "map": "r210",
+   "set": "census",
+   "colouring": "012132302032021012301312323012013",
+   "kappa": 4,
+   "ell": 3,
+   "dhat": 2.39,
+   "chosen": {
+    "pair": "al-B",
+    "size": 4,
+    "rim": "2",
+    "afterD": 4,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-mu",
+    "size": 14,
+    "rim": "012",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 1,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 7,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 8,
+   "rerouteCuts": 3,
+   "margin": 0.173
+  },
+  {
+   "map": "r210",
+   "set": "census",
+   "colouring": "012323230302101010231030212312130",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 3.44,
+   "chosen": {
+    "pair": "al-B",
+    "size": 10,
+    "rim": "2",
+    "afterD": 4,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 14,
+    "rim": "23",
+    "afterD": 2,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 4,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 9,
+   "rerouteCuts": 2,
+   "margin": 0.185
+  },
+  {
+   "map": "r210",
+   "set": "census",
+   "colouring": "012312302012023012103132123032031",
+   "kappa": 4,
+   "ell": 4,
+   "dhat": 2.32,
+   "chosen": {
+    "pair": "al-A",
+    "size": 4,
+    "rim": "0",
+    "afterD": 4,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 8,
+    "rim": "2",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 8,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 9,
+   "rerouteCuts": 2,
+   "margin": 0.09
+  },
+  {
+   "map": "r210~s20",
+   "set": "splice",
+   "colouring": "0121232303023010102310102323123100",
+   "kappa": 4,
+   "ell": 4,
+   "dhat": 3.26,
+   "chosen": {
+    "pair": "al-B",
+    "size": 4,
+    "rim": "2",
+    "afterD": 5,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 10,
+    "rim": "0",
+    "afterD": 3,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 5,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 8,
+   "rerouteCuts": 3,
+   "margin": 0.01
+  },
+  {
+   "map": "r210~s20",
+   "set": "splice",
+   "colouring": "0123232303021010102310302123121300",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 3.37,
+   "chosen": {
+    "pair": "al-B",
+    "size": 10,
+    "rim": "2",
+    "afterD": 4,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 14,
+    "rim": "23",
+    "afterD": 2,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 4,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 10,
+   "rerouteCuts": 2,
+   "margin": 0.361
+  },
+  {
+   "map": "r210~s20",
+   "set": "splice",
+   "colouring": "0123123020120230121031321230320313",
+   "kappa": 4,
+   "ell": 4,
+   "dhat": 2.85,
+   "chosen": {
+    "pair": "al-A",
+    "size": 5,
+    "rim": "0",
+    "afterD": 4,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 8,
+    "rim": "2",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 8,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 9,
+   "rerouteCuts": 2,
+   "margin": 0.138
+  },
+  {
+   "map": "c30~s28",
+   "set": "splice",
+   "colouring": "01231323020102133",
+   "kappa": 4,
+   "ell": 4,
+   "dhat": 3.64,
+   "chosen": {
+    "pair": "al-B",
+    "size": 4,
+    "rim": "04",
+    "afterD": 4,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 3,
+    "rim": "0",
+    "afterD": 3,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 15,
+   "piToFill": 4,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 4,
+   "rerouteCuts": 2,
+   "margin": 0.555
+  },
+  {
+   "map": "c30~s28",
+   "set": "splice",
+   "colouring": "01231323020101323",
+   "kappa": 4,
+   "ell": 4,
+   "dhat": 3.84,
+   "chosen": {
+    "pair": "al-A",
+    "size": 5,
+    "rim": "0",
+    "afterD": 4,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 6,
+    "rim": "04",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 15,
+   "piToFill": 14,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 4,
+   "rerouteCuts": 2,
+   "margin": 0.665
+  },
+  {
+   "map": "c30~s28",
+   "set": "splice",
+   "colouring": "01232323010101323",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 3.4,
+   "chosen": {
+    "pair": "al-mu",
+    "size": 7,
+    "rim": "012",
+    "afterD": 4,
+    "pi": 0,
+    "sigma": 1,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 6,
+    "rim": "04",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 15,
+   "piToFill": 15,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 5,
+   "rerouteCuts": 3,
+   "margin": 1.512
+  },
+  {
+   "map": "p32r11~s36",
+   "set": "splice",
+   "colouring": "01232320231003013130212120213030",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 2.62,
+   "chosen": {
+    "pair": "mu-B",
+    "size": 15,
+    "rim": "14",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 8,
+    "rim": "0",
+    "afterD": 2,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 6,
+   "piToFill": 3,
+   "nExits": 2,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 7,
+   "rerouteCuts": 3,
+   "margin": 0.083
+  },
+  {
+   "map": "p32r11~s36",
+   "set": "splice",
+   "colouring": "01232320230113013101302120301320",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 1.81,
+   "chosen": {
+    "pair": "mu-B",
+    "size": 13,
+    "rim": "14",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 9,
+    "rim": "04",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 5,
+   "piToFill": 4,
+   "nExits": 5,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 7,
+   "rerouteCuts": 6,
+   "margin": 0.067
+  },
+  {
+   "map": "p32r11~s36",
+   "set": "splice",
+   "colouring": "01123230320312012101203130201230",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 2.04,
+   "chosen": {
+    "pair": "mu-B",
+    "size": 13,
+    "rim": "14",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 7,
+    "rim": "04",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 5,
+   "piToFill": 4,
+   "nExits": 5,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 7,
+   "rerouteCuts": 6,
+   "margin": 0.267
+  },
+  {
+   "map": "six~s39",
+   "set": "splice",
+   "colouring": "0102331232320113200132310103",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 2.32,
+   "chosen": {
+    "pair": "al-A",
+    "size": 7,
+    "rim": "0",
+    "afterD": 3,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 8,
+    "rim": "04",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 5,
+   "piToFill": 4,
+   "nExits": 2,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 7,
+   "rerouteCuts": 4,
+   "margin": 0.084
+  },
+  {
+   "map": "r210~s41",
+   "set": "splice",
+   "colouring": "012323202312010212130321313001302",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 2.04,
+   "chosen": {
+    "pair": "mu-B",
+    "size": 15,
+    "rim": "14",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 10,
+    "rim": "2",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 3,
+   "piToFill": 3,
+   "nExits": 4,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 8,
+   "rerouteCuts": 4,
+   "margin": 0.133
+  },
+  {
+   "map": "r210~s41",
+   "set": "splice",
+   "colouring": "012313202312020212130321313001302",
+   "kappa": 3,
+   "ell": 3,
+   "dhat": 2.02,
+   "chosen": {
+    "pair": "mu-B",
+    "size": 15,
+    "rim": "14",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 12,
+    "rim": "2",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 3,
+   "piToFill": 3,
+   "nExits": 4,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 8,
+   "rerouteCuts": 4,
+   "margin": 0.064
+  },
+  {
+   "map": "r210~s55",
+   "set": "splice",
+   "colouring": "012123230302301010231010232312310200",
+   "kappa": 4,
+   "ell": 4,
+   "dhat": 3.64,
+   "chosen": {
+    "pair": "al-B",
+    "size": 4,
+    "rim": "2",
+    "afterD": 5,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-A",
+    "size": 10,
+    "rim": "0",
+    "afterD": 3,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 5,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 9,
+   "rerouteCuts": 3,
+   "margin": 0.467
+  },
+  {
+   "map": "r210~s55",
+   "set": "splice",
+   "colouring": "012132302032021012301312323012013232",
+   "kappa": 4,
+   "ell": null,
+   "dhat": 2.38,
+   "chosen": {
+    "pair": "al-A",
+    "size": 8,
+    "rim": "0",
+    "afterD": 5,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-mu",
+    "size": 15,
+    "rim": "012",
+    "afterD": 3,
+    "pi": 0,
+    "sigma": 1,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 11,
+   "piToFill": 7,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 8,
+   "rerouteCuts": 3,
+   "margin": 0.103
+  },
+  {
+   "map": "six~s60",
+   "set": "splice",
+   "colouring": "01232213030301123021230121001",
+   "kappa": 3,
+   "ell": null,
+   "dhat": 3.34,
+   "chosen": {
+    "pair": "al-A",
+    "size": 8,
+    "rim": "23",
+    "afterD": 4,
+    "pi": 1,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "chosenAfterDhat": null,
+   "optimal": {
+    "pair": "al-B",
+    "size": 9,
+    "rim": "04",
+    "afterD": 2,
+    "pi": 0,
+    "sigma": 0,
+    "meetsLock": 1
+   },
+   "Gamma": 0,
+   "dlRun": 5,
+   "piToFill": 5,
+   "nExits": 1,
+   "thick": [
+    1,
+    1
+   ],
+   "theta": 6,
+   "rerouteCuts": 2,
+   "margin": 0.014
+  }
+ ],
+ "consensusHard": {
+  "hist (number of priors models wrong, DL states)": {
+   "0": 11664,
+   "1": 88,
+   "3": 8,
+   "2": 34,
+   "4": 12,
+   "5": 2,
+   "6": 2
+  },
+  "states wrong for >=4 of 6": [
+   {
+    "map": "r210",
+    "colouring": "012132320303201010321010323213210",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 10,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210",
+    "colouring": "012123230302301010231010232312310",
+    "kappa": 4,
+    "wrong": 5,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210",
+    "colouring": "012132302032021012301312323012013",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210",
+    "colouring": "012323230302101010231030212312130",
+    "kappa": 3,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 2
+   },
+   {
+    "map": "r210",
+    "colouring": "012312302012023012103132123032031",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 2
+   },
+   {
+    "map": "r210~s20",
+    "colouring": "0121323203032010103210103232132100",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 10,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210~s20",
+    "colouring": "0121232303023010102310102323123100",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210~s20",
+    "colouring": "0123232303021010102310302123121300",
+    "kappa": 3,
+    "wrong": 5,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 2
+   },
+   {
+    "map": "r210~s20",
+    "colouring": "0123123020120230121031321230320313",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 2
+   },
+   {
+    "map": "c30~s28",
+    "colouring": "01231323020102133",
+    "kappa": 4,
+    "wrong": 6,
+    "Gamma": 0,
+    "dlRun": 15,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 2
+   },
+   {
+    "map": "c30~s28",
+    "colouring": "01231323020101323",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 15,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 2
+   },
+   {
+    "map": "c30~s28",
+    "colouring": "01232323010101323",
+    "kappa": 3,
+    "wrong": 6,
+    "Gamma": 0,
+    "dlRun": 15,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "p32r11~s36",
+    "colouring": "01232320231003013130212120213030",
+    "kappa": 3,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 6,
+    "nExits": 2,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210~s55",
+    "colouring": "012132320303201010321010323213210300",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 10,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210~s55",
+    "colouring": "012123230302301010231010232312310200",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   },
+   {
+    "map": "r210~s55",
+    "colouring": "012132302032021012301312323012013232",
+    "kappa": 4,
+    "wrong": 4,
+    "Gamma": 0,
+    "dlRun": 11,
+    "nExits": 1,
+    "thick": [
+     1,
+     1
+    ],
+    "rerouteCuts": 3
+   }
+  ]
+ },
+ "runBound": {
+  "kappa=2": {
+   "tight": 10146,
+   "+1": 961,
+   "+3": 33,
+   "+2": 158,
+   "+9": 2,
+   "+10": 1,
+   "Gamma": 132,
+   "+5": 10,
+   "+4": 17,
+   "+6": 5,
+   "+8": 1
+  },
+  "kappa=3": {
+   "+3": 15,
+   "+7": 2,
+   "tight": 145,
+   "+1": 65,
+   "+2": 32,
+   "Gamma": 39,
+   "+4": 8,
+   "+6": 1,
+   "+8": 1
+  },
+  "kappa=4": {
+   "+3": 4,
+   "+5": 2,
+   "+4": 1,
+   "tight": 6,
+   "+1": 10,
+   "+2": 6
+  },
+  "kappa=5": {
+   "+3": 1,
+   "+2": 1,
+   "tight": 1,
+   "+1": 3
+  },
+  "kappa=6": {
+   "tight": 1
+  }
+ },
+ "rotationDirection": {
+  "optimal-move shifts at kappa=2": {
+   "[0, 2, 3]": 7449,
+   "[2, 3]": 1540,
+   "[0]": 784,
+   "[0, 3]": 710,
+   "[0, 2]": 657,
+   "[3]": 170,
+   "[2]": 156
+  },
+  "optimal-move shifts at kappa=3": {
+   "[0, 2, 3]": 204,
+   "[2, 3]": 57,
+   "[3]": 17,
+   "[2]": 13,
+   "[0, 2]": 11,
+   "[0, 3]": 5,
+   "[0]": 1
+  },
+  "optimal-move shifts at kappa=4+": {
+   "[2]": 10,
+   "[3]": 9,
+   "[2, 3]": 6,
+   "[0, 2, 3]": 4,
+   "[0]": 4,
+   "[0, 3]": 2,
+   "[0, 2]": 1
+  },
+  "priors-gnn-h16-k3-pool: policy errors (chosen shift, optimal shifts)": {
+   "0 vs [0, 2, 3]": 6,
+   "2 vs [3]": 6,
+   "3 vs [2]": 4,
+   "2 vs [0]": 1,
+   "0 vs [2]": 1,
+   "0 vs [2, 3]": 1,
+   "3 vs [0, 2]": 1,
+   "3 vs [0]": 1
+  },
+  "nano-rl: policy errors (chosen shift, optimal shifts)": {
+   "0 vs [0, 2, 3]": 13,
+   "2 vs [3]": 5,
+   "2 vs [0]": 4,
+   "0 vs [3]": 4,
+   "0 vs [2, 3]": 4,
+   "3 vs [2]": 1,
+   "0 vs [2]": 1,
+   "3 vs [0, 2]": 1
+  },
+  "tiny-rl: policy errors (chosen shift, optimal shifts)": {
+   "0 vs [0, 2, 3]": 7,
+   "0 vs [3]": 7,
+   "2 vs [3]": 7,
+   "3 vs [2]": 7,
+   "0 vs [2, 3]": 2,
+   "3 vs [0, 2]": 1,
+   "0 vs [2]": 1,
+   "2 vs [0, 3]": 1
+  },
+  "mid-rl: policy errors (chosen shift, optimal shifts)": {
+   "0 vs [0, 2, 3]": 7,
+   "0 vs [2, 3]": 6,
+   "2 vs [0]": 4,
+   "2 vs [3]": 4,
+   "3 vs [2]": 4,
+   "3 vs [0, 2]": 1,
+   "0 vs [2]": 1,
+   "0 vs [0, 2]": 1
+  },
+  "mid-pretrained: policy errors (chosen shift, optimal shifts)": {
+   "2 vs [3]": 8,
+   "0 vs [0, 2, 3]": 5,
+   "3 vs [2]": 3,
+   "2 vs [0]": 2,
+   "0 vs [3]": 2,
+   "3 vs [0]": 2,
+   "0 vs [2]": 1,
+   "0 vs [2, 3]": 1
+  },
+  "mid-zero-shot: policy errors (chosen shift, optimal shifts)": {
+   "0 vs [0, 2, 3]": 65,
+   "2 vs [3]": 13,
+   "0 vs [2, 3]": 12,
+   "0 vs [2]": 6,
+   "3 vs [2]": 6,
+   "0 vs [3]": 4,
+   "2 vs [2, 3]": 2,
+   "0 vs [0, 2]": 1
+  },
+  "colours-only-pretrained: policy errors (chosen shift, optimal shifts)": {
+   "0 vs [0, 2, 3]": 116,
+   "2 vs [0]": 86,
+   "3 vs [0, 2]": 78,
+   "2 vs [0, 3]": 74,
+   "3 vs [0]": 63,
+   "2 vs [3]": 61,
+   "0 vs [0]": 32,
+   "3 vs [2]": 32
+  },
+  "deep non-Gamma states: optimal rotation vs nearer end of the DL run": {
+   "optimal set contains nearer-end direction": 231,
+   "optimal set has only the farther-end direction": 19
+  },
+  "priors-gnn-h16-k3-pool: rotation errors vs run ends": {
+   "chose farther-end direction": 10
+  },
+  "nano-rl: rotation errors vs run ends": {
+   "chose farther-end direction": 7
+  },
+  "tiny-rl: rotation errors vs run ends": {
+   "chose farther-end direction": 15,
+   "chose nearer-end direction": 1
+  },
+  "mid-rl: rotation errors vs run ends": {
+   "chose farther-end direction": 10
+  },
+  "mid-pretrained: rotation errors vs run ends": {
+   "chose farther-end direction": 11,
+   "chose nearer-end direction": 1
+  },
+  "mid-zero-shot: rotation errors vs run ends": {
+   "chose nearer-end direction": 8,
+   "chose farther-end direction": 14
+  },
+  "colours-only-pretrained: rotation errors vs run ends": {
+   "chose farther-end direction": 303,
+   "chose nearer-end direction": 74
+  }
+ }
+}
