@@ -25,6 +25,7 @@ The page, the worker, and the Node scripts all read `docs/levels.js` (the census
 | `tools/arena_check.js` | tests (`node tools/arena_check.js`, `--quick` skips the short RL run) |
 | `tools/arena_train.js` | headless pretraining and RL |
 | `tools/arena_hardgen.js` | hard training pool; writes `docs/arena/cache/` (not committed) |
+| `docs/arena/hardset/` | proof-hard map pool v1 (floor-tight, R0 maps, non-D-reducible 2-balls); see its README |
 | `tools/arena_scale.js` | multi-core training on that pool |
 | `docs/arena/PRETRAINING.md` | what scaling the training takes |
 
