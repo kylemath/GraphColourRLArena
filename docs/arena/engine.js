@@ -43,6 +43,9 @@
  *   38-41 for each partner class b: the chain is a web
  * Globals (3): n / 40, non-web moves / 30, webs / 6.
  * arch.chainFeats = false zeroes features 14-41 (a "colours only" net that must find chains by message passing).
+ * arch.spectral (optional, off by default: '') appends map-only spectral features after the usual ones, for either track:
+ *   'hks' 8 heat kernel signatures, 'wks' 8 wave kernel signatures, 'pe' |first 4 nontrivial Laplacian eigenvectors|,
+ *   e.g. 'hks,wks'. They depend only on the map (computed once per graph, cached on G), never on the colouring.
  *
  * Network (all weights in one Float32Array; shape table in the model file):
  *   h0 = relu(Win x + bin);  h_k = relu(Ws_k h_{k-1} + Wn_k mean_{nbrs} h_{k-1} + b_k), k = 1..K   (width H)
@@ -259,6 +262,93 @@
     return null;
   }
 
+  // ---------------------------------------------------------------- spectral features (optional, map only)
+  // Laplacian L = D - A of the whole map (hole included), eigenpairs by cyclic Jacobi. Per region u, scaled so the
+  // average region reads 1 whatever the map size:
+  //   hks  HKS(u, t) = n sum_k e^{-t l_k} phi_k(u)^2 / sum_k e^{-t l_k}, 8 times log-spaced in [4 ln10 / l_max, 4 ln10 / l_2]
+  //   wks  WKS(u, e) = n sum_k g_e(l_k) phi_k(u)^2 / sum_k g_e(l_k), g_e = exp(-(e - log l_k)^2 / 2 s^2), 8 energies
+  //        evenly spaced in [log l_2, log l_max], s = 7 x the spacing / 8 (Aubry et al. use 7 x spacing over 100)
+  //   pe   sqrt(n) |phi_k(u)|, k = 1..4 (absolute value: an eigenvector's sign is arbitrary; within a repeated
+  //        eigenvalue the basis is arbitrary too, so pe is not invariant on symmetric maps such as the icosahedron)
+  // HKS and WKS are invariant under relabelling and within repeated eigenvalues.
+  const SPEC_PARTS = { hks: 8, wks: 8, pe: 4 };
+  function spectralParts(spec) {
+    if (!spec) return [];
+    const parts = String(spec).split(',').map(x => x.trim()).filter(Boolean);
+    parts.forEach(x => { if (!SPEC_PARTS[x]) throw new Error('unknown spectral part ' + x + ' (use hks, wks, pe)'); });
+    return parts;
+  }
+  const spectralDim = spec => spectralParts(spec).reduce((t, x) => t + SPEC_PARTS[x], 0);
+  function jacobiEigen(A, n) {   // symmetric A (n x n, row-major Float64Array, destroyed) -> { w ascending, V (columns) }
+    const V = new Float64Array(n * n); for (let i = 0; i < n; i++) V[i * n + i] = 1;
+    for (let sweep = 0; sweep < 100; sweep++) {
+      let off = 0; for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) off += A[i * n + j] * A[i * n + j];
+      if (off < 1e-22) break;
+      for (let p = 0; p < n; p++) for (let q = p + 1; q < n; q++) {
+        const apq = A[p * n + q]; if (Math.abs(apq) < 1e-300) continue;
+        const th = (A[q * n + q] - A[p * n + p]) / (2 * apq), t = Math.sign(th || 1) / (Math.abs(th) + Math.sqrt(th * th + 1));
+        const c = 1 / Math.sqrt(t * t + 1), sn = t * c;
+        for (let k = 0; k < n; k++) {
+          const akp = A[k * n + p], akq = A[k * n + q];
+          A[k * n + p] = c * akp - sn * akq; A[k * n + q] = sn * akp + c * akq;
+        }
+        for (let k = 0; k < n; k++) {
+          const apk = A[p * n + k], aqk = A[q * n + k];
+          A[p * n + k] = c * apk - sn * aqk; A[q * n + k] = sn * apk + c * aqk;
+        }
+        for (let k = 0; k < n; k++) {
+          const vkp = V[k * n + p], vkq = V[k * n + q];
+          V[k * n + p] = c * vkp - sn * vkq; V[k * n + q] = sn * vkp + c * vkq;
+        }
+      }
+    }
+    const idx = Array.from({ length: n }, (_, i) => i).sort((a, b) => A[a * n + a] - A[b * n + b]);
+    const w = new Float64Array(n), U = new Float64Array(n * n);
+    idx.forEach((i, k) => { w[k] = Math.max(0, A[i * n + i]); for (let r = 0; r < n; r++) U[r * n + k] = V[r * n + i]; });
+    return { w, V: U };
+  }
+  function laplacianEigen(G) {
+    if (G._eig) return G._eig;
+    const n = G.n, L = new Float64Array(n * n);
+    for (let u = 0; u < n; u++) {
+      L[u * n + u] = G.adjStart[u + 1] - G.adjStart[u];
+      for (let e = G.adjStart[u]; e < G.adjStart[u + 1]; e++) L[u * n + G.adjList[e]] -= 1;
+    }
+    G._eig = jacobiEigen(L, n); return G._eig;
+  }
+  // n x spectralDim(spec) Float32Array, cached on G per spec string
+  function spectralFeatures(G, spec) {
+    const key = String(spec); G._spec = G._spec || {};
+    if (G._spec[key]) return G._spec[key];
+    const parts = spectralParts(spec), S = spectralDim(spec), n = G.n, out = new Float32Array(n * S);
+    const { w, V } = laplacianEigen(G), l2 = Math.max(w[1], 1e-6), lmax = Math.max(w[n - 1], l2 * 1.0001);
+    let col = 0;
+    const kernel = (g) => {   // out[:, col] = n sum_k g_k phi_k(u)^2 / sum_k g_k  (k >= 1: the constant vector skipped)
+      let z = 0; for (let k = 1; k < n; k++) z += g[k];
+      for (let u = 0; u < n; u++) { let s = 0; for (let k = 1; k < n; k++) s += g[k] * V[u * n + k] * V[u * n + k]; out[u * S + col] = z > 0 ? n * s / z : 1; }
+      col++;
+    };
+    parts.forEach(part => {
+      const g = new Float64Array(n);
+      if (part === 'hks') {
+        const t0 = Math.log(4 * Math.LN10 / lmax), t1 = Math.log(4 * Math.LN10 / l2);
+        for (let i = 0; i < 8; i++) { const t = Math.exp(t0 + (t1 - t0) * i / 7); for (let k = 1; k < n; k++) g[k] = Math.exp(-t * (w[k] - l2)); kernel(g); }
+      } else if (part === 'wks') {
+        const e0 = Math.log(l2), e1 = Math.log(lmax), de = (e1 - e0) / 7, sg = 7 * de / 8 || 0.1;
+        for (let i = 0; i < 8; i++) { const e = e0 + de * i; for (let k = 1; k < n; k++) { const x = e - Math.log(Math.max(w[k], 1e-6)); g[k] = Math.exp(-x * x / (2 * sg * sg)); } kernel(g); }
+      } else {
+        const sq = Math.sqrt(n);
+        for (let i = 1; i <= 4; i++) { for (let u = 0; u < n; u++) out[u * S + col] = i < n ? sq * Math.abs(V[u * n + i]) : 0; col++; }
+      }
+    });
+    G._spec[key] = out; return out;
+  }
+  function appendSpectral(G, spec, X, base, stride) {
+    if (!spec) return;
+    const Sf = spectralFeatures(G, spec), S = spectralDim(spec);
+    for (let u = 0; u < G.n; u++) for (let j = 0; j < S; j++) X[u * stride + base + j] = Sf[u * S + j];
+  }
+
   // ---------------------------------------------------------------- encoding
   const F = 42, GD = 3, CF = 12;
   // relative colour classes: rel[c] for colours 0..3, and ref = the reference rim position
@@ -281,14 +371,14 @@
   function encode(G, col, opt) {
     opt = opt || {};
     if (opt.kind === 'rec') return encodeRaw(G, col, opt);
-    const n = G.n, hole = G.hole, X = new Float32Array(n * F), { rel, ref } = relClasses(G, col);
+    const n = G.n, hole = G.hole, FX = F + spectralDim(opt.spectral), X = new Float32Array(n * FX), { rel, ref } = relClasses(G, col);
     const chains = chainsOf(G, col), at = new Int32Array(n * 4).fill(-1);
     chains.forEach((K, i) => { for (const u of K.vs) at[u * 4 + (col[u] === K.a ? K.b : K.a)] = i; });
     const relMask = m => { let o = 0; for (let k = 0; k < 5; k++) if (m >> ((ref + k) % 5) & 1) o |= 1 << k; return o; };
     const chainOn = opt.chainFeats !== false && !opt.dropChains;
     const masked = opt.mask || null;
     for (let u = 0; u < n; u++) {
-      const o = u * F;
+      const o = u * FX;
       if (u === hole) X[o + 4] = 1;
       else if (masked && masked[u]) X[o + 13] = 1;
       else X[o + rel[col[u]]] = 1;
@@ -313,20 +403,21 @@
       moves.push({ K, feat: f });
     });
     const glob = new Float32Array(GD); glob[0] = n / 40; glob[1] = moves.length / 30; glob[2] = webs / 6;
-    return { G, col, n, X, glob, rimOrd, hole, moves, chains, rel, ref, at };
+    appendSpectral(G, opt.spectral, X, F, FX);
+    return { G, col, n, X, F: FX, glob, rimOrd, hole, moves, chains, rel, ref, at };
   }
 
   // ---------------------------------------------------------------- the network
   function archDefaults(a) {
     if (a && a.kind === 'rec') return recDefaults(a);
-    a = Object.assign({ H: 16, K: 3, H1: 0, Hp: 0, chainFeats: true }, a || {});
-    a.H = a.H | 0; a.K = a.K | 0; a.H1 = a.H1 || 2 * a.H; a.Hp = a.Hp || a.H; a.F = F; a.GD = GD; a.CF = CF;
+    a = Object.assign({ H: 16, K: 3, H1: 0, Hp: 0, chainFeats: true, spectral: '' }, a || {});
+    a.H = a.H | 0; a.K = a.K | 0; a.H1 = a.H1 || 2 * a.H; a.Hp = a.Hp || a.H; a.spectral = a.spectral || ''; a.F = F + spectralDim(a.spectral); a.GD = GD; a.CF = CF;
     a.kind = 'gnn'; a.readout = 'mean,max,rim5,hole,glob'; a.heads = ['value', 'dist', 'policy', 'colour', 'chain']; a.feat = 'v1';
     return a;
   }
   function shapesOf(a) {
     if (a.kind === 'rec') return recShapes(a);
-    const H = a.H, R = 8 * H + GD, S = [['Win', H, F], ['bin', H, 1]];
+    const H = a.H, R = 8 * H + GD, S = [['Win', H, a.F], ['bin', H, 1]];
     for (let k = 1; k <= a.K; k++) S.push(['Ws' + k, H, H], ['Wn' + k, H, H], ['b' + k, H, 1]);
     S.push(['W1', a.H1, R], ['b1', a.H1, 1], ['wv', 1, a.H1], ['bv', 1, 1], ['wd', 1, a.H1], ['bd', 1, 1],
       ['Wp1', a.Hp, H + a.H1 + CF], ['bp1', a.Hp, 1], ['wp2', 1, a.Hp], ['bp2', 1, 1],
@@ -387,8 +478,9 @@
     need = need || {};
     const P = params || net.params, a = net.arch, H = a.H, n = enc.n, G = enc.G, m = need.policy ? enc.moves.length : 0;
     const w = workspace(net, n, m), Hs = w.Hs, Ms = w.Ms, off = net.off;
+    if (enc.F !== a.F) throw new Error('encoding has ' + enc.F + ' features per region, net expects ' + a.F + ' (pass the arch, with its spectral setting, to encode)');
     // layer 0
-    linRows(P, off.Win, off.bin, enc.X, n, F, H, Hs[0], false);
+    linRows(P, off.Win, off.bin, enc.X, n, a.F, H, Hs[0], false);
     for (let i = 0; i < n * H; i++) if (Hs[0][i] < 0) Hs[0][i] = 0;
     for (let k = 1; k <= a.K; k++) {
       const Hp = Hs[k - 1], M = Ms[k - 1], Hn = Hs[k];
@@ -508,11 +600,11 @@
     }
     const H0 = w.Hs[0], X = enc.X;
     for (let u = 0; u < n; u++) {
-      const o = u * H, xo = u * F;
+      const o = u * H, xo = u * a.F;
       for (let i = 0; i < H; i++) {
         if (H0[o + i] <= 0) continue; const da = cur[o + i]; if (!da) continue;
-        grad[off.bin + i] += da; const wo = off.Win + i * F;
-        for (let j = 0; j < F; j++) { const x = X[xo + j]; if (x) grad[wo + j] += da * x; }
+        grad[off.bin + i] += da; const wo = off.Win + i * a.F;
+        for (let j = 0; j < a.F; j++) { const x = X[xo + j]; if (x) grad[wo + j] += da * x; }
       }
     }
   }
@@ -543,21 +635,22 @@
   // (u, b) into the Kempe swap of the {col(u), b} chain through u (illegal when that chain is a web or b = col(u)).
   const FR = 5;
   function recDefaults(a) {
-    a = Object.assign({ H: 32, T: 16, H1: 0, Hq: 0, holeRead: true }, a || {});
-    a.kind = 'rec'; a.H = a.H | 0; a.T = a.T | 0; a.H1 = a.H1 || 2 * a.H; a.Hq = a.Hq || a.H; a.F = FR; a.holeRead = a.holeRead !== false;
+    a = Object.assign({ H: 32, T: 16, H1: 0, Hq: 0, holeRead: true, spectral: '' }, a || {});
+    a.kind = 'rec'; a.H = a.H | 0; a.T = a.T | 0; a.H1 = a.H1 || 2 * a.H; a.Hq = a.Hq || a.H; a.spectral = a.spectral || ''; a.F = FR + spectralDim(a.spectral); a.holeRead = a.holeRead !== false;
     a.readout = 'mean,max' + (a.holeRead ? ',hole' : ''); a.heads = ['value', 'policy(u,b)']; a.feat = 'raw1'; a.chainFeats = false;
     return a;
   }
   function recShapes(a) {
     const H = a.H, R = (a.holeRead ? 3 : 2) * H;
-    return [['Wx', H, FR], ['b0', H, 1], ['Ws', H, H], ['Wn', H, H], ['b', H, 1], ['W1', a.H1, R], ['b1', a.H1, 1], ['wv', 1, a.H1], ['bv', 1, 1],
+    return [['Wx', H, a.F], ['b0', H, 1], ['Ws', H, H], ['Wn', H, H], ['b', H, 1], ['W1', a.H1, R], ['b1', a.H1, 1], ['wv', 1, a.H1], ['bv', 1, 1],
       ['Wq', a.Hq, H + a.H1], ['bq', a.Hq, 1], ['Wo', 4, a.Hq], ['bo', 4, 1]];
   }
   // enc for the rec net: { G, col, n, hole, X (n x 5), perm, moves/chains/at unless opt.noMoves }
   function encodeRaw(G, col, opt) {
-    const n = G.n, X = new Float32Array(n * FR), perm = opt.perm || null;
-    for (let u = 0; u < n; u++) { if (u === G.hole) X[u * FR + 4] = 1; else X[u * FR + (perm ? perm[col[u]] : col[u])] = 1; }
-    const enc = { G, col, n, hole: G.hole, X, perm, kind: 'rec' };
+    const FX = FR + spectralDim(opt.spectral), n = G.n, X = new Float32Array(n * FX), perm = opt.perm || null;
+    for (let u = 0; u < n; u++) { if (u === G.hole) X[u * FX + 4] = 1; else X[u * FX + (perm ? perm[col[u]] : col[u])] = 1; }
+    appendSpectral(G, opt.spectral, X, FR, FX);
+    const enc = { G, col, n, hole: G.hole, X, F: FX, perm, kind: 'rec' };
     if (!opt.noMoves) {
       const chains = chainsOf(G, col), at = new Int32Array(n * 4).fill(-1), moves = [];
       chains.forEach((K, i) => { for (const u of K.vs) at[u * 4 + (col[u] === K.a ? K.b : K.a)] = i; });
@@ -597,9 +690,10 @@
   function recForward(net, enc, need, params) {
     need = need || {};
     const P = params || net.params, a = net.arch, H = a.H, T = need.T || a.T, n = enc.n, G = enc.G, off = net.off, w = recWorkspace(net, n, T);
-    const E = w.E, Hs = w.Hs, Ms = w.Ms, X = enc.X;
-    for (let u = 0; u < n; u++) for (let i = 0; i < H; i++) {   // e = Wx x (x is one-hot: one or two nonzeros)
-      let s = 0; const xo = u * FR, wo = off.Wx + i * FR; for (let j = 0; j < FR; j++) if (X[xo + j]) s += P[wo + j] * X[xo + j];
+    const E = w.E, Hs = w.Hs, Ms = w.Ms, X = enc.X, FX = a.F;
+    if (enc.F !== FX) throw new Error('encoding has ' + enc.F + ' features per region, net expects ' + FX + ' (pass the arch, with its spectral setting, to encode)');
+    for (let u = 0; u < n; u++) for (let i = 0; i < H; i++) {   // e = Wx x (x is one-hot unless spectral features are on)
+      let s = 0; const xo = u * FX, wo = off.Wx + i * FX; for (let j = 0; j < FX; j++) if (X[xo + j]) s += P[wo + j] * X[xo + j];
       E[u * H + i] = s; Hs[0][u * H + i] = Math.tanh(s + P[off.b0 + i]);
     }
     const sc = 1 / 6;
@@ -703,7 +797,7 @@
     const H0 = w.Hs[0], X = enc.X;
     for (let u = 0; u < n; u++) for (let i = 0; i < H; i++) {
       const o = u * H + i, da = dh[o] * (1 - H0[o] * H0[o]); grad[off.b0 + i] += da; const de = dE[o] + da;
-      if (!de) continue; const xo = u * FR, wo = off.Wx + i * FR; for (let j = 0; j < FR; j++) if (X[xo + j]) grad[wo + j] += de * X[xo + j];
+      if (!de) continue; const xo = u * a.F, wo = off.Wx + i * a.F; for (let j = 0; j < a.F; j++) if (X[xo + j]) grad[wo + j] += de * X[xo + j];
     }
   }
 
@@ -978,7 +1072,7 @@
     R = R || T.R; wc = wc == null ? 1 : wc; wdd = wdd == null ? 1 : wdd;
     const n = G.n, mask = new Uint8Array(n), cand = []; for (let u = 0; u < n; u++) if (u !== G.hole) cand.push(u);
     const k = Math.max(1, Math.round(0.15 * cand.length)); shuffle(cand, R); for (let i = 0; i < k; i++) mask[cand[i]] = 1;
-    const full = encode(G, col, T.arch), enc = encode(G, col, { mask, dropChains: true, chainFeats: T.arch.chainFeats });
+    const full = encode(G, col, T.arch), enc = encode(G, col, { mask, dropChains: true, chainFeats: T.arch.chainFeats, spectral: T.arch.spectral });
     const out = netForward(T.net, enc, { nodes: true });
     const gCol = new Float32Array(n * 4), gCh = new Float32Array(n * 8);
     let L = 0;
@@ -995,7 +1089,7 @@
         if (u === G.hole) continue; const own = full.rel[col[u]];
         for (let s = 0; s < 4; s++) {
           if (s === own) continue;
-          const xo = u * F; const size = full.X[xo + 14 + s]; let hits = 0; for (let q = 0; q < 5; q++) hits += full.X[xo + 18 + s * 5 + q];
+          const xo = u * full.F; const size = full.X[xo + 14 + s]; let hits = 0; for (let q = 0; q < 5; q++) hits += full.X[xo + 18 + s * 5 + q];
           const e1 = out.chP[u * 8 + s] - size, e2 = out.chP[u * 8 + 4 + s] - hits / 5;
           L += wdd * weight * 0.5 * (e1 * e1 + e2 * e2) / cnt * 4;
           gCh[u * 8 + s] = wdd * weight * e1 / cnt * 4; gCh[u * 8 + 4 + s] = wdd * weight * e2 / cnt * 4;
@@ -1246,8 +1340,8 @@
     meta = meta || {};
     const f32 = Float32Array.from(net.params), a = net.arch;
     return Object.assign({ format: 'mazearena-model-1', name: meta.name || 'model', date: meta.date || new Date().toISOString(),
-      arch: a.kind === 'rec' ? { kind: 'rec', H: a.H, T: a.T, H1: a.H1, Hq: a.Hq, F: a.F, holeRead: a.holeRead, readout: a.readout, heads: a.heads, feat: a.feat, track: 'tabula rasa' }
-        : { kind: 'gnn', H: a.H, K: a.K, H1: a.H1, Hp: a.Hp, F: a.F, GD: a.GD, CF: a.CF, chainFeats: a.chainFeats, readout: a.readout, heads: a.heads, feat: a.feat, track: 'priors' },
+      arch: a.kind === 'rec' ? { kind: 'rec', H: a.H, T: a.T, H1: a.H1, Hq: a.Hq, F: a.F, spectral: a.spectral || undefined, holeRead: a.holeRead, readout: a.readout, heads: a.heads, feat: a.feat, track: 'tabula rasa' }
+        : { kind: 'gnn', H: a.H, K: a.K, H1: a.H1, Hp: a.Hp, F: a.F, GD: a.GD, CF: a.CF, chainFeats: a.chainFeats, spectral: a.spectral || undefined, readout: a.readout, heads: a.heads, feat: a.feat, track: 'priors' },
       paramCount: net.size, rl: meta.rl || null, training: meta.training || null, metrics: meta.metrics || null },
       meta.extra || {}, { weights: { dtype: 'float32', shapes: net.shapes.map(([nm, r, c]) => [nm, r, c]), b64: b64FromBytes(new Uint8Array(f32.buffer)) } });
   }
@@ -1261,7 +1355,7 @@
   }
 
   const ARENA = { rng, hashStr, shuffle, now, makeGraph, graphFromLevels, levelMaps, PAIRS, rimCount, won, canon, decodeCanon, chainsOf, movesOf, flip,
-    distOf, exactDistances, generateGraph, checkTriangulation, randomBlocked, relClasses, encode, F, GD, CF, archDefaults, shapesOf, netCreate,
+    distOf, exactDistances, generateGraph, checkTriangulation, randomBlocked, relClasses, encode, F, GD, CF, spectralDim, spectralFeatures, laplacianEigen, archDefaults, shapesOf, netCreate,
     paramCount, netForward, recDefaults, recShapes, encodeRaw, actionTable, policyLoss, netShare, DEEP_STARTS, deepStarts,
     allColourings, stateSpace, Tri, mirrorGraph, spliceRandom, hardness, graphSpec, netBackward, netValue, adamCreate, adamStep, scoreMoves, policyScores, argmax, baselines, rlDefaults, makeEnv,
     envStart, Trainer, auxSSL, pretrainDefaults, Pretrainer, Testbench, aggregate, netAgent, stateGraph, layoutStateGraph, modelToJSON, modelFromJSON };

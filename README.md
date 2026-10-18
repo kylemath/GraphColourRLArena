@@ -30,3 +30,7 @@ The page, the worker, and the Node scripts all read `docs/levels.js` (the census
 | `docs/arena/PRETRAINING.md` | what scaling the training takes |
 
 `tools/arena_hardgen.js` can also read small triangulations from GraphColourDeductiveSolver at `/home/user/GraphColourDeductiveSolver/compute/data/triangulations_n4_11.json`. That file is not part of this copy. The census maps in `levels.js` are.
+
+## Optional spectral inputs
+
+Both nets can take map-only spectral features per region, off by default: heat kernel signatures (`hks`, 8), wave kernel signatures (`wks`, 8) and the magnitudes of the first four nontrivial Laplacian eigenvectors (`pe`, 4). They come from the map's graph Laplacian, are computed once per map, and never look at the colouring. Turn them on with `--spectral hks,wks` in `tools/arena_train.js` or `tools/arena_scale.js`, or the Spectral menu on the page. Models record the setting, and older models load with it off. `pe` is not well defined on symmetric maps (repeated eigenvalues), so `hks,wks` is the safer choice.

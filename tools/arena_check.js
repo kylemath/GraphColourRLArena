@@ -10,6 +10,8 @@
 //   9. round 2: the tabula-rasa recurrent net (gradient check with the policy head, colour-permutation equivariance of
 //      the inputs), whole state spaces equal the census on every map, mirror images keep every label, single splices
 //      give valid triangulations with a degree-5 hole and proper colourings, the (region, colour) action table;
+//  10. optional spectral inputs (arch.spectral): eigenpairs solve L v = l v, HKS/WKS do not depend on how regions
+//      are numbered, both nets pass a gradient check with them on, model files keep the setting, and off is unchanged;
 //   7. a short RL run on tidy-trap improves optimal-move agreement there;
 //   8. speeds: environment steps / s, forward+backward samples / s, generator graphs / s.
 // Flags: --quick (skip the RL run), --speed-only.
@@ -180,6 +182,60 @@ if (!SPEED) {
       if (A.hardness(S.hist).maxD >= 3) deep++;
     }
     console.log('   splices: ' + valid + '/' + tot + ' valid triangulations with a degree-5 hole ' + JSON.stringify(ops) + ', ' + deep + ' still have states 3+ deep');
+  }
+}
+
+// 10. spectral inputs
+if (!SPEED) {
+  console.log('10. optional spectral inputs');
+  {
+    const G = A.graphFromLevels(GAME, 'r178'), n = G.n, { w, V } = A.laplacianEigen(G);
+    let res = 0;
+    for (let k = 0; k < n; k++) for (let u = 0; u < n; u++) {
+      let lv = (G.adjStart[u + 1] - G.adjStart[u]) * V[u * n + k];
+      for (let e = G.adjStart[u]; e < G.adjStart[u + 1]; e++) lv -= V[G.adjList[e] * n + k];
+      res = Math.max(res, Math.abs(lv - w[k] * V[u * n + k]));
+    }
+    ok(res < 1e-8 && Math.abs(w[0]) < 1e-9 && w[1] > 1e-6, 'Laplacian eigenpairs: residual ' + res + ', l0 ' + w[0] + ', l2 ' + w[1]);
+    // renumber the regions: HKS/WKS of region u must equal those of its new number
+    const R = A.rng(9), pi = A.shuffle(Array.from({ length: n }, (_, i) => i), R);
+    const Gp = A.makeGraph({ n, hole: pi[G.hole], link: Array.from(G.rim, u => pi[u]), edges: G.edges.map(([a, b]) => [pi[a], pi[b]]) });
+    const S1 = A.spectralFeatures(G, 'hks,wks'), S2 = A.spectralFeatures(Gp, 'hks,wks'), D = A.spectralDim('hks,wks');
+    let dev = 0; for (let u = 0; u < n; u++) for (let j = 0; j < D; j++) dev = Math.max(dev, Math.abs(S1[u * D + j] - S2[pi[u] * D + j]));
+    ok(dev < 1e-4, 'HKS/WKS change when regions are renumbered: ' + dev);
+    let mean = 0; for (let u = 0; u < n; u++) mean += S1[u * D] / n;
+    ok(Math.abs(mean - 1) < 1e-4, 'HKS not normalised to mean 1: ' + mean);
+    const col = A.decodeCanon(G, Object.keys(G.dist)[5]);
+    // off is the old net: same parameter count and identical encoding
+    ok(A.netCreate({ H: 8, K: 2 }, 1).size === A.netCreate({ H: 8, K: 2, spectral: '' }, 1).size, 'spectral off changes the GNN');
+    const e0 = A.encode(G, col), e1 = A.encode(G, col, { spectral: 'hks,wks,pe' });
+    ok(e1.F === A.F + 20 && e1.X.length === n * (A.F + 20), 'spectral encoding width');
+    let same = true; for (let u = 0; u < n; u++) for (let j = 0; j < A.F; j++) if (e0.X[u * A.F + j] !== e1.X[u * e1.F + j]) same = false;
+    ok(same, 'spectral on changes the usual features');
+    let threw = false; try { A.netForward(A.netCreate({ H: 8, K: 2, spectral: 'hks' }, 1), e0); } catch (e) { threw = true; }
+    ok(threw, 'a spectral net accepted an encoding without spectral features');
+    // gradient checks with spectral on
+    const gc = (net, enc, need, gsig) => {
+      for (let i = 0; i < net.size; i++) net.params[i] += 0.05 * Math.sin(i * 1.3);
+      const Rr = A.rng(4), cv = Rr(), m = enc.moves.length, cl = Array.from({ length: Math.max(m, n * 4) }, () => Rr() - 0.5);
+      const lossOf = () => { const o = A.netForward(net, enc, need); let L = cv * o.v; const k = net.arch.kind === 'rec' ? n * 4 : m; for (let c = 0; c < k; c++) L += cl[c] * o.logits[c]; return L; };
+      const grad = new Float64Array(net.size), o = A.netForward(net, enc, need);
+      A.netBackward(net, o, { v: cv, logits: Float64Array.from(cl.slice(0, net.arch.kind === 'rec' ? n * 4 : m)) }, grad);
+      let worst = 0;
+      for (let i = 0; i < net.size; i++) { const x = net.params[i], h = 1e-6; net.params[i] = x + h; const a = lossOf(); net.params[i] = x - h; const b = lossOf(); net.params[i] = x; const num = (a - b) / 2 / h; worst = Math.max(worst, Math.abs(num - grad[i]) / Math.max(1e-4, Math.abs(num) + Math.abs(grad[i]))); }
+      return worst;
+    };
+    const ng = A.netCreate({ H: 5, K: 2, H1: 6, Hp: 4, spectral: 'hks,wks,pe' }, 3, Float64Array);
+    const wg = gc(ng, A.encode(G, col, ng.arch), { policy: true });
+    const nr = A.netCreate({ kind: 'rec', H: 5, T: 3, H1: 6, Hq: 4, spectral: 'hks,wks' }, 3, Float64Array);
+    const wr = gc(nr, A.encode(G, col, { kind: 'rec', spectral: nr.arch.spectral }), { policy: true });
+    ok(wg < 1e-4 && wr < 1e-4, 'spectral gradient checks: gnn ' + wg + ', rec ' + wr);
+    // model files keep the setting; old files (no spectral key) load as off
+    const J = JSON.parse(JSON.stringify(A.modelToJSON(ng, { name: 's' }))), n2 = A.modelFromJSON(J);
+    ok(n2.arch.spectral === 'hks,wks,pe' && n2.size === ng.size, 'spectral setting lost in the model file');
+    const Jo = JSON.parse(JSON.stringify(A.modelToJSON(A.netCreate({ H: 8, K: 2 }, 5), { name: 'o' })));
+    ok(!('spectral' in Jo.arch) && A.modelFromJSON(Jo).arch.spectral === '', 'spectral-off model file changed');
+    console.log('   eigen residual ' + res.toExponential(1) + ', renumbering deviation ' + dev.toExponential(1) + ', gradient checks gnn ' + wg.toExponential(2) + ' rec ' + wr.toExponential(2) + ', model files keep the setting');
   }
 }
 

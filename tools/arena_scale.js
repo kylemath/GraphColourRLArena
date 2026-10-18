@@ -4,6 +4,7 @@
 // Training (supervised distillation of the exact distances, then optional RL fine-tuning elsewhere):
 //   --name tr-h32t16 --arch rec --H 32 --T 16 [--tmin 8]     tabula-rasa recurrent net (raw colours + hole flag only)
 //   --arch gnn --H 16 --K 3                                   the priors GNN (rim-relative colours + chain features)
+//   --spectral hks,wks                                        optional map-only spectral inputs for either arch (off by default)
 //   --workers 2 --minutes 60 --batch 32 --lr 1e-3 --wd 1e-5 --seed 1
 //   --mix 0.15,0.35,0.3,0.2   sampling weights for states at d = 1, 2, 3, 4+ (deep states oversampled)
 //   --wval 1 --wrank 0.5 --wpol 1    loss weights: value regression, afterstate ranking, (region, colour) policy
@@ -75,7 +76,7 @@ if (!isMainThread) {
   function one(stats) {
     const r = sample(), T = isRec ? cfg.tmin + R.int(net.arch.T - cfg.tmin + 1) : 0;
     let G = r.M.G, opt;
-    if (isRec) { const perm = A.shuffle([0, 1, 2, 3], R); opt = { kind: 'rec', perm }; }
+    if (isRec) { const perm = A.shuffle([0, 1, 2, 3], R); opt = { kind: 'rec', perm, spectral: net.arch.spectral }; }
     else { if (R() < 0.5) G = r.M.mirror; opt = net.arch; }
     const enc = A.encode(G, r.col, opt), m = enc.moves.length;
     // the state itself: value (+ policy)
@@ -191,7 +192,7 @@ if (flags.eval) {
     const file = M.name.replace(/[^\w.-]+/g, '_') + '.json';
     fs.writeFileSync(path.join(MODELS, file), JSON.stringify(M));
     writeIndexLocked(ix => { ix.models = (ix.models || []).filter(m => m.file !== file);
-      ix.models.push({ file, name: M.name, date: M.date, paramCount: M.paramCount, arch: { kind: a.kind || 'gnn', H: a.H, K: a.K, T: a.T, chainFeats: a.kind === 'rec' ? false : a.chainFeats },
+      ix.models.push({ file, name: M.name, date: M.date, paramCount: M.paramCount, arch: { kind: a.kind || 'gnn', H: a.H, K: a.K, T: a.T, chainFeats: a.kind === 'rec' ? false : a.chainFeats, spectral: a.spectral || undefined },
         track: a.kind === 'rec' ? 'tabula rasa' : 'priors', pretrain: !!(M.training && M.training.pretrain), test: metrics.test, train: metrics.train, hardpool: metrics.hardpool, deepStarts: metrics.deepStarts,
         policyHead: metrics.policyHead ? { test: metrics.policyHead.test, hardpool: metrics.policyHead.hardpool, deepStarts: metrics.policyHead.deepStarts } : null,
         atT2: metrics.atT2 ? { T: metrics.atT2.T, test: metrics.atT2.value.test, hardpool: metrics.atT2.value.hardpool, policyTest: metrics.atT2.policy.test, policyHard: metrics.atT2.policy.hardpool } : null }); });
@@ -201,7 +202,7 @@ if (flags.eval) {
 }
 
 // ---- training
-const archCfg = str('arch', 'rec') === 'rec' ? { kind: 'rec', H: num('H', 32), T: num('T', 16) } : { H: num('H', 16), K: num('K', 3), chainFeats: !flags['colours-only'] };
+const archCfg = str('arch', 'rec') === 'rec' ? { kind: 'rec', H: num('H', 32), T: num('T', 16), spectral: str('spectral', '') } : { H: num('H', 16), K: num('K', 3), chainFeats: !flags['colours-only'], spectral: str('spectral', '') };
 const cfg = { mix: str('mix', '0.15,0.35,0.3,0.2').split(',').map(Number), wval: num('wval', 1), wrank: num('wrank', 0.5), wpol: num('wpol', 1), tmin: num('tmin', Math.max(1, Math.round((archCfg.T || 2) / 2))) };
 const NW = num('workers', 2), B = num('batch', 32), LR = num('lr', 1e-3), WD = num('wd', 1e-5), SEED = num('seed', 1), MIN = num('minutes', 60), name = str('name', 'scale-' + Date.now().toString(36));
 const net = A.netCreate(archCfg, SEED), size = net.size;
