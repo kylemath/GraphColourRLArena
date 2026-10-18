@@ -177,6 +177,7 @@
       <div class="row recOnly"><label for="T">Iterations T</label><select id="T"><option>4</option><option selected>8</option><option>12</option><option>16</option><option>24</option><option>32</option></select></div>
       <div class="row gnnOnly"><label for="K">Message rounds K</label><select id="K"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
       <div class="row gnnOnly"><label for="feats">Inputs</label><select id="feats"><option value="1" selected>colours + chain features</option><option value="0">colours only</option></select></div>
+      <div class="row"><label for="spectral">Spectral</label><select id="spectral" title="map-only Laplacian features appended to every region's inputs (heat and wave kernel signatures, eigenvector magnitudes)"><option value="" selected>off</option><option value="hks,wks">heat + wave kernel</option><option value="hks,wks,pe">heat + wave + eigenvectors</option></select></div>
       <div class="row"><label for="seed">Seed</label><input type="number" id="seed" value="1"></div>
       <p class="note gnnOnly">Priors GNN: rim-relative colours, degree, rim position and per-chain features in; h' = relu(Ws h + Wn mean(nbrs) + b), K rounds; readout mean, max, 5 rim and hole embeddings. Applies on Reset.</p>
       <p class="note recOnly">Tabula rasa: raw colour one-hots and the hole flag only (colour symmetry learned from random colour permutations); one weight-tied layer h = tanh(Ws h + Wn Σnbrs/6 + Wx x + b) iterated T times; heads: afterstate value and "click a region, pick a colour". Slow in a browser tab: the strong ones are trained with tools/arena_scale.js. Applies on Reset.</p>
@@ -305,14 +306,14 @@
       targetSync: num('targetSync'), nstep: num('nstep'), backup: $('backup').value, auxWeight: num('aux'), episodeCap: num('cap'), updateEvery: num('updateEvery'),
       explore: $('explore').value, temp: num('temp'), startMix: num('startMix') };
   }
-  function archCfg() { return $('kind').value === 'rec' ? { kind: 'rec', H: num('H'), T: num('T') } : { H: num('H'), K: num('K'), chainFeats: $('feats').value === '1' }; }
+  function archCfg() { const spectral = $('spectral').value; return $('kind').value === 'rec' ? { kind: 'rec', H: num('H'), T: num('T'), spectral } : { H: num('H'), K: num('K'), chainFeats: $('feats').value === '1', spectral }; }
   function updateParamCount() {
     const a = A.archDefaults(archCfg()); let s = 0; A.shapesOf(a).forEach(([, r, c]) => { s += r * c; });
     $('pcount').textContent = s.toLocaleString();
     const rec = $('kind').value === 'rec'; document.body.classList.toggle('rec', rec); $('bPre').disabled = rec;
     $('bPre').title = rec ? 'Pretraining objectives belong to the priors GNN; train tabula-rasa nets with tools/arena_scale.js' : '';
   }
-  const UI_IDS = ['panels', 'mice', 'rotate', 'heat', 'preset', 'kind', 'T', 'mirror', 'splices', 'H', 'K', 'feats', 'seed', 'lr', 'gamma', 'explore', 'epsStart', 'epsEnd', 'epsDecay', 'temp', 'nstep', 'backup', 'batch', 'updateEvery', 'replay', 'targetSync', 'aux', 'cap', 'startMix', 'evalEvery', 'pSteps', 'pBatch', 'pSource', 'pN0', 'pN1', 'pW', 'swCfg', 'swEp', 'speed'];
+  const UI_IDS = ['panels', 'mice', 'rotate', 'heat', 'preset', 'kind', 'T', 'mirror', 'splices', 'H', 'K', 'feats', 'spectral', 'seed', 'lr', 'gamma', 'explore', 'epsStart', 'epsEnd', 'epsDecay', 'temp', 'nstep', 'backup', 'batch', 'updateEvery', 'replay', 'targetSync', 'aux', 'cap', 'startMix', 'evalEvery', 'pSteps', 'pBatch', 'pSource', 'pN0', 'pN1', 'pW', 'swCfg', 'swEp', 'speed'];
   function saveUI() { const o = { sel }; UI_IDS.forEach(id => { o[id] = $(id).value; }); lsSet(LS_UI, o); }
   function loadUI() { const o = lsGet(LS_UI, null); if (!o) return false; UI_IDS.forEach(id => { if (o[id] != null) $(id).value = o[id]; }); if (o.sel) Object.assign(sel, o.sel); return !!o.sel; }
 
@@ -502,7 +503,7 @@
       const M = await modelOf(id); if (!M) return;
       if (a === 'export') { const blob = new Blob([JSON.stringify(M)], { type: 'application/json' }), u = URL.createObjectURL(blob), l = document.createElement('a'); l.href = u; l.download = M.name.replace(/[^\w.-]+/g, '_') + '.json'; document.body.appendChild(l); l.click(); l.remove(); setTimeout(() => URL.revokeObjectURL(u), 2000); return; }
       curName = M.name; series = []; drawCharts();
-      $('kind').value = M.arch.kind === 'rec' ? 'rec' : 'gnn'; $('H').value = M.arch.H; if (M.arch.kind === 'rec') $('T').value = M.arch.T; else { $('K').value = M.arch.K; $('feats').value = M.arch.chainFeats === false ? '0' : '1'; } updateParamCount();
+      $('kind').value = M.arch.kind === 'rec' ? 'rec' : 'gnn'; $('H').value = M.arch.H; if (M.arch.kind === 'rec') $('T').value = M.arch.T; else { $('K').value = M.arch.K; $('feats').value = M.arch.chainFeats === false ? '0' : '1'; } $('spectral').value = M.arch.spectral || ''; updateParamCount();
       W.postMessage({ type: a, model: M, cfg: cfg() });
       renderBoard();
     } catch (e) { showErr(String(e)); }
@@ -576,16 +577,16 @@
   $('bStart').onclick = () => { if (running) W.postMessage({ type: 'pause' }); else W.postMessage({ type: 'start', cfg: cfg() }); };
   $('bReset').onclick = () => { series = []; curName = null; drawCharts(); W.postMessage({ type: 'reset', cfg: cfg() }); renderBoard(); };
   $('bSave').onclick = () => {
-    const def = 'H' + num('H') + 'K' + num('K') + ($('feats').value === '0' ? ' colours-only' : '') + ' ' + new Date().toISOString().slice(5, 16).replace('T', ' ');
+    const def = 'H' + num('H') + 'K' + num('K') + ($('feats').value === '0' ? ' colours-only' : '') + ($('spectral').value ? ' spectral' : '') + ' ' + new Date().toISOString().slice(5, 16).replace('T', ' ');
     const name = prompt('Name for this model on the leaderboard', def); if (name) W.postMessage({ type: 'save', name });
   };
   $('speed').onchange = () => { W.postMessage({ type: 'speed', speed: $('speed').value }); saveUI(); };
   $('heat').onchange = () => { W.postMessage({ type: 'heat', mode: $('heat').value }); PAN.forEach(p => { p.heat = null; drawStatic(p); }); saveUI(); };
   ['panels', 'mice', 'rotate'].forEach(id => $(id).onchange = () => { W.postMessage({ type: 'reshape', cfg: cfg() }); saveUI(); });
-  ['H', 'K', 'T', 'kind', 'feats'].forEach(id => $(id).addEventListener('change', updateParamCount));
+  ['H', 'K', 'T', 'kind', 'feats', 'spectral'].forEach(id => $(id).addEventListener('change', updateParamCount));
   ['lr', 'gamma', 'explore', 'epsStart', 'epsEnd', 'epsDecay', 'temp', 'nstep', 'backup', 'batch', 'updateEvery', 'targetSync', 'aux', 'cap', 'startMix', 'evalEvery'].forEach(id =>
     $(id).addEventListener('change', () => { W.postMessage({ type: 'rl', rl: rlCfg(), evalEvery: num('evalEvery') }); saveUI(); }));
-  ['H', 'K', 'T', 'kind', 'mirror', 'splices', 'feats', 'seed', 'replay', 'pSteps', 'pBatch', 'pSource', 'pN0', 'pN1', 'pW', 'swCfg', 'swEp'].forEach(id => $(id).addEventListener('change', saveUI));
+  ['H', 'K', 'T', 'kind', 'mirror', 'splices', 'feats', 'spectral', 'seed', 'replay', 'pSteps', 'pBatch', 'pSource', 'pN0', 'pN1', 'pW', 'swCfg', 'swEp'].forEach(id => $(id).addEventListener('change', saveUI));
   $('preset').onchange = () => { applyPreset($('preset').value); saveUI(); };
   $('bPre').onclick = () => { series = []; curName = null; drawCharts(); const c = cfg(); W.postMessage({ type: 'pretrain', cfg: c, pre: c.pre }); };
   $('bSweep').onclick = () => {

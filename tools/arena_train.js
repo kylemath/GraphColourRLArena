@@ -3,6 +3,7 @@
 //
 //   --name tiny-rl              model name (file name too)
 //   --H 16 --K 3 --H1 0 --Hp 0  network size (H1, Hp default 2H and H); --colours-only drops the chain features
+//   --spectral hks,wks          optional map-only spectral inputs (hks, wks, pe; off by default), see engine.js
 //   --lr 1e-3 --gamma 0.97 --eps-start 0.5 --eps-end 0.05 --eps-decay 3000 --batch 32 --replay 20000
 //   --target-sync 200 --nstep 2 --backup td|max --aux 0 --cap 20 --update-every 4 --start-mix 0.3 --explore egreedy|softmax
 //   --seed 1 --episodes 20000 --minutes 5      RL budget: stops at whichever comes first (0 = no limit)
@@ -61,13 +62,13 @@ if (flags.baselines) {
   process.exit(0);
 }
 
-const arch = { H: num('H', 16), K: num('K', 3), H1: num('H1', 0), Hp: num('Hp', 0), chainFeats: !flags['colours-only'] };
+const arch = { H: num('H', 16), K: num('K', 3), H1: num('H1', 0), Hp: num('Hp', 0), chainFeats: !flags['colours-only'], spectral: str('spectral', '') };
 const rl = A.rlDefaults({ lr: num('lr', 1e-3), gamma: num('gamma', 0.97), epsStart: num('eps-start', 0.5), epsEnd: num('eps-end', 0.05), epsDecay: num('eps-decay', 3000),
   batch: num('batch', 32), replay: num('replay', 20000), targetSync: num('target-sync', 200), nstep: num('nstep', 2), backup: str('backup', 'td'),
   auxWeight: num('aux', 0), episodeCap: num('cap', 20), updateEvery: num('update-every', 4), startMix: num('start-mix', 0.3), explore: str('explore', 'egreedy') });
 const seed = num('seed', 1), name = str('name', 'model-' + Date.now().toString(36));
 const T = new A.Trainer({ arch, rl, seed });
-log(`model ${name}: H=${T.arch.H} K=${T.arch.K} H1=${T.arch.H1} Hp=${T.arch.Hp} params ${T.net.size}${arch.chainFeats ? '' : ' (colours only)'}`);
+log(`model ${name}: H=${T.arch.H} K=${T.arch.K} H1=${T.arch.H1} Hp=${T.arch.Hp} params ${T.net.size}${arch.chainFeats ? '' : ' (colours only)'}${arch.spectral ? ' spectral ' + arch.spectral : ''}`);
 log('train maps', trainKeys.join(','), '| held-out', testKeys.join(','));
 const envs = trainKeys.map(k => A.makeEnv(GAME, k)).filter(Boolean);
 const quick = new A.Testbench(GAME, testKeys.concat(trainKeys), { maxHard: 20, maxEasy: 4, rollouts: 0 });
@@ -134,7 +135,7 @@ if (!flags['no-save']) {
   const file = name.replace(/[^\w.-]+/g, '_') + '.json';
   fs.writeFileSync(path.join(MODELS, file), JSON.stringify(M));
   const ix = readIndex(); ix.models = (ix.models || []).filter(m => m.file !== file);
-  ix.models.push({ file, name, date: M.date, paramCount: M.paramCount, arch: { H: M.arch.H, K: M.arch.K, chainFeats: M.arch.chainFeats }, pretrain: !!pre, test: S.test, train: S.train });
+  ix.models.push({ file, name, date: M.date, paramCount: M.paramCount, arch: { H: M.arch.H, K: M.arch.K, chainFeats: M.arch.chainFeats, spectral: M.arch.spectral }, pretrain: !!pre, test: S.test, train: S.train });
   writeIndex(ix);
   log('wrote docs/arena/models/' + file + ' (' + (JSON.stringify(M).length / 1024).toFixed(0) + ' KB) and index.json');
 }

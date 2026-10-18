@@ -247,7 +247,7 @@ function loadModel(name) { const M = JSON.parse(fs.readFileSync(path.join(MODELS
 function layerList(net) { const a = net.arch; if (a.kind === 'rec') { const T = a.T; return [...new Set([0, Math.round(T / 4), Math.round(T / 2), Math.round(3 * T / 4), T])]; } return Array.from({ length: a.K + 1 }, (_, k) => k); }
 // forward on one state; returns { v, dh, logits(copy), pooled (Float32Array) , nodes (per layer n*H) }
 function forward(net, G, col, wantActs, wantNodes) {
-  const a = net.arch, enc = A.encode(G, col, a.kind === 'rec' ? { kind: 'rec' } : a);
+  const a = net.arch, enc = A.encode(G, col, a.kind === 'rec' ? { kind: 'rec', spectral: a.spectral } : a);
   const out = A.netForward(net, enc, { policy: true });
   const res = { v: out.v, dh: out.d != null ? out.d : null, enc };
   // policy scores per move (movesOf order)

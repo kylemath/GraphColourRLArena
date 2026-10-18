@@ -227,7 +227,7 @@ function sweepNext() {
   sweep.i++;
   if (sweep.i >= sweep.configs.length) { post('status', { text: 'size sweep done: ' + sweep.configs.length + ' models on the leaderboard' }); sweep = null; running = false; phase = 'idle'; postTick(true); return; }
   const [H, K] = sweep.configs[sweep.i]; sweep.label = H + 'x' + K;
-  cfg.arch = cfg.arch.kind === 'rec' ? { kind: 'rec', H, T: K } : Object.assign({}, cfg.arch, { H, K, H1: 0, Hp: 0 });
+  cfg.arch = cfg.arch.kind === 'rec' ? { kind: 'rec', H, T: K, spectral: cfg.arch.spectral } : Object.assign({}, cfg.arch, { H, K, H1: 0, Hp: 0 });
   T = newTrainer(cfg); nextEval = cfg.evalEvery; phase = 'train';
   panels.forEach(p => { setPanelLevel(p); });
   post('status', { text: 'size sweep ' + (sweep.i + 1) + '/' + sweep.configs.length + ': H=' + H + (cfg.arch.kind === 'rec' ? ' T=' : ' K=') + K + ' (' + T.net.size + ' params), ' + sweep.episodes + ' episodes' });
@@ -250,8 +250,8 @@ self.onmessage = e => {
     else if (d.type === 'stopSweep') { sweep = null; running = false; phase = 'idle'; postTick(true); }
     else if (d.type === 'watch' || d.type === 'load') {
       const net = A.modelFromJSON(d.model);
-      cfg = d.cfg; cfg.arch = net.arch.kind === 'rec' ? { kind: 'rec', H: net.arch.H, T: net.arch.T, H1: net.arch.H1, Hq: net.arch.Hq, holeRead: net.arch.holeRead }
-        : Object.assign({}, cfg.arch, { kind: 'gnn', H: net.arch.H, K: net.arch.K, H1: net.arch.H1, Hp: net.arch.Hp, chainFeats: net.arch.chainFeats });
+      cfg = d.cfg; cfg.arch = net.arch.kind === 'rec' ? { kind: 'rec', H: net.arch.H, T: net.arch.T, H1: net.arch.H1, Hq: net.arch.Hq, holeRead: net.arch.holeRead, spectral: net.arch.spectral }
+        : Object.assign({}, cfg.arch, { kind: 'gnn', H: net.arch.H, K: net.arch.K, H1: net.arch.H1, Hp: net.arch.Hp, chainFeats: net.arch.chainFeats, spectral: net.arch.spectral });
       if (d.model.rl && d.model.rl.gamma != null) cfg.rl.gamma = d.model.rl.gamma;
       sweep = null; P = null; running = false;
       T = newTrainer(cfg, net); T.wall = 0; nextEval = cfg.evalEvery; T.pretrain = d.model.training && d.model.training.pretrain || null;
